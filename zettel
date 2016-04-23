@@ -1,0 +1,34 @@
+#!/bin/bash
+
+NUM=$1
+
+echo "setting up directories in ./zettel""$NUM""."
+
+# Create parent directory
+mkdir zettel"$NUM"
+# Create subdirectories
+mkdir zettel"$NUM"/src
+mkdir zettel"$NUM"/doc
+mkdir zettel"$NUM"/bin
+mkdir zettel"$NUM"/pic
+mkdir zettel"$NUM"/data
+
+echo "making .gitignores"
+> ./zettel"$NUM"/bin/.gitignore
+cat <<EOF >> ./zettel"$NUM"/bin/.gitignore
+*
+
+!.gitignore
+EOF
+
+cp ./zettel"$NUM"/bin/.gitignore ./zettel"$NUM"/data/
+
+if [ $NUM != 1 ] 
+then
+    echo "copying stuff from last exercise"
+    cp ./zettel"$(( $NUM - 1 ))"/doc/zettel$(( $NUM - 1 )).tex ./zettel"$NUM"/doc/zettel"$NUM".tex
+    if [ -e ./zettel"$(( $NUM - 1 ))"/Makefile ]
+    then        
+        cp ./zettel"$(( $NUM - 1 ))"/Makefile ./zettel"$NUM"/
+    fi
+fi
