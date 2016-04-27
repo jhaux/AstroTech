@@ -1,0 +1,6 @@
+# latex stuff
+*.log
+*.aux
+
+# compiled output
+**.pdf
