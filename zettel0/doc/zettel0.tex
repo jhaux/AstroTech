@@ -1,0 +1,168 @@
+\documentclass[11pt,a4paper,twoside]{article}
+\usepackage{a4wide}	% für gut definierte Seitenränder und Platzausnutzung
+\usepackage[utf8x]{inputenc}	% für Umlaute
+\usepackage{amssymb,amsmath}
+\usepackage[pdftex]{graphicx}
+\usepackage{epstopdf}
+\usepackage{siunitx}	% für SI-Einheiten; siehe http://mirror.unicorncloud.org/CTAN/macros/latex/contrib/siunitx/siunitx.pdf
+\usepackage{listings} 	% für Einbinden von Quellcode
+\usepackage{color}	% für das Einfärben von eingebundenem Quellcode
+\usepackage{longtable}	% für das Erstellen mehrseitiger Tabellen
+\usepackage[german]{isodate} % Datumformatierung für \today
+
+% declaring custom units
+\DeclareSIUnit \mag {mag}
+\DeclareSIUnit \parsec {pc}
+
+
+%Befehl, um Quellcode einzufügen: 
+%\lstinputlisting[caption = {``title``}, captionpos = b, language=C++]{data.cpp}
+
+%Befehl, um Graphik einzufügen:   
+%\begin{figure}
+%  \centering
+%  \includegraphics[width=0.7\textwidth, angle=-90]{center_diff.eps}
+%  \caption{centered differencing at t = 4}
+%\end{figure}
+
+% Befehl für kein ``\noindent mehr''
+\setlength\parindent{0pt}
+
+%\lstset{numbers=left}
+
+\lstset{
+   basicstyle=\scriptsize\ttfamily,			% grundlegendes Design
+   keywordstyle=\ttfamily,				% Design von Schlüsselwörtern (Codebefehle wie Variablentypen, Schleifenbefehle u.Ä.)
+   stringstyle=\ttfamily,				% Design von Variablen
+   commentstyle=\ttfamily\color{blue},			% Design von Kommentaren
+   showstringspaces=false,				% Leerzeichen in Strings darstellen?
+   flexiblecolumns=false,				% dynamische Spaltenbreite?
+   tabsize=2,						% Länge des Tabulators
+   % Einstellung der Zeilennummerierung:
+   numbers=left,					% Position der Nummern
+   numberstyle=\tiny,					% Größe der Nummern
+   numberblanklines=true,				% Leerzeilen durchnummerieren?
+   numbersep=20pt,					% Platz zwischen Nummern und Code
+   xleftmargin=30pt					% Platz zum linken Seitenrand
+ }
+
+%opening
+\title{\LARGE \underline {Sheet 0}}
+\author{Johannes Haux \\ Florian Trost \\ Elsa Wilken}
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{center}
+  Astronomical Techniques (MKEP5) \\
+  \baselineskip35pt
+  by Prof. Dr. Stefan Wagner and Priv.-Doz. Dr. Thorsten Lisker \\
+  \baselineskip60pt
+  Ruprecht Karl University of Heidelberg
+\vskip 40pt
+\includegraphics[width=5cm]{UniHD.png}
+
+\end{center}
+
+\newpage
+\setcounter{page}{1}		% set page count to start with 1 here
+
+\section*{Question A.} 
+
+To locate a source in the sky observers tag each object with a pair of celestial coordinates. The most widely used system of coordinates is the equatorial, with Right Ascension (RA) and Declination (DEC). \\
+
+What is Right Ascension? \\
+
+1 - The celestial longitude defined along the celestial equator
+
+\section*{Question B.}
+
+The Right Ascension is measured starting from a precise point: what is this point? \\
+
+3 - The vernal equinox
+
+\section*{Question C.}
+
+In which units is the Right Ascension measured? \\
+
+1 - Hours
+
+\section*{Question D.}
+
+What is Declination and in which units is it measured? \\
+
+3 - The latitude measured in degrees above/below the celestial equator
+
+\section*{Question E.}
+
+When is the shadow projected by your body at noon in Heidelberg shortest? \\
+
+2 - At summer solstice
+
+\section*{Question F.}
+
+Suppose you want to measure the flux emitted at radio frequencies by an active galaxy with a central super-massive black hole. When do you need to observe this object with a radio telescope? \\
+
+3 - When the object is visible regardless of the time of the day
+
+\section*{Question G.}
+
+Astronomers measure the flux density $F$ of a source at a specific wavelength, which is the luminosity of that source at that wavelength scaled by the square of its distance from us. This flux density is usually expressed in terms of apparent magnitude $m$. \\
+
+3 - $m = -2.5\log{\left( F/F_{\text{ref}} \right) } + m_{\text{ref}}$ (where $F_{\text{ref}}$ and $m_{\text{ref}}$ are known, and were measured for the reference star Vega)
+
+\section*{Question H.}
+
+Two stars have $m_1 = \SI{15}{\mag}$ and $m_2 = \SI{18}{\mag}$, respectively. \\
+
+1 - Star 2 is fainter than Star 1
+
+\section*{Question I.}
+
+The difference between two magnitudes measured at two different wavelengths is called colour. For example, the colour $\left( B-V \right)$ is the difference between the magnitude $B$ (measured through the B filter with a central $\lambda = \SI{4400}{\angstrom}$ and the magnitude $V$ (measured through the V filter with a central $\lambda = \SI{5500}{\angstrom}$). \\
+
+Two stars have $\left( B-V \right)_1 = \SI{-0.3}{\mag}$ and $\left( B-V \right)_2 = \SI{0.9}{\mag}$, respectively. \\
+
+1 - Star 1 is bluer than Star 2
+
+\section*{Question J.}
+
+The colour of a star depends on: \\
+
+2 - the temperature of the star
+
+\section*{Question K.}
+
+In addition to apparent magnitude, astronomers use also the absolute magnitude $M$. How is $M$ defined: \\
+
+1 - the magnitude that a source would have at a distance of \SI{10}{\parsec} (\SI{1}{\parsec} = \SI{1}{parsec} = \SI{3.1e18}{\cm})
+
+\section*{Question L.}
+
+Two stars have $M_1 = \SI{-14}{\mag}$ and $M_2 = \SI{-20}{\mag}$, respectively. \\
+
+2 - Star 1 is intrinsically fainter than Star 2
+
+\section*{Question M.}
+
+From the definition of absolute magnitude, astronomers derive the distance modulus of a star $\left( m - M \right)$. How does $\left( m - M \right)$ depend on the distance d (in units of \si{\parsec}) of a celestial object? \\
+
+2 - $\left( m - M \right) = 5 \cdot \log{\left( d \right)} - 5$
+
+\section*{Question N.}
+
+A star has a distance modulus $\left( m - M \right) = \num{5}$, thus its distance is: \\
+
+1 - \SI{100}{\parsec}
+
+\section*{Question O.}
+
+What causes the Northern Lights (i.e. Aurora Borealis?) \\
+
+2 - Charged particles
+
+\end{document}
