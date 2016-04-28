@@ -1,0 +1,154 @@
+\documentclass[11pt,a4paper,twoside]{article}
+\usepackage{a4wide}	% für gut definierte Seitenränder und Platzausnutzung
+\usepackage[utf8x]{inputenc}	% für Umlaute
+\usepackage{amssymb,amsmath}
+\usepackage[pdftex]{graphicx}
+\usepackage{epstopdf}
+\usepackage{siunitx}	% für SI-Einheiten; siehe http://mirror.unicorncloud.org/CTAN/macros/latex/contrib/siunitx/siunitx.pdf
+\usepackage{listings} 	% für Einbinden von Quellcode
+\usepackage{color}	% für das Einfärben von eingebundenem Quellcode
+\usepackage{longtable}	% für das Erstellen mehrseitiger Tabellen
+\usepackage[german]{isodate} % Datumformatierung für \today
+\usepackage{marvosym}
+
+% declaring custom units
+\DeclareSIUnit \mag {mag}
+\DeclareSIUnit \parsec {pc}
+
+% format angle display
+\sisetup{add-arc-degree-zero}
+\sisetup{add-arc-minute-zero}
+\sisetup{add-arc-second-zero}
+\sisetup{arc-separator = \,}
+
+
+%Befehl, um Quellcode einzufügen: 
+%\lstinputlisting[caption = {``title``}, captionpos = b, language=C++]{data.cpp}
+
+%Befehl, um Graphik einzufügen:   
+%\begin{figure}
+%  \centering
+%  \includegraphics[width=0.7\textwidth, angle=-90]{center_diff.eps}
+%  \caption{centered differencing at t = 4}
+%\end{figure}
+
+% Befehl für kein ``\noindent mehr''
+\setlength\parindent{0pt}
+
+%\lstset{numbers=left}
+
+\lstset{
+   basicstyle=\scriptsize\ttfamily,			% grundlegendes Design
+   keywordstyle=\ttfamily,				% Design von Schlüsselwörtern (Codebefehle wie Variablentypen, Schleifenbefehle u.Ä.)
+   stringstyle=\ttfamily,				% Design von Variablen
+   commentstyle=\ttfamily\color{blue},			% Design von Kommentaren
+   showstringspaces=false,				% Leerzeichen in Strings darstellen?
+   flexiblecolumns=false,				% dynamische Spaltenbreite?
+   tabsize=2,						% Länge des Tabulators
+   % Einstellung der Zeilennummerierung:
+   numbers=left,					% Position der Nummern
+   numberstyle=\tiny,					% Größe der Nummern
+   numberblanklines=true,				% Leerzeilen durchnummerieren?
+   numbersep=20pt,					% Platz zwischen Nummern und Code
+   xleftmargin=30pt					% Platz zum linken Seitenrand
+ }
+ 
+%opening
+\title{\LARGE \underline {Sheet 1}}
+\author{Johannes Haux \\ Florian Trost \\ Elsa Wilken}
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{center}
+  Astronomical Techniques (MKEP5) \\
+  \baselineskip35pt
+  by Prof. Dr. Stefan Wagner and Priv.-Doz. Dr. Thorsten Lisker \\
+  \baselineskip60pt
+  Ruprecht Karl University of Heidelberg
+\vskip 40pt
+\includegraphics[width=5cm]{./pic/UniHD.png}
+
+\end{center}
+
+\newpage
+\setcounter{page}{1}		% set page count to start with 1 here
+
+\section*{Question A.} 
+
+The elliptical galaxy NGC1399 is located in the Fornax galaxy cluster at equatorial coordinates (J2000): \\
+
+Right Ascension (RA) =  \SI{03}{^\hour} \SI{38}{^\minute} \SI{29.0}{^\second} \\
+Declination (DEC) = \ang{-35;27;02} \\
+
+Its distance from us is $d = \SI{17.8e6}{\parsec}$. \\
+
+\subsection*{1.} Is this object visible at optical wavelengths from the Calar Alto Observatory, whose geographic coordinates are: \ang{37.23} N and \ang{2.546} W? (1 point) \\
+
+The angle $\alpha$ between the line of sight to the object at culmination and the local horizon at the given latitude $l = \ang{37.23}$ is 
+
+\begin{equation}
+ \alpha = \ang{90} - l + \text{DEC}
+\end{equation}
+
+With the given declination of $\text{DEC} = \ang{-35;27;02} = \ang{-35.45}$ it follows 
+
+\begin{equation}
+ \alpha = \ang{17.32}
+\end{equation}
+
+This means that the Object NGC1399 is visible at optical wavelengths from the Calar Alto Observatory during culmination, but it is fairly close to the horizon. \\
+
+\sisetup{add-arc-second-zero = false}
+\subsection*{2.}  Is this object visible at optical wavelengths from the Paranal Observatory (Chile), whose geographic coordinates are: \ang{24;40;} S and \ang{70;25;} W? (1 point) \\
+
+With the changed latitude of now $l = -\ang{24;40;} = -\ang{24.67}$, the expression for $\alpha$ needs to be changed to expressthe angle between the line of sight to the object at culmination and the local horizon on the southern hemisphere
+
+\begin{equation}
+ \alpha = \ang{90} + l - \text{DEC} = \ang{100.78}
+\end{equation}
+
+This means at culmination the object appears $\ang{180} - \ang{100.78} = \ang{79.22}$ above the horizon. It is therefore visible at optical wavelengths from the Paranal Observatory. \\
+
+\subsection*{3.} Which period of the year is best for observing NGC1399 in the visible band? (1 point)
+
+An object is best observed when the Earth is positioned, by means of right ascension, between the object and the Sun. NGC1399 has a right ascension of $\text{RA} = \SI{03}{^\hour} \SI{38}{^\minute} \SI{29.0}{^\second}$. An object with a right ascension of zero is best observed on autumnal equinox. This means NGC1399 is best observed 
+
+\begin{equation}
+ \frac{\SI{3}{^\hour} \SI{38}{^\minute} \SI{29.0}{^\second}}{\SI{24}{^\hour}} \cdot \SI{365}{\day} = 0.152 \cdot \SI{365}{\day} = \SI{55.48}{\day}
+\end{equation}
+
+after the autumnal equinox which roughly corresponds to the middle of November. \\
+
+\subsection*{5.} The visual apparent magnitude of NGC1399, integrated across its 2D body, is $V = \SI{9.5}{\mag}$. In the assumption that NGC1399 is composed by Sun-like stars, compute its stellar mass knowing that the Sun has an absolute, visual magnitude $M_V = \SI{4.83}{\mag}$ and a total mass $  M_{\text{\Sun}} = \SI{2e30}{\kg}$. (3 points) \\
+
+The absolute visual magnitude $A$ of NGC1399 can be calculated using 
+
+\begin{equation}
+ A = V - 5 \left( \log_{10} \left( d \right) -1 \right) = \SI{-21.75}{\mag}
+\end{equation}
+
+The ratio of intensities from two sources can be derived from 
+
+\begin{align}
+ A-M_V &= -2.5 \log_{10} \left( \frac{I}{I_{\text{\Sun}}} \right) \\
+ \Rightarrow \log_{10} \left( \frac{I}{I_{\text{\Sun}}} \right) &= \frac{M_V-A}{2.5} \\
+ \Rightarrow \frac{I}{I_{\text{\Sun}}} &= 10^{\frac{M_V-A}{2.5}} = 10^{10.63}
+\end{align}
+
+Since the intensity ratio was calculated with the objects' absolute magnitudes, it is equal to the luminosity ratio of the two objects. Assuming all stars in NGC1399 are visible and no star is hidden behind other stars this means that also the objects' mass ratio is equal to the calculated intensity ratio, assuming NGC1399 consists exclusively of Sun-like stars. The stellar mass $m$ of NGC1399 is therefore, under the mentioned assumptions, 
+
+\begin{equation}
+ m = 10^{10.63} \cdot M_{\text{\Sun}} = \SI{8.53e40}{\kg}
+\end{equation}
+
+\subsection*{6.} The picture on the right-hand side shows NGC1399 at the NUV (\SI{2270}{\angstrom}) + FUV (\SI{1530}{\angstrom}) wavelengths. Is it possible to acquire this image using ground-based telescopes? (1 point) \\
+
+It is not possible to acquire this image by means of ground-based telescopes since the light has too short wavelengths for atmospheric transmission. The light used to create this image would be absorbed in Earth's atmosphere before it reached the ground. \\
+
+
+\end{document}
