@@ -71,14 +71,14 @@
   \baselineskip60pt
   Ruprecht Karl University of Heidelberg
 \vskip 40pt
-\includegraphics[width=5cm]{./pic/UniHD.png}
+\includegraphics[width=5cm]{UniHD.png}
 
 \end{center}
 
 \newpage
 \setcounter{page}{1}		% set page count to start with 1 here
 
-\section*{Question A.} 
+\section*{Exercise A.} 
 
 The elliptical galaxy NGC1399 is located in the Fornax galaxy cluster at equatorial coordinates (J2000): \\
 
@@ -159,6 +159,70 @@ Since the intensity ratio was calculated with the objects' absolute magnitudes, 
 \subsection*{6.} The picture on the right-hand side shows NGC1399 at the NUV (\SI{2270}{\angstrom}) + FUV (\SI{1530}{\angstrom}) wavelengths. Is it possible to acquire this image using ground-based telescopes? (1 point) \\
 
 It is not possible to acquire this image by means of ground-based telescopes since the light has too short wavelengths for atmospheric transmission. The light used to create this image would be absorbed in Earth's atmosphere before it reached the ground. \\
+
+\section*{Exercise B.}
+
+In which direction should an observer look to see the height of a star increasing above the horizon, and decreasing? (1 point) \\
+
+From an observer's point of view the line from the direction of geographic south through the zenith to the direction of geographic north separates the night sky into two parts, called east and west. All objects in the eastern part have increasing height above the horizon whereas all objects in the western part decrease in height above the horizon. \\
+
+Using the following equation: 
+
+\begin{equation}
+ \sin{ \left( h \right)} = \cos{ \left( \Phi \right)} \cos{ \left( \text{DEC} \right)} \cos{ \left( \text{HA} \right)} + \sin{ \left( \Phi \right)} \sin{ \left( \text{DEC} \right)}
+\end{equation}
+where $h$ is the height above the horizon, $\Phi$ the geografical latitude of an observer, DEC the declination of a source and HA the hour angle, compute: 
+
+\begin{enumerate}
+ \item[a)] the zenith distance of a source when it crosses the meridian of an observer (2 points) \\
+ When an object crosses the meridian of an observer, it has the hour angle of either zero or \SI{12}{^\hour}. At an hour angle of zero the object reaches upper culmination, when its hour angle is \SI{12}{\hour} it reaches lower culmination. 
+ \begin{enumerate}
+  \item[i)] Upper culmination: \\
+  At upper culmination, the hour angle is zero, and therefore $\cos{ \left( \text{HA} \right)} = 1$. The given equation then simplifies to 
+  \begin{align}
+   \sin{ \left( h \right)} &= \cos{ \left( \Phi \right)} \cos{ \left( \text{DEC} \right)} + \sin{ \left( \Phi \right)} \sin{ \left( \text{DEC} \right)} \\
+   &= \frac{1}{2} \left( \cos{ \left( \Phi - \text{DEC} \right)} + \cos{ \left( \Phi + \text{DEC} \right)} \right) \\ &+ \frac{1}{2} \left( \cos{ \left( \Phi - \text{DEC} \right)} - \cos{ \left( \Phi + \text{DEC} \right)} \right) \\
+   &= \cos{ \left( \Phi - \text{DEC} \right)}
+  \end{align}
+  
+  Using $\cos{ \left( x \right)} = \sin{ \left( x + \frac{\pi}{2} \right)}$ yields 
+  
+  \begin{align}
+   \sin{ \left( h \right)} = \sin{ \left( \Phi - \text{DEC} + \frac{\pi}{2} \right)}
+   \Rightarrow h = \Phi - \text{DEC} + \frac{\pi}{2}
+  \end{align}
+  
+  Since $h$ is the height above the horizon, the zenith distance is 
+  
+  \begin{equation}
+   \nu = \ang{90} - h = \text{DEC} - \Phi
+  \end{equation}
+  
+  The zenith distance $\nu$ as defined here has positive values for objects north of the zenith and negative values for objects south of the zenith. \\
+  \item[ii)] Lower culmination: 
+  At lower culmination, the hour angle is \SI{12}{\hour}, and therefore $\cos{ \left( \text{HA} \right)} = -1$. Then follows 
+  
+  \begin{align}
+   \sin{ \left( h \right)} &= -\cos{ \left( \Phi \right)} \cos{ \left( \text{DEC} \right)} + \sin{ \left( \Phi \right)} \sin{ \left( \text{DEC} \right)} \\
+   &= -\cos{ \left( \Phi + \text{DEC} \right)}
+  \end{align}
+
+ \end{enumerate}
+
+\end{enumerate}
+
+\section*{Exercise C.}
+
+We want to observe the open star cluster M52, at $ \text{RA} = \SI{23}{^\hour} \SI{24}{^\minute} \SI{48.0}{^\second}$ and DEC = \ang{61;35;36.0} from the Calar Alto Observatory. The geographical coordinates of Calar Alto are \ang{2.546} W and \ang{37.23} N.
+
+\subsection*{1.} For what range of latitudes is M52 circumpolar (i.e. never below the horizon)? (1 point) \\
+
+For M52 being circumpolar, the observer has to be at a latitude larger than 
+\begin{equation}
+ \Phi_{\text{min}} = \ang{90} - \text{DEC} = \ang{28;24;24.0} = \ang{28.407}
+\end{equation}
+
+
 
 
 \end{document}
