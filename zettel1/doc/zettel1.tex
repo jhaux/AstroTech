@@ -201,6 +201,9 @@ where $h$ is the height above the horizon, $\Phi$ the geografical latitude of an
  The zenith distance $\nu$ as defined here has positive values for objects north of the zenith and negative values for objects south of the zenith. \\
  
  \item[b)] the condition by which a source is at the zenith of an observer when crossing the observer's meridian (2 points) \\
+
+The condition that needs to be met is $\Phi=DEC$, as then the zenith distance
+becomes $\nu = 0$ at culmination.
  
  
 
@@ -280,10 +283,10 @@ As in exercise B we use that
                                  {\op{cos}(\Phi)\op{cos}(DEC)} \right)
 \end{align}
 With given $DEC = \ang{22.63}$, $h = \ang{-12}$ and $\Phi = \ang{49;25;}$ 
-this yields $H = 9:45\si{\hour}$, which is the time after culmination of the 
-sun. Thus the night starts at $\approx 21:45\si{\hour}$. Assuming the day-night 
+this yields $H = $9:45$\si{\hour}$, which is the time after culmination of the 
+sun. Thus the night starts at $\approx$ 21:45\si{\hour}. Assuming the day-night 
 cycle is symmetric around midight we find, that the night lasts approximatly
-$4:30 \si{\hour}$. We made a plot of $h(H)$, shown in figure \ref{fig:h}, 
+4:30 \si{\hour}. We made a plot of $h(H)$, shown in figure \ref{fig:h}, 
 to visualize this.
 
 \begin{figure}
@@ -292,5 +295,40 @@ to visualize this.
 \caption{The hight of the sun during the day.}
 \label{fig:h}
 \end{figure}
+
+\section*{Exercise E}
+
+Suppose you observe Jupiter with a telescope of focal length $f_t$ and an 
+angular magnification M= 40. During the night, you change the eyepiece for 
+another one which has half the focal length 
+
+1. What happens to the surface brightness of Jupiter 
+as it appears through the eyepiece?
+\\
+\\
+The angular magnification is given by
+\begin{equation*}
+M=\frac{f_0}{f_t}
+\end{equation*}
+$f_0$:focal length of the optical lens, $f_t$ focal length of the eyepiece\\
+$f_t\rightarrow \frac{f_t}{2}$\\
+\begin{equation*}
+\Rightarrow M_2=\frac{2 f_0}{f_t}=2 M
+\end{equation*}
+$\Rightarrow$ since the angular magnification increases by a factor of 2, 
+the surface magnitude increases by a constant term of 
+$\approx \SI{3.4657}{\mag\per arcsec\squared}$:
+With $\mu^\prime$ being the original surface brightess and $\mu$ the resulting
+surface brighntess, after exchanging the lenses, $F_\lambda$ as the incoming
+flux and $A^\prime$ the angular surface of Saturn with the original lense, 
+we find that after applying the new lense, the surface has quadrupled: 
+$A = 4A^\prime$. Thus
+\begin{align}
+    \mu^\prime &= -2.5\op{log}\left( \frac{F_\lambda}{A^\prime}\right) \\
+    \Rightarrow \mu &= -2.5\log\left(\frac{F_\lambda}{4A^\prime} \right) \\
+    &= -2.5\left[ \log\left(\frac{1}{4}\right) + 
+        \log\left(\frac{F_\lambda}{A^\prime}\right)  \right] \\
+    &= \mu^\prime + 3.4657
+\end{align}
 
 \end{document}
