@@ -4,3 +4,12 @@
 
 # compiled output
 **.pdf
+
+# vim swap
+**.swp
+
+# ipython notebook checkpoints
+**.ipynb_checkpoints
+
+# lectures ordner von Johannes
+**/lectures/**

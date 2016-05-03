@@ -52,6 +52,10 @@
    numbersep=20pt,					% Platz zwischen Nummern und Code
    xleftmargin=30pt					% Platz zum linken Seitenrand
  }
+
+
+
+\newcommand{\op}[1]{\operatorname{#1}}
  
 %opening
 \title{\LARGE \underline {Sheet 1}}
@@ -71,7 +75,7 @@
   \baselineskip60pt
   Ruprecht Karl University of Heidelberg
 \vskip 40pt
-\includegraphics[width=5cm]{UniHD.png}
+\includegraphics[width=5cm]{pic/UniHD.png}
 
 \end{center}
 
@@ -161,6 +165,7 @@ Since the intensity ratio was calculated with the objects' absolute magnitudes, 
 It is not possible to acquire this image by means of ground-based telescopes since the light has too short wavelengths for atmospheric transmission. The light used to create this image would be absorbed in Earth's atmosphere before it reached the ground. \\
 
 \section*{Exercise B.}
+\label{sec:b}
 
 In which direction should an observer look to see the height of a star increasing above the horizon, and decreasing? (1 point) \\
 
@@ -222,7 +227,39 @@ For M52 being circumpolar, the observer has to be at a latitude larger than
  \Phi_{\text{min}} = \ang{90} - \text{DEC} = \ang{28;24;24.0} = \ang{28.407}
 \end{equation}
 
+\section*{Exercise D.}
 
+Let's assume that the Sun sets when it reaches h1 = 0 o, and that the sky is
+dark when the Sun is at $h_2 = \ang{-12}$. The time needed by the Sun to 
+move from $h1_ = \ang{0}$ to $h_2$ is called twilight. The time between 
+$h = \ang{-12}$ in the evening and $h = \ang{-12}$ in the 
+morning defines the length of a night.
+Compute the duration of the evening twilight and the time length of the night 
+on June 30, 2016 in Heidelberg, knowing that the Sun coordinates on June 30 
+are: $RA = \SI{6.62}{\hour}$ and $DEC = +\ang{22.63}.$
+The geographical coordinates of Heidelberg are \ang{8;43;}E and \ang{49;25;}N. (6 points)
+
+As in exercise B we use that 
+\begin{align}
+    \op{sin}(h) &=  \op{cos}(\Phi)\op{cos}(DEC)\op{cos}(H) + 
+                    \op{sin}(\Phi)\op{sin}(DEC) \\
+    \Leftrightarrow H &=   \op{arccos} \left(
+                            \frac{\op{sin}(h) - \op{sin}(\Phi)\op{sin}(DEC)}
+                                 {\op{cos}(\Phi)\op{cos}(DEC)} \right)
+\end{align}
+With given $DEC = \ang{22.63}$, $h = \ang{-12}$ and $\Phi = \ang{49;25;}$ 
+this yields $H = 9:45\si{\hour}$, which is the time after culmination of the 
+sun. Thus the night starts at $\approx 21:45\si{\hour}$. Assuming the day-night 
+cycle is symmetric around midight we find, that the night lasts approximatly
+$4:30 \si{\hour}$. We made a plot of $h(H)$, shown in figure \ref{fig:h}, 
+to visualize this.
+
+\begin{figure}
+\centering
+\includegraphics[width=10cm]{pic/night}
+\caption{The hight of the sun during the day.}
+\label{fig:h}
+\end{figure}
 
 
 \end{document}
