@@ -213,7 +213,7 @@ where $h$ is the height above the horizon, $\Phi$ the geografical latitude of an
 
 \section*{Exercise C.}
 
-We want to observe the open star cluster M52, at $ \text{RA} = \SI{23}{^\hour} \SI{24}{^\minute} \SI{48.0}{^\second}$ and DEC = \ang{61;35;36.0} from the Calar Alto Observatory. The geographical coordinates of Calar Alto are \ang{2.546} W and \ang{37.23} N.
+We want to observe the open star cluster M52, at $\text{RA} = \SI{23}{^\hour} \SI{24}{^\minute} \SI{48.0}{^\second}$ and DEC = \ang{61;35;36.0} from the Calar Alto Observatory. The geographical coordinates of Calar Alto are \ang{2.546} W and \ang{37.23} N.
 
 \subsection*{1.} For what range of latitudes is M52 circumpolar (i.e. never below the horizon)? (1 point) \\
 
@@ -221,6 +221,48 @@ For M52 being circumpolar, the observer has to be at a latitude larger than
 \begin{equation}
  \Phi_{\text{min}} = \ang{90} - \text{DEC} = \ang{28;24;24.0} = \ang{28.407}
 \end{equation}
+
+\subsection*{2.} At which LST is M52 at $h \, \text{(height above the horizon)} = \ang{40}$ on September 1 2016? (3 points) \\
+
+During one day, M52 reaches two points where its height above the horizon is $h=\ang{40}$; therefore we expect to obtain two solutions. First, the formula from Exercise B. can be used to calculate the hour angles of M52 when its height above the horizon reaches $h=\ang{40}$. The hour angles give the positions where $h=\ang{40}$ with respect to culmination of the object. Second, the LST of culmination of M52 on 1. September 2016 is calculated. From both times the local LST-values at the positions where $h=\ang{40}$ will be obtained. \\
+
+Using the formula from Exercise B. and rearranging it to express $\cos{ \left( \text{HA} \right)}$ yields
+
+\begin{equation}
+ \cos{ \left( \text{HA} \right)} = \frac{\sin{\left( h \right)} - \sin{\left( \Phi \right)} \sin{\left( \text{DEC} \right)}}{\cos{ \left( \Phi \right)} \cos{ \left( \text{DEC} \right)}}
+\end{equation}
+
+With the given values $h = \ang{40}$, $\text{DEC} = \ang{61;35;36.0} = \ang{61.593}$, and $\Phi = \ang{37.23}$ this gives the condition
+
+\begin{align}
+ \cos{\left( \text{HA} \right)} &= 0.292 \\
+ \Rightarrow \text{HA} &= \pm \ang{73.02} = \pm \SI{4.868}{\hour} = \pm \SI{4}{^\hour} \SI{52}{^\minute} \SI{48}{^\second} \\
+ \Rightarrow \text{HA}_1 &= +\SI{4.868}{\hour} = +\SI{4}{^\hour} \SI{52}{^\minute} \SI{48}{^\second} \\
+ \text{HA}_2 &= -\SI{4.868}{\hour} = -\SI{4}{^\hour} \SI{52}{^\minute} \SI{48}{^\second} \\
+\end{align}
+
+These two values of the hour angle give the symmetric times before and after local midnight when $h=\ang{40}$. \\
+
+Since the right ascension of M52 is $\text{RA} = \SI{23}{^\hour} \SI{24}{^\minute} \SI{48.0}{^\second} = \SI{23.413}{\hour}$, the day of the year when it culminates at midnight is 
+
+\begin{equation}
+ \frac{\text{RA}}{\SI{24}{\hour}} \cdot \SI{365}{\day} \approx \SI{356}{\day}
+\end{equation}
+
+after autumn equinox. (Since qutumn equinox in 2016 is on 22. September, this corresponds to 13. September). The day of the observation, 1. September 2016, is 12 days earlier which means that the culmination occurs at 
+
+\begin{equation}
+ t_c = \SI{24}{\hour} \cdot \frac{\SI{12}{\day}}{\SI{365}{\day}} = \SI{0.789}{\hour}
+\end{equation}
+
+after midnight (which corresponds to 00:47:20 LST). Combining the two results, one obtains the two times 
+
+\begin{align}
+ t_1 &= t_c + \text{HA}_1 = \SI{5.657}{\hour} \quad \text{(after midnight)} \\
+ t_2 &= t_c + \text{HA}_2 = \SI{-4.079}{\hour} \quad \text{(before midnight)}
+\end{align}
+
+These two times correspond to 19:55:43 LST on 1. September ($t_2$) and 05:39:25 LST on 2. September ($t_1$). These are the times during the night of observation at which M52 reaches the positions where $h=\ang{40}$.  
 
 
 
