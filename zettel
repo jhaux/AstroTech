@@ -30,5 +30,6 @@ then
     if [ -e ./zettel"$(( $NUM - 1 ))"/Makefile ]
     then        
         cp ./zettel"$(( $NUM - 1 ))"/Makefile ./zettel"$NUM"/
+        cp ./zettel"$(( $NUM - 1 ))"/pic/UniHD.png ./zettel"$NUM"/pic/
     fi
 fi

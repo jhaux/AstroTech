@@ -56,7 +56,7 @@
  }
  
 %opening
-\title{\LARGE \underline {Sheet 1}}
+\title{\LARGE \underline {Sheet 2}}
 \author{Johannes Haux \\ Florian Trost \\ Elsa Wilken}
 \date{\today}
 
@@ -82,215 +82,47 @@
 
 \section*{Exercise A.} 
 
-The elliptical galaxy NGC1399 is located in the Fornax galaxy cluster at equatorial coordinates (J2000): \\
-
-Right Ascension (RA) =  \SI{03}{^\hour} \SI{38}{^\minute} \SI{29.0}{^\second} \\
-Declination (DEC) = \ang{-35;27;02} \\
-
-Its distance from us is $d = \SI{17.8e6}{\parsec}$. \\
-
-\subsection*{1.} Is this object visible at optical wavelengths from the Calar Alto Observatory, whose geographic coordinates are: \ang{37.23} N and \ang{2.546} W? (1 point) \\
-
-The angle $\alpha$ between the line of sight to the object at culmination and the local horizon at the given latitude $l = \ang{37.23}$ is 
-
-\begin{equation}
- \alpha = \ang{90} - l + \text{DEC}
-\end{equation}
-
-With the given declination of $\text{DEC} = \ang{-35;27;02} = \ang{-35.45}$ it follows 
-
-\begin{equation}
- \alpha = \ang{17.32}
-\end{equation}
-
-This means that the Object NGC1399 is visible at optical wavelengths from the Calar Alto Observatory during culmination, but it is fairly close to the horizon. \\
-
-\sisetup{add-arc-second-zero = false}
-\subsection*{2.}  Is this object visible at optical wavelengths from the Paranal Observatory (Chile), whose geographic coordinates are: \ang{24;40;} S and \ang{70;25;} W? (1 point) \\
-
-With the changed latitude of now $l = -\ang{24;40;} = -\ang{24.67}$, the expression for $\alpha$ needs to be changed to expressthe angle between the line of sight to the object at culmination and the local horizon on the southern hemisphere
-
-\begin{equation}
- \alpha = \ang{90} + l - \text{DEC} = \ang{100.78}
-\end{equation}
-
-This means at culmination the object appears $\ang{180} - \ang{100.78} = \ang{79.22}$ above the horizon. It is therefore visible at optical wavelengths from the Paranal Observatory. \\
-
-\subsection*{3.} Which period of the year is best for observing NGC1399 in the visible band? (1 point)
-
-An object is best observed when the Earth is positioned, by means of right ascension, between the object and the Sun. NGC1399 has a right ascension of $\text{RA} = \SI{03}{^\hour} \SI{38}{^\minute} \SI{29.0}{^\second}$. An object with a right ascension of zero is best observed on autumnal equinox. This means NGC1399 is best observed 
-
-\begin{equation}
- \frac{\SI{3}{^\hour} \SI{38}{^\minute} \SI{29.0}{^\second}}{\SI{24}{^\hour}} \cdot \SI{365}{\day} = 0.152 \cdot \SI{365}{\day} = \SI{55.48}{\day}
-\end{equation}
-
-after the autumnal equinox which roughly corresponds to the middle of November. \\
-
-\subsection*{4.} Suppose we observe NGC1399 in the night of October 1 2016. At what LST (Local Sidereal Time) does NGC1399 culminate ? (2 points) \\
-
-1. October 2016 is approximately \SI{8.5}{\day} after the autumn equinox and therefore $\SI{55.5}{\day} - \SI{8.5}{\day} = \SI{47}{\day}$ before the night when NGC1399 culminates at local midnight. This means that on the night of 1. October 2016 we have to wait 
-
-\begin{equation}
- \frac{\SI{47}{\day}}{\SI{365}{\day}} \cdot \SI{24}{\hour} = \SI{3}{\hour} \, \SI{5}{\minute} \, \SI{25}{\second}
-\end{equation}
-
-past midnight to see NGC1399 culminate. The local siderial time at culmination would be 03:05:25. \\
-
-\subsection*{5.} The visual apparent magnitude of NGC1399, integrated across its 2D body, is $V = \SI{9.5}{\mag}$. In the assumption that NGC1399 is composed by Sun-like stars, compute its stellar mass knowing that the Sun has an absolute, visual magnitude $M_V = \SI{4.83}{\mag}$ and a total mass $  M_{\text{\Sun}} = \SI{2e30}{\kg}$. (3 points) \\
-
-The absolute visual magnitude $A$ of NGC1399 can be calculated using 
-
-\begin{equation}
- A = V - 5 \left( \log_{10} \left( d \right) -1 \right) = \SI{-21.75}{\mag}
-\end{equation}
-
-The ratio of intensities from two sources can be derived from 
-
-\begin{align}
- A-M_V &= -2.5 \log_{10} \left( \frac{I}{I_{\text{\Sun}}} \right) \\
- \Rightarrow \log_{10} \left( \frac{I}{I_{\text{\Sun}}} \right) &= \frac{M_V-A}{2.5} \\
- \Rightarrow \frac{I}{I_{\text{\Sun}}} &= 10^{\frac{M_V-A}{2.5}} = 10^{10.63}
-\end{align}
-
-Since the intensity ratio was calculated with the objects' absolute magnitudes, it is equal to the luminosity ratio of the two objects. Assuming all stars in NGC1399 are visible and no star is hidden behind other stars this means that also the objects' mass ratio is equal to the calculated intensity ratio, assuming NGC1399 consists exclusively of Sun-like stars. The stellar mass $m$ of NGC1399 is therefore, under the mentioned assumptions, 
-
-\begin{equation}
- m = 10^{10.63} \cdot M_{\text{\Sun}} = \SI{8.53e40}{\kg}
-\end{equation}
-
-\subsection*{6.} The picture on the right-hand side shows NGC1399 at the NUV (\SI{2270}{\angstrom}) + FUV (\SI{1530}{\angstrom}) wavelengths. Is it possible to acquire this image using ground-based telescopes? (1 point) \\
-
-It is not possible to acquire this image by means of ground-based telescopes since the light has too short wavelengths for atmospheric transmission. The light used to create this image would be absorbed in Earth's atmosphere before it reached the ground. \\
-
-\section*{Exercise B.}
-
-In which direction should an observer look to see the height of a star increasing above the horizon, and decreasing? (1 point) \\
-
-From an observer's point of view the line from the direction of geographic south through the zenith to the direction of geographic north separates the night sky into two parts, called east and west. All objects in the eastern part have increasing height above the horizon whereas all objects in the western part decrease in height above the horizon. \\
-
-Using the following equation: 
-
-\begin{equation}
- \sin{ \left( h \right)} = \cos{ \left( \Phi \right)} \cos{ \left( \text{DEC} \right)} \cos{ \left( \text{HA} \right)} + \sin{ \left( \Phi \right)} \sin{ \left( \text{DEC} \right)}
-\end{equation}
-where $h$ is the height above the horizon, $\Phi$ the geografical latitude of an observer, DEC the declination of a source and HA the hour angle, compute: 
+\section*{Exercise C.} 
+We observed the Galactic open cluster shown in Fig. 3 through the B and V
+filters, and measured the B and V magnitudes for 21 of its member stars. These 
+are listed in the attached file: \verb+BV_photometry.dat+. They have been 
+already corrected for atmospheric extinction, and their associated errors can 
+be neglected for the purpose of this exercise.
 
 \begin{enumerate}
- \item[a)] the zenith distance of a source when it crosses the meridian of an observer (2 points) \\
- When an object crosses the meridian of an observer, it is at culmination and has the hour angle of zero which means $\cos{ \left( \text{HA} \right)} = 1$. The given equation then simplifies to 
- 
- \begin{align}
-  \sin{ \left( h \right)} &= \cos{ \left( \Phi \right)} \cos{ \left( \text{DEC} \right)} + \sin{ \left( \Phi \right)} \sin{ \left( \text{DEC} \right)} \\
-  &= \frac{1}{2} \left( \cos{ \left( \Phi - \text{DEC} \right)} + \cos{ \left( \Phi + \text{DEC} \right)} \right) \\ &+ \frac{1}{2} \left( \cos{ \left( \Phi - \text{DEC} \right)} - \cos{ \left( \Phi + \text{DEC} \right)} \right) \\
-  &= \cos{ \left( \Phi - \text{DEC} \right)}
- \end{align}
-  
- Using $\cos{ \left( x \right)} = \sin{ \left( x + \frac{\pi}{2} \right)}$ yields 
-  
- \begin{align}
-  \sin{ \left( h \right)} &= \sin{ \left( \Phi - \text{DEC} + \frac{\pi}{2} \right)} \\
-  \Rightarrow h &= \Phi - \text{DEC} + \frac{\pi}{2}
- \end{align}
-  
- Since $h$ is the height above the horizon, the zenith distance is 
-  
- \begin{equation}
-  \nu = \frac{\pi}{2} - h = \text{DEC} - \Phi
- \end{equation}
-  
- The zenith distance $\nu$ as defined here has positive values for objects north of the zenith and negative values for objects south of the zenith. \\
- 
- \item[b)] the condition by which a source is at the zenith of an observer when crossing the observer's meridian (2 points) \\
- 
- 
-
+\item Construct their colour-magnitude diagram (CMD) V vs (B-V). (2 point)
+\item In the same diagram plot the V magnitudes and (B-V) colours listed in the 
+attached file: \verb+age_3.5gyr.dat+, knowing that the cluster is at a distance
+of \SI{890}{\parsec}. The file \verb+age_3.5gyr.dat+ is the isochrone computed for 
+the age of the cluster, estimated by previous studies to be 3.5 Gyr. (2 points)
+\item Compare the locus of the isochrone in the CMD with the measured 
+photometric points: what do you find? Is that what you expected? (2 points)
 \end{enumerate}
 
-\section*{Exercise C.}
-
-We want to observe the open star cluster M52, at $\text{RA} = \SI{23}{^\hour} \SI{24}{^\minute} \SI{48.0}{^\second}$ and DEC = \ang{61;35;36.0} from the Calar Alto Observatory. The geographical coordinates of Calar Alto are \ang{2.546} W and \ang{37.23} N.
-
-\subsection*{1.} For what range of latitudes is M52 circumpolar (i.e. never below the horizon)? (1 point) \\
-
-For M52 being circumpolar, the observer has to be at a latitude larger than 
-\begin{equation}
- \Phi_{\text{min}} = \ang{90} - \text{DEC} = \ang{28;24;24.0} = \ang{28.407}
-\end{equation}
-
-\subsection*{2.} At which LST is M52 at $h \, \text{(height above the horizon)} = \ang{40}$ on September 1 2016? (3 points) \\
-
-During one day, M52 reaches two points where its height above the horizon is $h=\ang{40}$; therefore we expect to obtain two solutions. First, the formula from Exercise B. can be used to calculate the hour angles of M52 when its height above the horizon reaches $h=\ang{40}$. The hour angles give the positions where $h=\ang{40}$ with respect to culmination of the object. Second, the LST of culmination of M52 on 1. September 2016 is calculated. From both times the local LST-values at the positions where $h=\ang{40}$ will be obtained. \\
-
-Using the formula from Exercise B. and rearranging it to express $\cos{ \left( \text{HA} \right)}$ yields
-
-\begin{equation}
- \cos{ \left( \text{HA} \right)} = \frac{\sin{\left( h \right)} - \sin{\left( \Phi \right)} \sin{\left( \text{DEC} \right)}}{\cos{ \left( \Phi \right)} \cos{ \left( \text{DEC} \right)}}
-\end{equation}
-
-With the given values $h = \ang{40}$, $\text{DEC} = \ang{61;35;36.0} = \ang{61.593}$, and $\Phi = \ang{37.23}$ this gives the condition
-
+In figure \ref{fig:cmd} one can find the plot of the data given for this 
+exercise. 
+The isochrone data have to be corrected as they are given in units of absolute
+magnitude, while the other data is in units of apparent magnitude. For this
+we use the relation between apparent Magnitude $m$ and absolute magnitude $M$
+given the distance of the cluster $d = \SI{890}{\parsec}$,
 \begin{align}
- \cos{\left( \text{HA} \right)} &= 0.292 \\
- \Rightarrow \text{HA} &= \pm \ang{73.02} = \pm \SI{4.868}{\hour} = \pm \SI{4}{^\hour} \SI{52}{^\minute} \SI{48}{^\second} \\
- \Rightarrow \text{HA}_1 &= +\SI{4.868}{\hour} = +\SI{4}{^\hour} \SI{52}{^\minute} \SI{48}{^\second} \\
- \text{HA}_2 &= -\SI{4.868}{\hour} = -\SI{4}{^\hour} \SI{52}{^\minute} \SI{48}{^\second} \\
+    m &= 5\op{log}_{10}(d) - 5 + M \;.
 \end{align}
 
-These two values of the hour angle give the symmetric times before and after local midnight when $h=\ang{40}$. \\
+The locus of the isochrone is shifted into the red with respect to the CMD. 
+This is probably due to the age of the cluster as with age the light of the 
+stars shifts to the red.
 
-Since the right ascension of M52 is $\text{RA} = \SI{23}{^\hour} \SI{24}{^\minute} \SI{48.0}{^\second} = \SI{23.413}{\hour}$, the day of the year when it culminates at midnight is 
-
-\begin{equation}
- \frac{\text{RA}}{\SI{24}{\hour}} \cdot \SI{365}{\day} \approx \SI{356}{\day}
-\end{equation}
-
-after autumn equinox. (Since qutumn equinox in 2016 is on 22. September, this corresponds to 13. September). The day of the observation, 1. September 2016, is 12 days earlier which means that the culmination occurs at 
-
-\begin{equation}
- t_c = \SI{24}{\hour} \cdot \frac{\SI{12}{\day}}{\SI{365}{\day}} = \SI{0.789}{\hour}
-\end{equation}
-
-after midnight (which corresponds to 00:47:20 LST). Combining the two results, one obtains the two times 
-
-\begin{align}
- t_1 &= t_c + \text{HA}_1 = \SI{5.657}{\hour} \quad \text{(after midnight)} \\
- t_2 &= t_c + \text{HA}_2 = \SI{-4.079}{\hour} \quad \text{(before midnight)}
-\end{align}
-
-These two times correspond to 19:55:43 LST on 1. September ($t_2$) and 05:39:25 LST on 2. September ($t_1$). These are the times during the night of observation at which M52 reaches the positions where $h=\ang{40}$. 
-
-\section*{Exercise D.}
-
-Let's assume that the Sun sets when it reaches h1 = 0 o, and that the sky is
-dark when the Sun is at $h_2 = \ang{-12}$. The time needed by the Sun to 
-move from $h1_ = \ang{0}$ to $h_2$ is called twilight. The time between 
-$h = \ang{-12}$ in the evening and $h = \ang{-12}$ in the 
-morning defines the length of a night.
-Compute the duration of the evening twilight and the time length of the night 
-on June 30, 2016 in Heidelberg, knowing that the Sun coordinates on June 30 
-are: $RA = \SI{6.62}{\hour}$ and $DEC = +\ang{22.63}.$
-The geographical coordinates of Heidelberg are \ang{8;43;}E and \ang{49;25;}N. (6 points)
-
-As in exercise B we use that 
-\begin{align}
-    \op{sin}(h) &=  \op{cos}(\Phi)\op{cos}(DEC)\op{cos}(H) + 
-                    \op{sin}(\Phi)\op{sin}(DEC) \\
-    \Leftrightarrow H &=   \op{arccos} \left(
-                            \frac{\op{sin}(h) - \op{sin}(\Phi)\op{sin}(DEC)}
-                                 {\op{cos}(\Phi)\op{cos}(DEC)} \right)
-\end{align}
-With given $DEC = \ang{22.63}$, $h = \ang{-12}$ and $\Phi = \ang{49;25;}$ 
-this yields $H = 9:45\si{\hour}$, which is the time after culmination of the 
-sun. Thus the night starts at $\approx 21:45\si{\hour}$. Assuming the day-night 
-cycle is symmetric around midight we find, that the night lasts approximatly
-$4:30 \si{\hour}$. We made a plot of $h(H)$, shown in figure \ref{fig:h}, 
-to visualize this.
 
 \begin{figure}
 \centering
-\includegraphics[width=10cm]{pic/night}
-\caption{The hight of the sun during the day.}
-\label{fig:h}
+\includegraphics[width=10cm]{pic/CMD}
+\caption{Color Magnitude diagram of the cluster given in Exercise C. 
+         Visualized in black is the observed data, in red the 
+         isochrone-corrected data and in gray a shifted version of the 
+         isochrone data. One can see that the isochrone is shifted into the 
+         red.}
+\label{fig:cmd}
 \end{figure}
 
 \end{document}
