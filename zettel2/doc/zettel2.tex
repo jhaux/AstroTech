@@ -214,7 +214,7 @@ $f_{radian \rightarrow arcsec}$:
 \begin{align}
     f_{radian \rightarrow arcsec} &= 
     \underbrace{\frac{\ang{180}}{\pi}}_{radian \rightarrow degrees} \cdot 
-    \underbrace{60 \cdot 60 \frac{\si{\arcsecond}}{\si{\degree}}}_{
+    \underbrace{60 \cdot 60 \frac{\si{arcseconds}}{\si{degree}}}_{
                 degrees \rightarrow arcseconds}
 \end{align}
 
@@ -245,4 +245,36 @@ correspond to? (2 points)
 \end{enumerate}
 
 
+\subsection*{1}
+From the lecture we know that the angular resolution $q_{rad}$ depends only on the
+diameter $D$ of the telescope and the observed wavelength $\lambda$:
+\begin{align}
+    q_{rad} &= \frac{1.22 \lambda}{D} \;.
+\end{align}
+The angular resolution is given by the distance $d_s$ of the star to the 
+telescope and the distance between planet and star $d_{a,p}$:
+\begin{align}
+    q_{rad} &= \tan^{-1}\left( \frac{d_{a,p}}{d_s} \right)
+\end{align}
+With this we get the following diameters for apastron $D_a$ and periastron 
+$D_p$:
+\begin{align}
+    D_a &= \SI{15.18}{\meter}  \;, \\
+    D_p &= \SI{30.43}{\meter}  \;,
+\end{align}
+which is pretty huge!
+
+\subsection*{2}
+Using the calculated $q_{rad}$ from above, we can convert the results in 
+arcseconds:
+\begin{align}
+    q_{arcsec} = q_{rad} \cdot \frac{\ang{180}}{\pi} \cdot 3600 
+                 \frac{\si{arcseconds}}{\si{degree}}
+\end{align}
+Thus the HST cannot resolve the distance as in both cases ($d_a$, $d_p$) the
+angular extend is in the subpixel range:
+\begin{align}
+    d_a: &\quad \SI{0.290}{pixel} \\
+    d_p: &\quad \SI{0.145}{pixel}
+\end{align}
 \end{document}
