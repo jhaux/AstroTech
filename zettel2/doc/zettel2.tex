@@ -82,6 +82,74 @@
 
 \section*{Exercise A.} 
 
+\section*{Exercise B.}
+The North America Nebula and the Pelican Nebula shown on the sheet are
+ionized by a massive, main-sequence star of spectral type O5V, located at 
+$RA = \SI{20}{^\hour}\SI{55}{^\minute}\SI{51.3}{^\second}$ $DEC = \ang{43;52;25}$.
+We want to observe it using the \SI{2.1}{\meter} telescope of the San Pedro 
+Martir Observatory (at \ang{31.0442} North, in Mexico). This star has, outside 
+the Earth atmosphere, a colour $(U – V) = \SI{-1.42}{\mag}$ and an absolute 
+magnitude $M_V = \SI{-5.21}{\mag}$ (at a distance of \SI{610}{\parsec}). Compute
+the observed colour at three different hour angles $HA = \SI{-4}{\hour}; 
+\SI{0}{\hour}; \SI{+3}{\hour}$, knowing that the atmosphere extinction 
+coefficients are $k_U = \SI{0.53}{\mag\per airmass}$ and 
+$k_V = \SI{0.18}{\mag\per airmass}$.
+Briefly comment your results. (8 points)
+\newline
+
+The apparent magnitude and thus also the color of the observed star depend on
+the amount of atmosphere, that the light has to pass before hitting the 
+CCD or the eye. This amount $X$ can be calcualated in units airmass via the 
+zenith distance $z$:
+\begin{align}
+    X &= \frac{\SI{1}{airmass}}{\cos(z)} \;.
+\end{align}
+As $z = \ang{90} - h$ we find that $\cos(z) = \cos(\ang{90} - h) = \sin(h)$,
+which is given via the hour angle $HA$, the latitude of the observer $\Phi$
+and the declination $DEC$ of the star:
+\begin{align}
+    \cos(z) = \sin(h) &= \cos(\Phi)\cos(DEC)\cos(HA) + \sin(\Phi)\sin(DEC) \;.
+\end{align}
+This dependence is visualized in figure \ref{fig:X} in the lower plot.
+
+Now we can calculate the apparent magnitude $m$, using the extraatmospheric
+magnitude $m_0$ and the atmosphere extinction coefficient $k$:
+\begin{align}
+    m &= m_0 \cdot kX ;.
+\end{align}
+Knowing dependence of the apparent and absolute magnitude $m_{0,V}$ and $M_V$ 
+on the distance $d$ as well as the extraatmospheric color $(U-V)_0$ we can 
+calculate the extraatmospheric magnitude $m_{0,U}$ in the $U$-band and the
+observed color:
+\begin{align}
+    m_{0,V} &= 5\log_{10}(d) - 5 + M_V \;,\\
+    m_{0,U} &= (U-V)_0 + m_{0,V} \;,\\
+    (U-V)_{obs} &= m_{0,U} \cdot k_U X - m_{0,V} \cdot k_V X \;.
+\end{align}
+The dependence of color on the hour angle is again visualized in the upper plot
+in figure \ref{fig:X}. The results or the three given angels are given in table
+\ref{tab:col}.
+\begin{table}
+\centering
+\begin{tabular}{c|c}
+$HA$    & $(U-V)_{obs}$ \\
+-4      & \num{0.822672456176}  \\
+0       & \num{0.562563507003}  \\
+3       & \num{0.690441039578}  \\
+\end{tabular}
+\caption{Results for exercise B.}
+\label{tab:col}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics[width=10cm]{pic/umv}
+\caption{$\land$: Dependence of color on the hour angle. $\lor$: The dependence
+         of X on the hour angle. At $HA = 0$ we observe 1 airmass.}
+\label{fig:X}
+\end{figure}
+
+
 \section*{Exercise C.} 
 We observed the Galactic open cluster shown in Fig. 3 through the B and V
 filters, and measured the B and V magnitudes for 21 of its member stars. These 
