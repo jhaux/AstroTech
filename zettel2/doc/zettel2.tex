@@ -14,6 +14,7 @@
 % declaring custom units
 \DeclareSIUnit \mag {mag}
 \DeclareSIUnit \parsec {pc}
+\DeclareSIUnit \AU {AU}
 
 % format angle display
 \sisetup{add-arc-degree-zero}
@@ -225,6 +226,23 @@ Thus we find that the pixel scale $q$ is
 
 
 \section*{Exercise E}
+HD 114762b is the first exoplanet ever discovered (in 1989 and confirmed in
+1991), predating the detection of the better known 1992 planet found around the 
+pulsar PSR B1257+12. HD 114762b is the companion of the F9V star HD 114762 at 
+a distance of \SI{40.6}{\parsec} in the constellation of Coma Berenices.
+At apastron the planet is \SI{0.471}{\AU} away from the star ($d_a$, 
+perpendicular to the line of sight), while at periastron the distance 
+planet - star is $d_p = \SI{0.235}{\AU}$ (perpendicular to the  line of sight).
+$$\SI{1}{\AU} = \SI{1.496d13}{\centi\meter}$$
+
+\begin{enumerate}
+\item What is the minimum diameter $D$ a telescope should have to resolve this 
+planet at periastron and apastron at $\lambda = \SI{7000}{\angstrom}$? 
+(5 points)
+\item The instrument WFC3-UVIS onboard the Hubble Space Telescope has a pixel 
+scale of \SI{0.04}{\arcsecond\per pixel}. How many pixels do $d_p$ and $d_a$ 
+correspond to? (2 points)
+\end{enumerate}
 
 
 \end{document}
