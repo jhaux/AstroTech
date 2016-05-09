@@ -2,6 +2,7 @@
 \usepackage{a4wide}	% für gut definierte Seitenränder und Platzausnutzung
 \usepackage[utf8x]{inputenc}	% für Umlaute
 \usepackage{amssymb,amsmath}
+\usepackage{booktabs}   % schöne Tabellen
 \usepackage[pdftex]{graphicx}
 \usepackage{epstopdf}
 \usepackage{siunitx}	% für SI-Einheiten; siehe http://mirror.unicorncloud.org/CTAN/macros/latex/contrib/siunitx/siunitx.pdf
@@ -83,10 +84,17 @@
 
 \section*{Exercise A.} 
 
-Palomar 5 is a globular cluster belonging to the Milky Way. In 2002 it was found to exhibit tidal tails (or stellar streams), which are due to the tidal forces exerted by the Galaxy on the cluster during its orbit. \\
+Palomar 5 is a globular cluster belonging to the Milky Way. In 2002 it was 
+found to exhibit tidal tails (or stellar streams), which are due to the tidal 
+forces exerted by the Galaxy on the cluster during its orbit. \\
 
-We plan to observe Palomar 5 from the Mauna Kea Observatory (Hawaii, USA) located at \ang{204.5317}E and \ang{19.825}N. The equatorial coordinates of this globular cluster are: Right Ascension (RA) = \SI{15}{^\hour} \SI{16}{^\minute} \SI{05.3}{^\second} and Declination (DEC) = \ang{-00;06;41} (J2000).
-For how long can we take images of Palomar 5 at an airmass $X < 1.15$? (4 points) \\
+We plan to observe Palomar 5 from the Mauna Kea Observatory (Hawaii, USA) 
+located at \ang{204.5317}E and \ang{19.825}N. The equatorial coordinates of 
+this globular cluster are: Right Ascension (RA) = \SI{15}{^\hour} 
+\SI{16}{^\minute} \SI{05.3}{^\second} and Declination (DEC) = 
+\ang{-00;06;41} (J2000).
+For how long can we take images of Palomar 5 at an airmass $X < 1.15$? 
+(4 points) \\
 
 An airmass of less than $1.15$ corresponds to a zenith angle of less than 
 
@@ -94,25 +102,37 @@ An airmass of less than $1.15$ corresponds to a zenith angle of less than
  \nu_{\text{max}} = \arccos{\left( \frac{1}{1.15} \right)} = \ang{29.592}
 \end{equation}
 
-According to Exercise B on Sheet 1 the zenith angle $\nu$ is connected to the declination $\delta$ of the object, the geographical latitude $\Phi$ of the observer, and the hour angle $\Gamma$ by the formula
+According to Exercise B on Sheet 1 the zenith angle $\nu$ is connected to the 
+declination $\delta$ of the object, the geographical latitude $\Phi$ of the 
+observer, and the hour angle $\Gamma$ by the formula
 
 \begin{equation}
- \sin{ \left( \ang{90}-\nu \right)} = \cos{\left( \nu \right)} = \cos{ \left( \Phi \right)} \cos{ \left( \delta \right)} \cos{ \left( \Gamma \right)} + \sin{ \left( \Phi \right)} \sin{ \left( \delta \right)}
+    \sin{ \left( \ang{90}-\nu \right)} = \cos{\left( \nu \right)} = 
+    \cos{ \left( \Phi \right)} \cos{ \left( \delta \right)} 
+    \cos{ \left( \Gamma \right)} + \sin{ \left( \Phi \right)} 
+    \sin{ \left( \delta \right)}
 \end{equation}
 
-Since $\Phi$ and $\delta$ are known, the condition to $\nu$ can be used to compute the corresponsing hour angle: 
+Since $\Phi$ and $\delta$ are known, the condition to $\nu$ can be used to 
+compute the corresponsing hour angle: 
 
 \begin{equation}
- \Gamma = \arccos{\left( \frac{\cos{\left( \nu \right)} - \sin{\left( \Phi \right)} \sin{\left( \delta \right)}}{\cos{ \left( \Phi \right) } \cos{ \left( \delta \right) }} \right)}
+    \Gamma = \arccos{\left( \frac{\cos{\left( \nu \right)} - 
+    \sin{\left( \Phi \right)} \sin{\left( \delta \right)}}
+    {\cos{ \left( \Phi \right) } \cos{ \left( \delta \right) }} \right)}
 \end{equation}
 
-With $\nu = \ang{29.592}$, $\delta = \ang{-0.111}$, and $\Phi = \ang{19.825}$ it follows 
+With $\nu = \ang{29.592}$, $\delta = \ang{-0.111}$, and $\Phi = \ang{19.825}$ 
+it follows 
 
 \begin{equation}
  \Gamma = \ang{22.324} = \SI{1}{^\hour} \SI{29}{^\minute} \SI{17.8}{^\second}
 \end{equation}
 
-This corresponds to the time after culmination at which the airmass exceeds $1.15$. The airmass is below this threshold as well for the same amount of time before culmination. Therefore, the entire time interval during which the airmass is below $1.15$ is 
+This corresponds to the time after culmination at which the airmass exceeds 
+$1.15$. The airmass is below this threshold as well for the same amount of 
+time before culmination. Therefore, the entire time interval during which the 
+airmass is below $1.15$ is 
 
 \begin{equation}
  \Delta t = 2 \Gamma = \SI{2}{^\hour} \SI{58}{^\minute} \SI{35.6}{^\second}
@@ -151,7 +171,7 @@ This dependence is visualized in figure \ref{fig:X} in the lower plot.
 Now we can calculate the apparent magnitude $m$, using the extraatmospheric
 magnitude $m_0$ and the atmosphere extinction coefficient $k$:
 \begin{align}
-    m &= m_0 \cdot kX ;.
+    m &= m_0 + kX ;.
 \end{align}
 Knowing dependence of the apparent and absolute magnitude $m_{0,V}$ and $M_V$ 
 on the distance $d$ as well as the extraatmospheric color $(U-V)_0$ we can 
@@ -160,18 +180,22 @@ observed color:
 \begin{align}
     m_{0,V} &= 5\log_{10}(d) - 5 + M_V \;,\\
     m_{0,U} &= (U-V)_0 + m_{0,V} \;,\\
-    (U-V)_{obs} &= m_{0,U} \cdot k_U X - m_{0,V} \cdot k_V X \;.
+    (U-V)_{obs} &= m_{0,U} - m_{0,V} + \left(k_U - k_V\right) X \;.
 \end{align}
 The dependence of color on the hour angle is again visualized in the upper plot
 in figure \ref{fig:X}. The results or the three given angels are given in table
 \ref{tab:col}.
-\begin{table}
+\sisetup{
+round-mode = places,
+round-precision = 3
+}
+\begin{table}[!h]
 \centering
-\begin{tabular}{c|c}
-$HA$    & $(U-V)_{obs}$ \\
--4      & \num{0.822672456176}  \\
-0       & \num{0.562563507003}  \\
-3       & \num{0.690441039578}  \\
+\begin{tabular}{ccc} \toprule
+$HA$    & \multicolumn{2}{c}{$(U-V)_{obs}$} \\ \midrule
+-4      & \num{-0.894788274381} & $\num{1.58696759966}\cdot(U-V)_0$  \\
+0       & \num{-1.06084740158}  & $\num{1.33855255514}\cdot(U-V)_0$\\
+3       & \num{-0.979207644413} & $\num{1.45015207765}\cdot(U-V)_0$\\ \bottomrule
 \end{tabular}
 \caption{Results for exercise B.}
 \label{tab:col}
@@ -239,7 +263,7 @@ scale in arcseconds? (2 points)
 
 We know that the pixelscale $q$ is given as the pixel length $l_{pix}$ divided 
 by the focal length $f$, which is given as the focal ration $F$ times the 
-diameter of the objective:
+diameter of the mirror:
 \begin{align}
     f &= FD \;, \\
     q_{rad} &= \frac{l_{pix}}{f} \;.
@@ -281,8 +305,8 @@ correspond to? (2 points)
 
 
 \subsection*{1}
-From the lecture we know that the angular resolution $q_{rad}$ depends only on the
-diameter $D$ of the telescope and the observed wavelength $\lambda$:
+From the lecture we know that the angular resolution $q_{rad}$ depends only on 
+the diameter $D$ of the telescope and the observed wavelength $\lambda$:
 \begin{align}
     q_{rad} &= \frac{1.22 \lambda}{D} \;.
 \end{align}
