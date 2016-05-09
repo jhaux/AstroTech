@@ -193,4 +193,38 @@ stars shifts to the red.
 \label{fig:cmd}
 \end{figure}
 
+\section*{Exercise D}
+The James Webb Space Telescope (JWST, NASA) has an effective diameter
+$D = \SI{6.57}{\meter}$ (see Fig. 4 on the sheet). It also has an effective 
+focal ratio $F = 20$, and is equipped with an optical-to-NIR imager (NIRCam) 
+whose pixel has a length of \SI{18}{\micro\meter}. What is the image pixel 
+scale in arcseconds? (2 points)
+\newline
+
+We know that the pixelscale $q$ is given as the pixel length $l_{pix}$ divided 
+by the focal length $f$, which is given as the focal ration $F$ times the 
+diameter of the objective:
+\begin{align}
+    f &= FD \;, \\
+    q_{rad} &= \frac{l_{pix}}{f} \;.
+\end{align}
+This gives the result in radians, this we have to multiply by the factor
+$f_{radian \rightarrow arcsec}$:
+\begin{align}
+    f_{radian \rightarrow arcsec} &= 
+    \underbrace{\frac{\ang{180}}{\pi}}_{radian \rightarrow degrees} \cdot 
+    \underbrace{60 \cdot 60 \frac{\si{\arcsecond}}{\si{\degree}}}_{
+                degrees \rightarrow arcseconds}
+\end{align}
+
+Thus we find that the pixel scale $q$ is
+\begin{align}
+    q &= f_{radian \rightarrow arcsec} \cdot q_{rad} \\
+    &= \SI{0.28}{\arcsecond} \;.
+\end{align}
+
+
+\section*{Exercise E}
+
+
 \end{document}
