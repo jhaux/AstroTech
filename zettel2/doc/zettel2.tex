@@ -41,8 +41,15 @@
 
 \newcommand{\op}[1]{\operatorname{#1}}
 
+% Konsistente Variablennamen:
+\newcommand{\zen}{\ensuremath{\nu} }    % zenith angle
+\newcommand{\hei}{\ensuremath{h} }      % height angle
+\newcommand{\HA}{\ensuremath{\Gamma} }  % hour angle \HA
+\newcommand{\DEC}{\ensuremath{\delta} } % declination \DE
+\newcommand{\LAT}{\ensuremath{\Phi} }   % latitude \LAT
+
 \lstset{
-   basicstyle=\scriptsize\ttfamily,			% grundlegendes Design
+   basicstyle=\scriptsize\ttfamily,			% grundlege des Design
    keywordstyle=\ttfamily,				% Design von Schlüsselwörtern (Codebefehle wie Variablentypen, Schleifenbefehle u.Ä.)
    stringstyle=\ttfamily,				% Design von Variablen
    commentstyle=\ttfamily\color{blue},			% Design von Kommentaren
@@ -99,34 +106,34 @@ For how long can we take images of Palomar 5 at an airmass $X < 1.15$?
 An airmass of less than $1.15$ corresponds to a zenith angle of less than 
 
 \begin{equation}
- \nu_{\text{max}} = \arccos{\left( \frac{1}{1.15} \right)} = \ang{29.592}
+ \zen_{\text{max}} = \arccos{\left( \frac{1}{1.15} \right)} = \ang{29.592}
 \end{equation}
 
-According to Exercise B on Sheet 1 the zenith angle $\nu$ is connected to the 
-declination $\delta$ of the object, the geographical latitude $\Phi$ of the 
-observer, and the hour angle $\Gamma$ by the formula
+According to Exercise B on Sheet 1 the zenith angle \zen is connected to the 
+declination \DEC of the object, the geographical latitude \LAT of the 
+observer, and the hour angle \HA by the formula
 
 \begin{equation}
-    \sin{ \left( \ang{90}-\nu \right)} = \cos{\left( \nu \right)} = 
-    \cos{ \left( \Phi \right)} \cos{ \left( \delta \right)} 
-    \cos{ \left( \Gamma \right)} + \sin{ \left( \Phi \right)} 
-    \sin{ \left( \delta \right)}
+    \sin{ \left( \ang{90}-\zen \right)} = \cos{\left( \zen \right)} = 
+    \cos{ \left( \LAT \right)} \cos{ \left( \DEC \right)} 
+    \cos{ \left( \HA \right)} + \sin{ \left( \LAT \right)} 
+    \sin{ \left( \DEC \right)}
 \end{equation}
 
-Since $\Phi$ and $\delta$ are known, the condition to $\nu$ can be used to 
+Since $\LAT$ and $\DEC$ are known, the condition to $\zen$ can be used to 
 compute the corresponsing hour angle: 
 
 \begin{equation}
-    \Gamma = \arccos{\left( \frac{\cos{\left( \nu \right)} - 
-    \sin{\left( \Phi \right)} \sin{\left( \delta \right)}}
-    {\cos{ \left( \Phi \right) } \cos{ \left( \delta \right) }} \right)}
+    \HA = \arccos{\left( \frac{\cos{\left( \zen \right)} - 
+    \sin{\left( \LAT \right)} \sin{\left( \DEC \right)}}
+    {\cos{ \left( \LAT \right) } \cos{ \left( \DEC \right) }} \right)}
 \end{equation}
 
-With $\nu = \ang{29.592}$, $\delta = \ang{-0.111}$, and $\Phi = \ang{19.825}$ 
+With $\zen = \ang{29.592}$, $\DEC = \ang{-0.111}$, and $\LAT = \ang{19.825}$ 
 it follows 
 
 \begin{equation}
- \Gamma = \ang{22.324} = \SI{1}{^\hour} \SI{29}{^\minute} \SI{17.8}{^\second}
+ \HA = \ang{22.324} = \SI{1}{^\hour} \SI{29}{^\minute} \SI{17.8}{^\second}
 \end{equation}
 
 This corresponds to the time after culmination at which the airmass exceeds 
@@ -135,7 +142,7 @@ time before culmination. Therefore, the entire time interval during which the
 airmass is below $1.15$ is 
 
 \begin{equation}
- \Delta t = 2 \Gamma = \SI{2}{^\hour} \SI{58}{^\minute} \SI{35.6}{^\second}
+ \Delta t = 2 \HA = \SI{2}{^\hour} \SI{58}{^\minute} \SI{35.6}{^\second}
 \end{equation}
 
 \section*{Exercise B.}
@@ -156,15 +163,15 @@ Briefly comment your results. (8 points)
 The apparent magnitude and thus also the color of the observed star depend on
 the amount of atmosphere, that the light has to pass before hitting the 
 CCD or the eye. This amount $X$ can be calcualated in units airmass via the 
-zenith distance $z$:
+zenith distance \zen:
 \begin{align}
-    X &= \frac{\SI{1}{airmass}}{\cos(z)} \;.
+    X &= \frac{\SI{1}{airmass}}{\cos(\zen)} \;.
 \end{align}
-As $z = \ang{90} - h$ we find that $\cos(z) = \cos(\ang{90} - h) = \sin(h)$,
-which is given via the hour angle $HA$, the latitude of the observer $\Phi$
-and the declination $DEC$ of the star:
+As $\zen = \ang{90} - \hei$ we find that $\cos(\zen) = \cos(\ang{90} - \hei) = 
+\sin(\hei)$, which is given via the hour angle $HA$, the latitude of the 
+observer \LAT and the declination \DEC of the star:
 \begin{align}
-    \cos(z) = \sin(h) &= \cos(\Phi)\cos(DEC)\cos(HA) + \sin(\Phi)\sin(DEC) \;.
+    \cos(\zen) = \sin(\hei) &= \cos(\LAT)\cos(\DEC)\cos(\HA) + \sin(\LAT)\sin(\DEC) \;.
 \end{align}
 This dependence is visualized in figure \ref{fig:X} in the lower plot.
 
@@ -192,10 +199,11 @@ round-precision = 3
 \begin{table}[!h]
 \centering
 \begin{tabular}{ccc} \toprule
-$HA$    & \multicolumn{2}{c}{$(U-V)_{obs}$} \\ \midrule
--4      & \num{-0.894788274381} & $\num{1.58696759966}\cdot(U-V)_0$  \\
-0       & \num{-1.06084740158}  & $\num{1.33855255514}\cdot(U-V)_0$\\
-3       & \num{-0.979207644413} & $\num{1.45015207765}\cdot(U-V)_0$\\ \bottomrule
+$HA$    & $(U-V)_{obs}$ \\
+$[\si{\hour}]$ & $[\si{\mag}]$ \\ \midrule
+-4      & $\num{-0.894788274381} = \num{1.58696759966}\cdot(U-V)_0$  \\
+0       & $\num{-1.06084740158}  = \num{1.33855255514}\cdot(U-V)_0$\\
+3       & $\num{-0.979207644413} = \num{1.45015207765}\cdot(U-V)_0$\\ \bottomrule
 \end{tabular}
 \caption{Results for exercise B.}
 \label{tab:col}
@@ -203,9 +211,10 @@ $HA$    & \multicolumn{2}{c}{$(U-V)_{obs}$} \\ \midrule
 
 \begin{figure}
 \centering
-\includegraphics[width=10cm]{pic/umv}
-\caption{$\land$: Dependence of color on the hour angle. $\lor$: The dependence
-         of X on the hour angle. At $HA = 0$ we observe 1 airmass.}
+\includegraphics[width=\linewidth]{pic/umv}
+\caption{\emph{Left}: Dependence of color on the hour angle. \emph{Right}: 
+         The dependence of X on the hour angle. At $\HA = 0$ we observe 1 
+         airmass.}
 \label{fig:X}
 \end{figure}
 
