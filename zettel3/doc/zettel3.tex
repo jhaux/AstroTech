@@ -65,7 +65,7 @@
  }
  
 %opening
-\title{\LARGE \underline {Sheet 2}}
+\title{\LARGE \underline {Sheet 3}}
 \author{Johannes Haux \\ Florian Trost \\ Elsa Wilken}
 \date{\today}
 
@@ -88,5 +88,31 @@
 
 \newpage
 \setcounter{page}{1}		% set page count to start with 1 here
+
+\section*{Exercise A.}
+
+Estimate the linear separation of two points on the Moon's surface that can just be resolved by the 5.1m telescope at Mount Palomar (see Fig. 1) when observing them through the V filter (central wavelength $\lambda_c = \SI{5500}{\angstrom}$). The distance from Earth to the Moon is \SI{3.8e5}{\km}. (4 points) \\
+
+The diffraction limit for angular resolution is 
+
+\begin{equation}
+ \sin{\left( \theta_{\text{min}} \right)} = 1.22 \frac{\lambda}{D}
+\end{equation}
+
+where $\lambda$ is the wavelength of the light and $D$ is the diameter of the telescope's mirror. Regarding two points on the surface of the moon at distance $d = \SI{3.8e5}{\km}$, their minimal linear separation that can just be resolved with this telescope is 
+
+\begin{eqnarray}
+ s_{\text{min}} &=& d \tan{\left( \theta_{\text{min}} \right)} = d \tan{\left( \arcsin{\left( 1.22 \frac{\lambda}{D} \right)} \right)} \\
+ &=& \SI{50}{\meter}
+\end{eqnarray}
+
+Therefore, the \SI{5.1}{\meter} telescope at Mount Palomar can only resolve two points on the surface of the moon if their linear separation is at least \SI{50}{\meter}.
+
+\section*{Exercise B.} 
+
+\section*{Exercise C.}
+
+\subsection*{3.} Suppose we take a series of $N$ images of the same star, all with the same exposure time. We can expect the total $S/N (= x)$ of the star to be the same in each of these images. Later on we combine the $N$ images into just one, where we re-measure the total $S/N (= y)$ of the star. How does $y$ depend on $x$ ? (2 points)
+ \\
 
 \end{document}
