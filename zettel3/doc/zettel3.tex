@@ -112,7 +112,18 @@ Therefore, the \SI{5.1}{\meter} telescope at Mount Palomar can only resolve two 
 
 \section*{Exercise C.}
 
-\subsection*{3.} Suppose we take a series of $N$ images of the same star, all with the same exposure time. We can expect the total $S/N (= x)$ of the star to be the same in each of these images. Later on we combine the $N$ images into just one, where we re-measure the total $S/N (= y)$ of the star. How does $y$ depend on $x$ ? (2 points)
- \\
+\subsection*{3.}  Suppose we take a series of $n$ images of the same star, all with the same exposure time. We can expect the total $S/N (= x)$ of the star to be the same in each of these images. Later on we combine the $n$ images into just one, where we re-measure the total $S/N (= y)$ of the star. How does $y$ depend on $x$ ? (2 points) \\
+
+If $N$ images of an object have been taken, the total signal-to-noise ration can be calculated (without weighting factors) using the formula
+
+\begin{equation}
+ y = \left( \frac{S}{N} \right)_{\text{total}} = \frac{\sum_{i=1}^N S_i}{\sqrt{\sum_{i=1}^N N_i^2}}
+\end{equation}
+
+If all $N$ images have been taken with the same exposure time and the signal-to-noise ratio of the object can be expected to be the same in each image, therefore $S_i = S \, \forall \, i$ and $N_i = N \, \forall \, i$, the total signal-to-noise ration is 
+
+\begin{equation}
+ y = \frac{n \cdot S}{\sqrt{n \cdot N^2}} = \frac{n}{\sqrt{n}} \cdot \frac{S}{N} = \sqrt{n} \cdot x
+\end{equation}
 
 \end{document}
