@@ -6,6 +6,7 @@
 \usepackage[pdftex]{graphicx}
 \usepackage{epstopdf}
 \usepackage{siunitx}	% für SI-Einheiten; siehe http://mirror.unicorncloud.org/CTAN/macros/latex/contrib/siunitx/siunitx.pdf
+\usepackage[version=3]{mhchem}	% chemische Symbole mit \ce{}
 \usepackage{listings} 	% für Einbinden von Quellcode
 \usepackage{color}	% für das Einfärben von eingebundenem Quellcode
 \usepackage{longtable}	% für das Erstellen mehrseitiger Tabellen
@@ -47,6 +48,7 @@
 \newcommand{\HA}{\ensuremath{\Gamma} }  % hour angle \HA
 \newcommand{\DEC}{\ensuremath{\delta} } % declination \DE
 \newcommand{\LAT}{\ensuremath{\Phi} }   % latitude \LAT
+\newcommand{\electron}{\ce{e^-}}
 
 \lstset{
    basicstyle=\scriptsize\ttfamily,			% grundlege des Design
@@ -125,5 +127,19 @@ If all $N$ images have been taken with the same exposure time and the signal-to-
 \begin{equation}
  y = \frac{n \cdot S}{\sqrt{n \cdot N^2}} = \frac{n}{\sqrt{n}} \cdot \frac{S}{N} = \sqrt{n} \cdot x
 \end{equation}
+
+\section*{Exercise D.}
+
+Suppose you want to observe a region in the sky with a constant background of \num{21000} photons and a star at \num{24000} photons. You know the linearity curve of the CCD you are going to use for the observations. You immediately see that your observations are going to be affected by the non-linearity behaviour of the CCD [assume here that \num{1} photon produces \num{1} \electron].
+
+\subsection*{1.} By how much does the number of \electron \ from the star that are actually detected differ from the number of \electron \ you would have from the star if the CCD were linear across the full range of incoming photons? (3 points) \\
+
+From the figure is can be seen that the due to the non-linearity the star with its \num{24000} photons only creates \num{20940} \electron \ in the CCD. If the CCD were linear across the full range of incoming photons and one photon would create exactly one electron, the incoming \num{24000} photons would create \num{24000} \electron. Therefore, the difference in electron number for the linear and non-linear case is 
+
+\begin{equation}
+ \Delta n = \num{24000} - \num{20940} = \num{3060}
+\end{equation}
+
+This means that \num{3060} \electron \ are not detected due to the non-linearity of the CCD. 
 
 \end{document}
