@@ -97,6 +97,43 @@
 
 \section*{Exercise B.}
 \section*{Exercise C.}
+
+MODS1 is an optical spectrograph mounted at the Large Binocular Telescope in Arizona, equipped with two gratings and two prisms. Specifically, the grating G670L provides a resolving power $R = \num{2300}$ at the wavelength $\lambda = \SI{8000}{\angstrom}$. Its length is \SI{1}{\cm}.
+
+\subsection*{1.} Compute the number of groves per mm for this grating. (2 points) \\
+
+The number of groves per length is the inverse of the grating period $g$ (the distance between two adjacent groves). The resolving power is 
+
+\begin{equation}
+ R = m N
+ \label{eqn:resolving_power}
+\end{equation}
+
+and the grating period is 
+
+\begin{equation}
+ g = \frac{G}{N}
+ \label{eqn:grating_period}
+\end{equation}
+
+where $N$ is the total number of groves and $G$ is the length of the grating, which is \SI{1}{\cm} in this case. Solving (\ref{eqn:grating_period}) for $N$ and inserting into (\ref{eqn:resolving_power}) yields 
+
+\begin{equation}
+ R = m \cdot \frac{G}{g}
+\end{equation}
+
+Solving for $g$ at first order ($m = 1$) gives 
+
+\begin{equation}
+ g = \frac{\SI{1}{\cm}}{2300}
+\end{equation}
+
+The inverse of $g$ is the number of groves per length, which in this case computes to 
+
+\begin{equation}
+ \frac{1}{g} = \SI{2300}{\cm^{-1}} = \SI{230}{\mm^{-1}}
+\end{equation}
+
 \section*{Exercise D.}
 \section*{Exercise E.}
 
