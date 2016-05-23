@@ -94,11 +94,81 @@
 
 \section*{Exercise A.}
 
+Compare the angular dispersions of a \SI{900}{line\per\milli\meter} grating at 
+\SI{5100}{\angstrom} and \SI{8900}{\angstrom}. Suppose you are working in the 
+first order and the angle of incidence is $i = \ang{20}$. (4 points)
+\newline
+
+Knowing the grating density $G$ we can directly infer the grating width $g = 
+\frac{1}{G}$:
+\begin{align}
+    g   &= \frac{1}{\SI{900}{\per\milli\meter}} \\
+        &= \SI{0.001}{\milli\meter}
+\end{align}
+
+To get the angular dispersions we need to look at the angle of the outgoing
+light $j$ which is given by the grating equation:
+\begin{align}
+    m\lambda &= g\left( \sin(i) + \sin(j) \right)  \\
+    \Leftrightarrow j &= \arcsin\left( \frac{m\lambda}{g} - \sin(i)\right)
+\end{align}
+
+Now we can calculate the angular dispersion $\frac{\partial j}{\partial\lambda}$ 
+using the following equation:
+\begin{align}
+    \frac{\partial j}{\partial \lambda} &= \frac{m}{g\cos(j)}    \\
+\end{align}
+
+Thus we get for the given wavelengths the disersion shown in table \ref{tab:ad}.
+We also supplie a visualization for the wavelengths in between \SIrange{1000}{
+10000}{\angstrom} in figure \ref{fig:ad}.
+\begin{table}[h!]
+\centering
+\begin{tabular}{cc}\toprule
+    $\lambda$   & $\frac{\partial j}{\partial \lambda}$  \\
+    $\left[\si{\angstrom}\right]$ 
+                & $\left[\si[per-mode=symbol]{\degree\per\angstrom}\right]$ \\
+    \midrule
+    5100        &   \num[round-mode=places, round-precision=4]{9.06221858686e-05} \\
+    8900        &   \num[round-mode=places, round-precision=4]{0.0001013003962}   \\
+\bottomrule
+\end{tabular}
+\caption{Results for exercise A.}
+\label{tab:ad}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics[width=10cm]{./pic/ang}
+\caption{Results and visualization for exercise A.}
+\end{figure}
 
 \section*{Exercise B.}
 \section*{Exercise C.}
 \section*{Exercise D.}
 \section*{Exercise E.}
 
+Figure 4 on the sheet shows the spectra of a very cold, metal rich M-giant 
+(bottom; T = 3500 K, log g = 1, [M/H] = -0.5) and a warmer, metal poor K-giant 
+(top; T = 4500 K, log g = 1, [M/H] = -2.5). Argue if and why (not) it is 
+feasible to measure equivalent widths in the colder spectrum. What approach 
+could be used instead to derive information about the chemical composition of 
+the cold star? (3 points)
+\newline
 
+It is not feasible to measure equivalent widths, as it is not possible to 
+estimate a sensible continuum value (see figure \ref{fig:ew} right side). To
+get a good continuum you must be able to see "enough of the tails of the 
+line" (see figure \ref{fig:ew} left side.
+
+To nevertheless get a good idea of the chemical composition of the star one 
+could fit a model to the spectrum, such as a model spectrum.
+
+\begin{figure}
+\centering
+\includegraphics[width=10cm]{./pic/ew}
+\caption{Visualization of the equivalent width $\Delta\lambda = 
+\lambda_1 - \lambda_2$ for exercise E.}
+\label{fig:ew}
+\end{figure}
 \end{document}
