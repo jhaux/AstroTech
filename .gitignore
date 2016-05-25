@@ -15,3 +15,6 @@
 **/lectures/**
 **/pythontex test/**
 **.tar
+
+# Elsas latex editor
+**.synctex.gz
