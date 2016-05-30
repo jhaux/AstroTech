@@ -1,0 +1,333 @@
+\documentclass[11pt,a4paper,twoside]{article}
+\usepackage{a4wide}	% für gut definierte Seitenränder und Platzausnutzung
+\usepackage[utf8]{inputenc}	% für Umlaute
+\usepackage{amssymb,amsmath}
+\usepackage{booktabs}   % schöne Tabellen
+\usepackage[pdftex]{graphicx}
+\usepackage{epstopdf}
+\usepackage{siunitx}	% für SI-Einheiten; siehe http://mirror.unicorncloud.org/CTAN/macros/latex/contrib/siunitx/siunitx.pdf
+\usepackage[version=3]{mhchem}	% chemische Symbole mit \ce{}
+\usepackage{listings} 	% für Einbinden von Quellcode
+\usepackage{color}	% für das Einfärben von eingebundenem Quellcode
+\usepackage{longtable}	% für das Erstellen mehrseitiger Tabellen
+\usepackage[german]{isodate} % Datumformatierung für \today
+\usepackage{marvosym}
+\usepackage{ulem}	% 
+
+% declaring custom units
+\DeclareSIUnit \mag {mag}
+\DeclareSIUnit \parsec {pc}
+\DeclareSIUnit \AU {AU}
+\DeclareSIUnit \pixel {pixel}
+
+% format angle display
+\sisetup{add-arc-degree-zero}
+\sisetup{add-arc-minute-zero}
+\sisetup{add-arc-second-zero}
+\sisetup{arc-separator = \,}
+
+
+%Befehl, um Quellcode einzufügen: 
+%\lstinputlisting[caption = {``title``}, captionpos = b, language=C++]{data.cpp}
+
+%Befehl, um Graphik einzufügen:   
+%\begin{figure}
+%  \centering
+%  \includegraphics[width=0.7\textwidth, angle=-90]{center_diff.eps}
+%  \caption{centered differencing at t = 4}
+%\end{figure}
+
+% Befehl für kein ``\noindent mehr''
+\setlength\parindent{0pt}
+
+%\lstset{numbers=left}
+
+\newcommand{\op}[1]{\operatorname{#1}}
+
+% Konsistente Variablennamen:
+\newcommand{\zen}{\ensuremath{\nu} }    % zenith angle
+\newcommand{\hei}{\ensuremath{h} }      % height angle
+\newcommand{\HA}{\ensuremath{\Gamma} }  % hour angle \HA
+\newcommand{\DEC}{\ensuremath{\delta} } % declination \DE
+\newcommand{\LAT}{\ensuremath{\Phi} }   % latitude \LAT
+\newcommand{\electron}{\ce{e^-}}
+\newcommand{\SNR}{\ensuremath{\frac{S}{N}} }
+
+\lstset{
+   basicstyle=\scriptsize\ttfamily,			% grundlege des Design
+   keywordstyle=\ttfamily,				% Design von Schlüsselwörtern (Codebefehle wie Variablentypen, Schleifenbefehle u.Ä.)
+   stringstyle=\ttfamily,				% Design von Variablen
+   commentstyle=\ttfamily\color{blue},			% Design von Kommentaren
+   showstringspaces=false,				% Leerzeichen in Strings darstellen?
+   flexiblecolumns=false,				% dynamische Spaltenbreite?
+   tabsize=2,						% Länge des Tabulators
+   % Einstellung der Zeilennummerierung:
+   numbers=left,					% Position der Nummern
+   numberstyle=\tiny,					% Größe der Nummern
+   numberblanklines=true,				% Leerzeilen durchnummerieren?
+   numbersep=20pt,					% Platz zwischen Nummern und Code
+   xleftmargin=30pt					% Platz zum linken Seitenrand
+ }
+ 
+%opening
+\title{\LARGE \underline {Sheet 4}}
+\author{Johannes Haux \\ Florian Trost \\ Elsa Wilken}
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{center}
+  Astronomical Techniques (MKEP5) \\
+  \baselineskip35pt
+  by Prof. Dr. Stefan Wagner and Priv.-Doz. Dr. Thorsten Lisker \\
+  \baselineskip60pt
+  Ruprecht Karl University of Heidelberg
+\vskip 40pt
+\includegraphics[width=5cm]{UniHD.png}
+
+\end{center}
+
+\newpage
+\setcounter{page}{1}		% set page count to start with 1 here
+
+\section*{Exercise A.}
+
+Compare the angular dispersions of a \SI{900}{line\per\milli\meter} grating at 
+\SI{5100}{\angstrom} and \SI{8900}{\angstrom}. Suppose you are working in the 
+first order and the angle of incidence is $i = \ang{20}$. (4 points)
+\newline
+
+Knowing the grating density $G$ we can directly infer the grating width $g = 
+\frac{1}{G}$:
+\begin{align}
+    g   &= \frac{1}{\SI{900}{\per\milli\meter}} \\
+        &= \SI{0.001}{\milli\meter}
+\end{align}
+
+To get the angular dispersions we need to look at the angle of the outgoing
+light $j$ which is given by the grating equation:
+\begin{align}
+    m\lambda &= g\left( \sin(i) + \sin(j) \right)  \\
+    \Leftrightarrow j &= \arcsin\left( \frac{m\lambda}{g} - \sin(i)\right)
+\end{align}
+
+Now we can calculate the angular dispersion $\frac{\partial j}{\partial\lambda}$ 
+using the following equation:
+\begin{align}
+    \frac{\partial j}{\partial \lambda} &= \frac{m}{g\cos(j)}    \\
+\end{align}
+
+Thus we get for the given wavelengths the disersion shown in Table \ref{tab:ad}.
+We also supply a visualization for the wavelengths in between \SIrange{1000}{
+10000}{\angstrom} in figure \ref{fig:ad}.
+\begin{table}[h!]
+\centering
+\begin{tabular}{cc}\toprule
+    $\lambda$   & $\frac{\partial j}{\partial \lambda}$  \\
+    $\left[\si{\angstrom}\right]$ 
+                & $\left[\si[per-mode=symbol]{\degree\per\angstrom}\right]$ \\
+    \midrule
+    5100        &   \num[round-mode=places, round-precision=4]{9.06221858686e-05} \\
+    8900        &   \num[round-mode=places, round-precision=4]{0.0001013003962}   \\
+\bottomrule
+\end{tabular}
+\caption{Results for exercise A.}
+\label{tab:ad}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics[width=10cm]{./pic/ang}
+\caption{Results and visualization for exercise A.}
+\end{figure}
+
+\section*{Exercise B.}
+A grating has \num{600} groves per \si{mm} and is \SI{2}{\cm} long.\\
+
+\subsection*{1.} Determine the resolving power $R$ and the spectral resolution obtainable at a wavelength 
+$\lambda = \SI{6200}{\angstrom}$ using the second order. (3 points)\\
+
+Resolving power $R$:\\
+\begin{equation}
+R=\frac{\lambda}{\Delta\lambda}=m\cdot N
+\end{equation}
+With $m=2$ and $N=\num{600} \cdot \num{20} =\num{12000}$
+\begin{equation}
+\underline{R=2\cdot \num{12000}=\num{24000}}
+\end{equation}
+Spectral resolution $\Delta\lambda$:
+\begin{equation}
+\uuline{\Delta\lambda=\frac{\lambda}{R} = \SI{0.258}{\angstrom}}
+\end{equation}
+
+\subsection*{2.} Compute the wavelength for constructive interference assuming that both incidence and
+diffraction angles are \ang{45}. (2 points) \\
+
+The condition for constructive interference is
+\begin{equation}
+g \left( \sin{ \left( i \right) } + \sin{ \left( j \right) } \right) =m\cdot\lambda
+\end{equation}
+
+With the angles 
+
+\begin{equation}
+ i=j=\ang{45}
+\end{equation}
+
+this yields
+
+\begin{equation}
+ \lambda = \frac{2 \, g}{m} \sin{ \left( \ang{45} \right) }
+\end{equation}
+
+\begin{align*}
+m&=1:\quad \rightarrow \lambda=\SI{2357}{\nano\meter}\\
+m&=2:\quad \rightarrow \lambda=\SI{1179}{\nano\meter}\\
+m&=3:\quad \rightarrow \lambda=\SI{786}{\nano\meter}\\
+m&=4:\quad \rightarrow \lambda=\SI{589}{\nano\meter}\\
+\end{align*}
+
+\section*{Exercise C.}
+
+MODS1 is an optical spectrograph mounted at the Large Binocular Telescope in 
+Arizona, equipped with two gratings and two prisms. Specifically, the grating 
+G670L provides a resolving power $R = \num{2300}$ at the wavelength 
+$\lambda = \SI{8000}{\angstrom}$. Its length is \SI{1}{\cm}.
+
+\subsection*{1.} Compute the number of groves per mm for this grating. (2 points) \\
+
+The number of groves per length is the inverse of the grating period 
+$g$ (the distance between two adjacent groves). The resolving power is 
+
+\begin{equation}
+ R = m N
+ \label{eqn:resolving_power}
+\end{equation}
+
+and the grating period is 
+
+\begin{equation}
+ g = \frac{G}{N}
+ \label{eqn:grating_period}
+\end{equation}
+
+where $N$ is the total number of groves and $G$ is the length of the grating, 
+which is \SI{1}{\cm} in this case. Solving (\ref{eqn:grating_period}) 
+for $N$ and inserting into (\ref{eqn:resolving_power}) yields 
+
+\begin{equation}
+ R = m \cdot \frac{G}{g}
+\end{equation}
+
+Solving for $g$ at first order ($m = 1$) gives 
+
+\begin{equation}
+ g = \frac{\SI{1}{\cm}}{2300}
+\end{equation}
+
+The inverse of $g$ is the number of groves per length, which in this case computes to 
+
+\begin{equation}
+ \frac{1}{g} = \SI{2300}{\cm^{-1}} = \SI{230}{\mm^{-1}}
+\end{equation}
+
+\subsection*{2.} How many pixels should be used (along the spectral axis) to properly sample a G670L spectrum between $\lambda$ = \SI{5500}{\angstrom} and  $\lambda$= \SI{1.05}{\micro\metre}? (3 points)\\
+Hint: assume that the spectral resolution corresponds to 2 pixels on the CCD.\\
+
+We know from the lecture:
+\begin{equation}
+\Delta\lambda=\frac{\overline{\lambda}}{R}=\frac{\SI{8000}{\angstrom}}{\num{2300}} = \SI{3.478}{\angstrom}
+\end{equation}
+The wavelength range is \SIrange{5500}{10500}{\angstrom}. With the assumption that the spectral resolution $\Delta\lambda$ corresponds to 2 pixels on the CCD it follows for the pixel number $X_1:$
+
+\begin{eqnarray}
+ \Delta\lambda\cdot X_1&=2\cdot(\SI{10500}{\angstrom}-\SI{5500}{\angstrom})=2\cdot \SI{5000}{\angstrom}\\
+\Rightarrow X_1&=\frac{\SI{10000}{\angstrom}}{\Delta\lambda}\\
+\Rightarrow X_1&=\uuline{\SI{2875}{\pixel}}
+\end{eqnarray}
+
+\subsection*{3.} MODS1 features a CCD detector that covers a field of view in the sky FOV = 6 x 6 
+\si{arcmin\square} with a pixel scale of \SI{0.12}{arcsec\per\pixel}. Can the full spectrum of question 2)  be accommodated within this CCD or will it be truncated? (1 point)\\
+
+\begin{eqnarray}
+\SI{0.12}{arcsec\per\pixel} & = \SI{0.002}{arcmin\per\pixel}\\
+\Rightarrow \frac{X_2}{\SI{6}{arcmin}}&=\SI{500}{\pixel\per arcmin}\\
+\Rightarrow X_2&=\SI{3000}{\pixel}
+\end{eqnarray}
+Because $X_2>X_1$ the full spectrum of question 2) can be acommodatet within this CCD.
+
+\section*{Exercise D.}
+KIC 6131659 is a long-period eclipsing binary (see Fig. 2 and Fig. 3) 
+discovered by the Kepler mission. Its period is $P = \SI{17.5}{\day}$. The stars in this system 
+have mass $m_1 = \num{0.922} M_0$; $m_2 = \num{0.685} M_0$, respectively.\\
+\\
+\subsection*{1.} Using Kepler's laws:
+\begin{equation}
+ \frac{m_1}{m_2}=\frac{v_2}{v_1}
+\end{equation}
+
+\begin{equation}
+ m_1 + m_2 = \left( \frac{P}{2 \pi G} \right) \cdot (v_1 + v_2)^3\\
+\end{equation}
+
+
+(where $G$ is the gravitational constant, $G = \SI{6.672e-11}{\meter\cubed\per\kg\per\second\squared}$, derive the radial velocities $v_1$ and $v_2$ (relative to the systemic, mean velocity of the binary) of the two individual stars. (3 points)\\
+
+\begin{eqnarray}
+\frac{m_1}{m_2} =\frac{v_2}{v_1}\\
+\Rightarrow v_2 = v_1\cdot \frac{m_1}{m_2}\\
+m_1 + m_2 = \left(\frac{P}{2\pi G}\right)\cdot(v_1 + v_2)^3\\
+\Rightarrow m_1 + m_2 = \left(\frac{P}{2\pi G}\right)\cdot v_1^3 \left(1 +  \frac{m_1}{m_2}\right)^3\\
+\Rightarrow v_1^3 =\left(\frac{2\pi G}{P}\right) \left(1+\frac{m_1}{m_2}\right)^{-3}\left(m_1+m_2\right)\\
+\Rightarrow v_1 = \left(\left(\frac{2\pi G}{P}\right)\left(m_1+m_2\right)\right)^{\frac{1}{3}}\left(1+\frac{m_1}{m_2}\right)^{-1}\\
+\Rightarrow v_1 =\SI{40.94}{\kilo\metre\per\second} \quad ; \quad v_2 =\SI{55.10}{\kilo\metre\per\second}
+\end{eqnarray}
+
+\subsection*{2.} Making use of the Doppler effect (non relativistic and for small velocity differences) ,
+determine the minimum resolving power $R$ necessary to resolve the individual orbital
+velocities $v_1$ and $v_2$ of the system. (3 points)\\
+
+Doppler effect:
+red shift for star 1
+\begin{eqnarray}
+z_1=\frac{\Delta\lambda_1}{\lambda_0} = \sqrt{\frac{c+v}{c-v}}-1 \\
+\Rightarrow \Delta\lambda&=\lambda_0\cdot \left(\sqrt{\frac{c+v_1}{c-v_1}}-1\right)\\
+\approx\lambda_0\cdot \frac{c}{v_1}\\
+\Rightarrow R_1 = \frac{\Delta\lambda_1}{\lambda_1}=\frac{c}{v_1} = \num{7322.5}\\
+\end{eqnarray}
+
+Similarly: 
+
+\begin{equation}
+ R_2 = \num{5440.4}
+\end{equation}
+
+\section*{Exercise E.}
+
+Figure 4 on the sheet shows the spectra of a very cold, metal rich M-giant 
+(bottom; $T = \SI{3500}{\kelvin}$, $\log g = 1$, $[M/H] = \num{-0.5}$) and a warmer, metal poor K-giant 
+(top; $T = \SI{4500}{\kelvin}$, $\log g = 1$, $[M/H] = \num{-2.5}$). Argue if and why (not) it is 
+feasible to measure equivalent widths in the colder spectrum. What approach 
+could be used instead to derive information about the chemical composition of 
+the cold star? (3 points) \\
+
+It is not feasible to measure equivalent widths, as it is not possible to 
+estimate a sensible continuum value (see figure \ref{fig:ew} right side). To
+get a good continuum you must be able to see "enough of the tails of the 
+line" (see figure \ref{fig:ew} left side.
+
+To nevertheless get a good idea of the chemical composition of the star one 
+could fit a model to the spectrum, such as a model spectrum.
+
+\begin{figure}
+\centering
+\includegraphics[width=10cm]{./pic/ew}
+\caption{Visualization of the equivalent width $\Delta\lambda = 
+\lambda_1 - \lambda_2$ for exercise E.}
+\label{fig:ew}
+\end{figure}
+\end{document}
