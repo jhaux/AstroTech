@@ -12,11 +12,13 @@
 \usepackage{longtable}	% für das Erstellen mehrseitiger Tabellen
 \usepackage[german]{isodate} % Datumformatierung für \today
 \usepackage{marvosym}
+\usepackage{ulem}	% 
 
 % declaring custom units
 \DeclareSIUnit \mag {mag}
 \DeclareSIUnit \parsec {pc}
 \DeclareSIUnit \AU {AU}
+\DeclareSIUnit \pixel {pixel}
 
 % format angle display
 \sisetup{add-arc-degree-zero}
@@ -85,7 +87,7 @@
   \baselineskip60pt
   Ruprecht Karl University of Heidelberg
 \vskip 40pt
-\includegraphics[width=5cm]{pic/UniHD.png}
+\includegraphics[width=5cm]{UniHD.png}
 
 \end{center}
 
@@ -119,8 +121,8 @@ using the following equation:
     \frac{\partial j}{\partial \lambda} &= \frac{m}{g\cos(j)}    \\
 \end{align}
 
-Thus we get for the given wavelengths the disersion shown in table \ref{tab:ad}.
-We also supplie a visualization for the wavelengths in between \SIrange{1000}{
+Thus we get for the given wavelengths the disersion shown in Table \ref{tab:ad}.
+We also supply a visualization for the wavelengths in between \SIrange{1000}{
 10000}{\angstrom} in figure \ref{fig:ad}.
 \begin{table}[h!]
 \centering
@@ -144,44 +146,51 @@ We also supplie a visualization for the wavelengths in between \SIrange{1000}{
 \end{figure}
 
 \section*{Exercise B.}
-A grating has 600 groves per mm 
-and is 2 cm long.\\
-\\
-\subsection*{1.} Determine the resolving power R and the spectral resolution obtainable at a wavelength 
-$\lambda$ = 6200\AA\hspace{0.06cm}using the second order. (3 points)\\
-\textbf{Answer}\\
-Resolving power R:\\
+A grating has \num{600} groves per \si{mm} and is \SI{2}{\cm} long.\\
+
+\subsection*{1.} Determine the resolving power $R$ and the spectral resolution obtainable at a wavelength 
+$\lambda = \SI{6200}{\angstrom}$ using the second order. (3 points)\\
+
+Resolving power $R$:\\
 \begin{equation}
 R=\frac{\lambda}{\Delta\lambda}=m\cdot N
 \end{equation}
-With m=2 \& $N=600\cdot 20 =1200$
+With $m=2$ and $N=\num{600} \cdot \num{20} =\num{12000}$
 \begin{equation}
-\underline{R=2\cdot 1200=2400}
+\underline{R=2\cdot \num{12000}=\num{24000}}
 \end{equation}
-Spectral resolutin $\Delta\lambda$:
+Spectral resolution $\Delta\lambda$:
 \begin{equation}
-\underline{\Delta\lambda=\frac{\lambda}{R}=2,58}
+\uuline{\Delta\lambda=\frac{\lambda}{R} = \SI{0.258}{\angstrom}}
 \end{equation}
-\\
-\subsection*{2.}
-Compute the wavelength for constructive interference assuming that both incidence and
-diffraction angles are 45$^{\circ}$.(2 points)
-\textbf{Answer}\\
-Constructive interference:
+
+\subsection*{2.} Compute the wavelength for constructive interference assuming that both incidence and
+diffraction angles are \ang{45}. (2 points) \\
+
+The condition for constructive interference is
 \begin{equation}
-g(sin(i)+sin(j))=m\cdot\lambda
+g \left( \sin{ \left( i \right) } + \sin{ \left( j \right) } \right) =m\cdot\lambda
 \end{equation}
-i=j=45$^{\circ}$
+
+With the angles 
+
 \begin{equation}
-\rightarrow \frac{g\cdot 2\cdot sin(45^{\circ})}{m}=\lambda
+ i=j=\ang{45}
 \end{equation}
+
+this yields
+
+\begin{equation}
+ \lambda = \frac{2 \, g}{m} \sin{ \left( \ang{45} \right) }
+\end{equation}
+
 \begin{align*}
-m&=1:\quad \rightarrow \lambda=2657nm\\
-m&=2:\quad \rightarrow \lambda=1179nm\\
-m&=3:\quad \rightarrow \lambda=786nm\\
-m&=4:\quad \rightarrow \lambda=589nm\\
+m&=1:\quad \rightarrow \lambda=\SI{2357}{\nano\meter}\\
+m&=2:\quad \rightarrow \lambda=\SI{1179}{\nano\meter}\\
+m&=3:\quad \rightarrow \lambda=\SI{786}{\nano\meter}\\
+m&=4:\quad \rightarrow \lambda=\SI{589}{\nano\meter}\\
 \end{align*}
-%
+
 \section*{Exercise C.}
 
 MODS1 is an optical spectrograph mounted at the Large Binocular Telescope in 
@@ -225,79 +234,86 @@ The inverse of $g$ is the number of groves per length, which in this case comput
 \begin{equation}
  \frac{1}{g} = \SI{2300}{\cm^{-1}} = \SI{230}{\mm^{-1}}
 \end{equation}
+
 \subsection*{2.} How many pixels should be used (along the spectral axis) to properly sample a G670L spectrum between $\lambda$ = \SI{5500}{\angstrom} and  $\lambda$= \SI{1.05}{\micro\metre}? (3 points)\\
-Hint: assume that the spectral resolution corresponds to 2 pixels on the CCD\\
-\textbf{Answer}\\
+Hint: assume that the spectral resolution corresponds to 2 pixels on the CCD.\\
+
 We know from the lecture:
 \begin{equation}
-\Delta\lambda=\frac{\lambda}{R}=\frac{8000}{2300}\SI{}{\angstrom}=\SI{3.5}{\angstrom}
+\Delta\lambda=\frac{\overline{\lambda}}{R}=\frac{\SI{8000}{\angstrom}}{\num{2300}} = \SI{3.478}{\angstrom}
 \end{equation}
-Wavelength Range: $\lambda$: \SI{5500}{\angstrom}-\SI{10500}{\angstrom}
-\begin{equation}
-\Delta\lambda \hat{=} \SI{2}{pix}
-\end{equation}
-\begin{align*}
-\rightarrow \Delta\lambda\cdot X_1&=2\cdot(\SI{10500}{\angstrom}-5500\AA)=2\cdot \SI{5000}{\angstrom}\\
-\rightarrow X_1&=\frac{5000\cdot 2}{\Delta\lambda}\\
-\rightarrow X_1&=\underline{\underline{\SI{2857}{pix}}}
-\end{align*}
-\\
-\subsection*{3.}
-MODS1 features a CCD detector that covers a field of view in the sky FOV = 6 x 6 
-arcmin$^2$ with a pixel scale of 0.12 arcsec/pixel. Can the full spectrum of question 2)  be accommodated within this CCD or will it be truncated? (1 point)\\
-\textbf{Answer}\\
-\begin{align*}
-0.12\left[\frac{arcsec}{pixel}\right]&\hat{=}\frac{0.12}{60}\left[\frac{arcmin}{pixel}\right]\\
-\rightarrow X_2&=6\cdot\frac{60}{0.12}\left[\frac{pixel}{arcmin}\right]\\
-\rightarrow X_2&=\SI{3000}{pix}
-\end{align*}
-Because $X_2>X_2$ the full spectrum of question 2) can\'{}t be acommodatet within this CCD.
+The wavelength range is \SIrange{5500}{10500}{\angstrom}. With the assumption that the spectral resolution $\Delta\lambda$ corresponds to 2 pixels on the CCD it follows for the pixel number $X_1:$
+
+\begin{eqnarray}
+ \Delta\lambda\cdot X_1&=2\cdot(\SI{10500}{\angstrom}-\SI{5500}{\angstrom})=2\cdot \SI{5000}{\angstrom}\\
+\Rightarrow X_1&=\frac{\SI{10000}{\angstrom}}{\Delta\lambda}\\
+\Rightarrow X_1&=\uuline{\SI{2875}{\pixel}}
+\end{eqnarray}
+
+\subsection*{3.} MODS1 features a CCD detector that covers a field of view in the sky FOV = 6 x 6 
+\si{arcmin\square} with a pixel scale of \SI{0.12}{arcsec\per\pixel}. Can the full spectrum of question 2)  be accommodated within this CCD or will it be truncated? (1 point)\\
+
+\begin{eqnarray}
+\SI{0.12}{arcsec\per\pixel} & = \SI{0.002}{arcmin\per\pixel}\\
+\Rightarrow \frac{X_2}{\SI{6}{arcmin}}&=\SI{500}{\pixel\per arcmin}\\
+\Rightarrow X_2&=\SI{3000}{\pixel}
+\end{eqnarray}
+Because $X_2>X_1$ the full spectrum of question 2) can be acommodatet within this CCD.
 
 \section*{Exercise D.}
 KIC 6131659 is a long-period eclipsing binary (see Fig. 2 and Fig. 3) 
-discovered by the Kepler mission. Its period is P = 17.5 days. The stars in this system 
-have mass m1 = 0.922 $M_0$; m2 = 0.685 $M_0$, respectively.\\
+discovered by the Kepler mission. Its period is $P = \SI{17.5}{\day}$. The stars in this system 
+have mass $m_1 = \num{0.922} M_0$; $m_2 = \num{0.685} M_0$, respectively.\\
 \\
-\subsection*{1.} Using Kepler's laws:\\
-m1/m2=v2/v1\\
-m1 + m2 = (P/2$\pi$G)*(v1 + v2)$^3$\\
-(where G is the gravitational constant, G = 6.672x$10^{-11}m^3kg^{-1}s^{-2}$),derive the radial velocities v1 and v2 (relative to the systemic, mean velocity of the binary) of the two individual stars. (3 points)\\
-\textbf{Answer}:\\
-\begin{align*}
-\frac{m1}{m2}&=\frac{v2}{v1}\\
-\rightarrow v2&=v1\cdot \frac{m1}{m2}\\
-\\
-m1 + m2 &= \left(\frac{P}{2\pi G}\right)\cdot(v1 + v2)^3\\
-\rightarrow m1 + m2 &= \left(\frac{P}{2\pi G}\right)\cdot \left(v1\left(1 +  \frac{m1}{m2}\right)\right)^3\\
-\rightarrow v1^3&=\left(\frac{2\pi G}{P}\right)\left(1+\frac{m1}{m2}\right)^{-3}\left(m1+m2\right)\\
-\rightarrow v1&=\left(\left(\frac{2\pi G}{P}\right)\left(m1+m2\right)\right)^{\frac{1}{3}}\left(1+\frac{m1}{m2}\right)^{-1}\\
-\\
-\frac{v1}{M_0}&=1.79181\cdot 10^{-5}\si{\metre\per\second}\\
-\frac{v2}{M_0}&=1.6830\cdot 10^{-5}\si{\metre\per\second}
-\end{align*}
+\subsection*{1.} Using Kepler's laws:
+\begin{equation}
+ \frac{m_1}{m_2}=\frac{v_2}{v_1}
+\end{equation}
+
+\begin{equation}
+ m_1 + m_2 = \left( \frac{P}{2 \pi G} \right) \cdot (v_1 + v_2)^3\\
+\end{equation}
+
+
+(where $G$ is the gravitational constant, $G = \SI{6.672e-11}{\meter\cubed\per\kg\per\second\squared}$, derive the radial velocities $v_1$ and $v_2$ (relative to the systemic, mean velocity of the binary) of the two individual stars. (3 points)\\
+
+\begin{eqnarray}
+\frac{m_1}{m_2} =\frac{v_2}{v_1}\\
+\Rightarrow v_2 = v_1\cdot \frac{m_1}{m_2}\\
+m_1 + m_2 = \left(\frac{P}{2\pi G}\right)\cdot(v_1 + v_2)^3\\
+\Rightarrow m_1 + m_2 = \left(\frac{P}{2\pi G}\right)\cdot v_1^3 \left(1 +  \frac{m_1}{m_2}\right)^3\\
+\Rightarrow v_1^3 =\left(\frac{2\pi G}{P}\right) \left(1+\frac{m_1}{m_2}\right)^{-3}\left(m_1+m_2\right)\\
+\Rightarrow v_1 = \left(\left(\frac{2\pi G}{P}\right)\left(m_1+m_2\right)\right)^{\frac{1}{3}}\left(1+\frac{m_1}{m_2}\right)^{-1}\\
+\Rightarrow v_1 =\SI{40.94}{\kilo\metre\per\second} \quad ; \quad v_2 =\SI{55.10}{\kilo\metre\per\second}
+\end{eqnarray}
+
 \subsection*{2.} Making use of the Doppler effect (non relativistic and for small velocity differences) ,
-determine the minimum resolving power R necessary to resolve the individual orbital
-velocities v1 and v2 of the system. (3 points)\\
-\textbf{Answer}\\
+determine the minimum resolving power $R$ necessary to resolve the individual orbital
+velocities $v_1$ and $v_2$ of the system. (3 points)\\
+
 Doppler effect:
 red shift for star 1
-\begin{align*}
-z_1=\frac{\Delta\lambda_1}{\lambda_0}&=\left(\sqrt{\frac{c+v}{c-v}}-1\right)\\
-\rightarrow \Delta\lambda&=\lambda_0\cdot \left(\sqrt{\frac{c+v1}{c-v1}}-1\right)\\
-&\approx\lambda_0\cdot \frac{c}{v1}\\
-\rightarrow R_1&=\frac{\Delta\lambda_1}{\lambda_1}=\frac{c}{v1}\\
-&\text{since v1 \& v2 are nearly the same:}\\
-R_1 &\approx R_2\\
-\end{align*}
+\begin{eqnarray}
+z_1=\frac{\Delta\lambda_1}{\lambda_0} = \sqrt{\frac{c+v}{c-v}}-1 \\
+\Rightarrow \Delta\lambda&=\lambda_0\cdot \left(\sqrt{\frac{c+v_1}{c-v_1}}-1\right)\\
+\approx\lambda_0\cdot \frac{c}{v_1}\\
+\Rightarrow R_1 = \frac{\Delta\lambda_1}{\lambda_1}=\frac{c}{v_1} = \num{7322.5}\\
+\end{eqnarray}
+
+Similarly: 
+
+\begin{equation}
+ R_2 = \num{5440.4}
+\end{equation}
+
 \section*{Exercise E.}
 
 Figure 4 on the sheet shows the spectra of a very cold, metal rich M-giant 
-(bottom; T = 3500 K, log g = 1, [M/H] = -0.5) and a warmer, metal poor K-giant 
-(top; T = 4500 K, log g = 1, [M/H] = -2.5). Argue if and why (not) it is 
+(bottom; $T = \SI{3500}{\kelvin}$, $\log g = 1$, $[M/H] = \num{-0.5}$) and a warmer, metal poor K-giant 
+(top; $T = \SI{4500}{\kelvin}$, $\log g = 1$, $[M/H] = \num{-2.5}$). Argue if and why (not) it is 
 feasible to measure equivalent widths in the colder spectrum. What approach 
 could be used instead to derive information about the chemical composition of 
-the cold star? (3 points)
-\newline
+the cold star? (3 points) \\
 
 It is not feasible to measure equivalent widths, as it is not possible to 
 estimate a sensible continuum value (see figure \ref{fig:ew} right side). To
