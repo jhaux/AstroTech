@@ -4,6 +4,7 @@
 \usepackage{amssymb,amsmath}
 \usepackage{booktabs}   % schöne Tabellen
 \usepackage[pdftex]{graphicx}
+\graphicspath{{./pic/}}
 \usepackage{epstopdf}
 \usepackage{siunitx}	% für SI-Einheiten; siehe http://mirror.unicorncloud.org/CTAN/macros/latex/contrib/siunitx/siunitx.pdf
 \usepackage[version=3]{mhchem}	% chemische Symbole mit \ce{}
@@ -53,6 +54,10 @@
 \newcommand{\electron}{\ce{e^-}}
 \newcommand{\SNR}{\ensuremath{\frac{S}{N}} }
 
+\newcommand{\MgFe}{\ensuremath{[\text{MgFe}]^\prime} }
+\newcommand{\ZH}{\ensuremath{[\text{Z}/\text{H}]} }
+\newcommand{\Hbo}{\ensuremath{[\text{H}\beta_0]} }
+
 \lstset{
    basicstyle=\scriptsize\ttfamily,			% grundlege des Design
    keywordstyle=\ttfamily,				% Design von Schlüsselwörtern (Codebefehle wie Variablentypen, Schleifenbefehle u.Ä.)
@@ -70,7 +75,7 @@
  }
  
 %opening
-\title{\LARGE \underline {Sheet 4}}
+\title{\LARGE \underline {Sheet 5}}
 \author{Johannes Haux \\ Florian Trost \\ Elsa Wilken}
 \date{\today}
 
@@ -97,6 +102,101 @@
 \section*{Exercise A.}
 
 \section*{Exercise B.}
+
+According to the virial theorem, galaxies in an isolated cluster can change
+their kinetic ($K$) and potential energies ($W$) as long as the sum of these 
+remains constant, so that $K = -0.5W$. Here, $W$ is the potential energy of the 
+galaxies within the gravitational potential of the cluster, $W \propto 
+G \frac{M_{clu}}{R_{clu}}$, where $M_{clu}$ and $R_{clu}$ are the total mass and 
+the radius of the cluster, and $G$ the gravitational constant. We have to keep 
+in mind that cluster galaxies move because of the Universe expansion and 
+because of their orbits in the cluster potential well. \\
+
+\paragraph{1.} By applying the virial theorem, astronomers were able to 
+estimate the total mass of the Abell 1689 cluster (see Fig. 1 on sheet) and of 
+other galaxy clusters. Which kind of observations would you need to compute 
+the total mass of a cluster? (6 points) \\
+
+As we know $W$ and $K$ are defined as follows:
+\begin{align}
+    W &\propto G \frac{M_{clu}^2}{R_{clu}}\;, \\
+    K &= \sum_i \frac{1}{2}m_iv_i^2\;,\\
+    &= \frac{1}{2} M_{clu} \left< v^2\right> \;, \\
+    &= \frac{3}{2} M_{clu} \sigma^2\;,
+\end{align}
+with $m_i$ and $v_i$ being the masses and velocities of the members of the
+cluster, which sum up to total mass $M_{clu}$ and the mean-squared velocity
+$\left< v^2 \right>$, which in turn can be described via the measured radial
+velocity dispersion $\sigma$. Also, from the deep and never ending ocean of
+information, that we call the internet, we know that 
+$3\sigma^2 = \left<v^2\right>$.
+
+Now we can use virial's theorem to find a descripton of $M_{clu}$, dependend
+only on observable magnitudes:
+\begin{align}
+    -0.5\cdot G \frac{M_{clu}^2}{R_{clu}} &\propto \frac{3}{2} M_{clu} \sigma^2\\
+    \Leftrightarrow const &= M_{clu} \cdot\left( \frac{1}{3}\frac{G}{\sigma^2 R_{clu}}\right) \\
+    \Leftrightarrow M_{clu} &= const \cdot \sigma^2 R_{clu}
+\end{align}
+In the last step we move all the constants together into $const$, such that we
+are only left with the two observables $\sigma^2$, the radial velocity dispersion
+and $R_{clu}$, the radius of the cluster, which we both need
+to measure to estimate the mass of the cluster.
+
+\paragraph{2.} We can use the spectroscopic information collected for the 
+early-type galaxies in this cluster to estimate the age and metallicity of 
+their stellar populations (see Fig. 2). This is typically done by comparing 
+the measured equivalent widths of the index $\Hbo$ and the composite index 
+$\MgFe$ with their theoretical values as derived from synthetic simple
+stellar populations of given age, metallicity and IMF.\\
+
+Using the attached file \verb+theory_indices.dat+, which list the theoretical 
+values of $\Hbo$ and $\MgFe$, draw the grid of theoretical indices as 
+displayed in Fig. 3 on the sheet, where the horizontal blue lines show how 
+these indices vary as a function of metallicity $\ZH$ (from 
+\SIrange{-0.16}{0.16}{dex}) at fixed age, and the vertical red lines show how 
+the two indices vary as a function of age (from \SIrange{4}{14}{Gyr}) 
+at fixed metallicity $\ZH$. Subsequently, overplot on the theoretical grid 
+the observed values of $\Hbo$ and $\MgFe$ that are included in the attached 
+file \verb+observed_indices.dat+. By comparing the positions of the observed 
+indices with the theoretical grid, estimate the age and metallicity $\ZH$ of 
+a sample of early-type galaxies in Abell 1689. Briefly comments your results. 
+(8 points) \\
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=12cm]{ageMetal}
+\caption{Measured \MgFe and \Hbo indeces together with model predictions
+for age and metalicity.}
+\label{fig:am}
+\end{figure}
+In figure \ref{fig:am} we plot the model and observed data as given in the 
+exercise. By interpolating linearly by hand we calculate the ages and
+metalicities given in table \ref{tab:am}.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{ccc}\toprule
+Galaxy  & \ZH           & age               \\
+        & $[\si{dex}]$  & $[\si{Gyr}]$      \\ \midrule
+$G_1$   & -0.04         & 5.1				\\
+$G_2$   & -0.04	        & 7.4				\\
+$G_3$   & -0.05	        & 12.3				\\
+$G_4$   & -0.01	        & 13.7				\\
+$G_5$   & 0.13	        & 11.1				\\
+$G_6$   & -0.12	        & 6.5				\\
+$G_7$   & -0.11	        & 7.3				\\
+$G_8$   & -0.09	        & 10.5				\\
+$G_9$   & 0.07	        & 6.3				\\
+$G_{10}$& 0.02	        & 8.6				\\
+\bottomrule
+\end{tabular}
+\caption{Estimated metalicities and ages for the given data in
+exercise B. All estimations are done by hand and in a linear 
+fashion.}
+\label{tab:am}
+\end{table}
+
 
 \section*{Exercise C.}
 
