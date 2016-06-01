@@ -200,4 +200,34 @@ fashion.}
 
 \section*{Exercise C.}
 
+\subsection*{1.} Which kind of observations would you design in order to measure the total luminosity in $\text{H}\alpha$ of a HII region? (2 points) \\
+
+
+\subsection*{2.} The oxygen emission lines in the spectrum of a HII region are used to measure the abundance of oxygen $ \left[12 + \log{\left( \text{O/H} \right)} \right]$ in the interstellar medium of a galaxy. Often, the oxygen abundances of HII regions are plotted as a function of distance from the galaxy centre so to derive the radial gradient of O/H. Using the data in the attached file \texttt{h2regions.dat} estimate the radial gradient of O/H for the Milky Way. Briefly discuss your results. (4 points) \\
+
+In Figure \ref{fig:oxygen} the oxygen abundance given for \num{26} HII regions in the Milky Way are plotted as a function of their given distance from the galactic centre. In the upper plot, the given values of oxygen abundance $ \left[12 + \log{\left( \text{O/H} \right)} \right]$ in dex were directly used; the lower plot shows a linearised variant of the oxygen abundance which was computed by using the given values subtracted by \num{12} as the exponent of \num{10}. \\
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{oxygen}
+\caption{Oxygen abundance for different HII regions in the Milky Way as a function of distance from galaxy centre; top: oxygen abundance $ \left[12 + \log{\left( \text{O/H} \right)} \right]$ in dex; bottom: oxygen abundance O/H; the straight lines are models computed via simple linear regression.}
+\label{fig:oxygen}
+\end{figure}
+
+For each case, a simple linear regression was computed. The coefficients of the linear models are listed in Table \ref{tab:oxygen}. 
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lcc}\toprule
+		  & Intercept		& Slope			\\ \midrule
+original data	  & \num{8.96}		& \num{-0.054}		\\
+linearised data   & \num{5.95e-4}	& \num{-3.105e-5}	\\
+\bottomrule
+\end{tabular}
+\caption{Coefficients of the linear models for both original and linearised data.}
+\label{tab:oxygen}
+\end{table}
+
+In the plots of the data a clear trend of decreasing oxygen abundance with increasing distance from the galactic centre can be seen. This trens is supported by the linear models which both show a negative slope. According to the linear models, the oxygen abundance decreases with \num{-0.054} dex per kiloparsec. The overall trend of lower oxygen abundance in the outer regions of the galaxy indicates a generally lower metallicity in these regions. This is plausible because star formation rates have been higher in the denser centre of the galaxy. This led to higher formation rates of heavy elements by nucleosynthesis in those stars compared to the outer regions of the galaxy. \\
+
 \end{document}
