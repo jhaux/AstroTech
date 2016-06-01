@@ -119,10 +119,20 @@ the total mass of a cluster? (6 points) \\
 
 As we know $W$ and $K$ are defined as follows:
 \begin{align}
-    W &\propto G \frac{M_{clu}^2}{R_{clu}}\;, \\
-    K &= \sum_i \frac{1}{2}m_iv_i^2\;,\\
-    &= \frac{1}{2} M_{clu} \left< v^2\right> \;, \\
-    &= \frac{3}{2} M_{clu} \sigma^2\;,
+    W   &= \sum_i W_i \\
+        &= \sum_i - \int_{\infty}^{R_{clu}} \vec{F}_i(\vec{r})\op{d}\vec{r} \\
+        &= \sum_i - \int_{\infty}^{R_{clu}} -\frac{GM_{clu}m_i}{r^2}\op{d}r \\
+        &= \sum_i GM_{clu}m_i\int_{\infty}^{R_{clu}} \frac{1}{r^2}\op{d}r \\
+        &= -\left( \sum_im_i \right)GM_{clu} \frac{1}{R_{clu}}  \\
+        &= \frac{GM_{clu}^2}{R_{clu}}
+\end{align}
+Here we assume, that $M_{clu} \gg m_i$ and a spherical distibution.
+The total potential energy is the sum of all the potential energies each 
+member of the cluster has.
+\begin{align}
+    K   &= \sum_i \frac{1}{2}m_iv_i^2\;,\\
+        &= \frac{1}{2} M_{clu} \left< v^2\right> \;, \\
+        &= \frac{3}{2} M_{clu} \sigma^2\;,
 \end{align}
 with $m_i$ and $v_i$ being the masses and velocities of the members of the
 cluster, which sum up to total mass $M_{clu}$ and the mean-squared velocity
@@ -170,9 +180,13 @@ a sample of early-type galaxies in Abell 1689. Briefly comments your results.
 for age and metalicity.}
 \label{fig:am}
 \end{figure}
-In figure \ref{fig:am} we plot the model and observed data as given in the 
+In figure \ref{fig:am} we plot the model and observed data as given in the
 exercise. By interpolating linearly by hand we calculate the ages and
-metalicities given in table \ref{tab:am}.
+metalicities given in table \ref{tab:am}.  
+
+We can see galaxies formed at very early ages of the universe and galaxies,
+formed recently. There does not seem to be a correlation between age and 
+metalicity.
 
 \begin{table}[h!]
 \centering
