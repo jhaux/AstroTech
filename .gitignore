@@ -19,3 +19,10 @@ zettel5/Homework5/**
 
 # Elsas latex editor
 **.synctex.gz
+
+# Gimp files
+**.xcf
+
+# Minted stuff
+**_minted**
+**.pygstyle
