@@ -252,9 +252,21 @@ exercise A (lines 2-5 in listing \ref{fig:cc}).
 
 As the resulting fringe pattern is extremely similar to the one we calculated
 before, we also calculate the difference between the two. The result is shown
-in figure \ref{fig:df}. This difference pattern can then also be observed, when
-looking at the differences in the resulting image \verb+science6-bffm.fits+
-after substracting the fringe pattern.
+in figure \ref{fig:df} on the top. This difference pattern can then also be
+observed, when looking at the differences in the resulting image
+\verb+science6-bffm.fits+ after substracting the fringe pattern (figure
+\ref{fig:df} bottom).
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{./pic/diff_fringe}
+\includegraphics[width=\linewidth]{./pic/diff_result}
+\caption{Results using the newly accomplished version of the fringe pattern
+        and differences to the results using the old version. The differences
+        are relatively small, compared to the dynamic range of the image ($\sim
+        100$ vs $\sim 100000$).}
+\label{fig:df}
+\end{figure}
 
 The differences are extremely small. They are in the range of -100 to 100 counts
 while the dynamic range of the picture spans a range of $\approx 10000$ counts.
