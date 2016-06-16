@@ -125,6 +125,22 @@ suffix          & meaning \\ \midrule
 \end{tabular}
 \end{table}
 
+\section*{Demanded files}
+In the archive \verb+files.zip+, together with this \verb+.pdf+ and some other
+files to eliminate possible misunderstandings we supply these files as
+requested in the exercise:
+\begin{table}[h!]
+\begin{tabular}{p{4cm}l}\toprule
+name                        & file         \\ \midrule
+\verb+fringe.fits+          & FITS image of the pure fringe pattern \\
+\verb+science6-bff.fits+    & final reduced FITS image of the object science6 \\
+\verb+science6-bffu10.fits+ 
+and figure \ref{fig:gs} 
+(top right)                 & file of the unsharp mask image for question B\\
+\verb+fringe_mask.fits+     & re-reduced FITS image of science6 for question C	\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \section*{Exercise A.}
 
@@ -207,7 +223,7 @@ The resulting image generated from \verb+science6-bf.fits+ can be found in figur
 ecl> gauss science6-bff.fits science6-bffg10.fits sigma=10
 ecl> imarith science6-bff.fits / science6-bffg10.fits science6-bffu10.fits
 \end{minted}
-\caption{Operations executed in IRAF for exercise A.}
+\caption{Operations executed in IRAF for exercise B.}
 \label{fig:cb}
 \end{listing}
 
@@ -242,7 +258,7 @@ ecl> imcombine @science-bfs.txt fringe_mask.fits combine=median masktype=!mymask
 ecl> imarith fringe_mask.fits / @factors.txt  @scaled_fringes-m.txt
 ecl> imarith @science-bf.txt - @scaled_fringes-m.txt @science-bffm.txt
 \end{minted}
-\caption{Operations executed in IRAF for exercise A.}
+\caption{Operations executed in IRAF for exercise C.}
 \label{fig:cc}
 \end{listing}
 
@@ -261,8 +277,8 @@ observed, when looking at the differences in the resulting image
 \centering
 \includegraphics[width=\linewidth]{./pic/diff_fringe}
 \includegraphics[width=\linewidth]{./pic/diff_result}
-\caption{Results using the newly accomplished version of the fringe pattern
-        and differences to the results using the old version. The differences
+\caption{Results using the newly accomplished version of the fringe pattern (left)
+        and differences (right) to the results using the old version. The differences
         are relatively small, compared to the dynamic range of the image ($\sim
         100$ vs $\sim 100000$).}
 \label{fig:df}
