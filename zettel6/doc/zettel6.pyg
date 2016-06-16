@@ -1,0 +1,6 @@
+# for image 1-7:
+ecl> hedit science1-bf.fits mymask masks/objectmask1.fits add=yes verify=no
+ecl> imcombine @science-bfs.txt fringe_mask.fits combine=median masktype=!mymask
+
+ecl> imarith fringe_mask.fits / @factors.txt  @scaled_fringes-m.txt
+ecl> imarith @science-bf.txt - @scaled_fringes-m.txt @science-bffm.txt
