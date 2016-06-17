@@ -1,0 +1,278 @@
+\documentclass[11pt,a4paper,twoside]{article}
+\usepackage{a4wide}	% für gut definierte Seitenränder und Platzausnutzung
+\usepackage[utf8]{inputenc}	% für Umlaute
+\usepackage{amssymb,amsmath}
+\usepackage{booktabs}   % schöne Tabellen
+\usepackage[pdftex]{graphicx}
+\graphicspath{{./pic/}}
+\usepackage{epstopdf}
+\usepackage{siunitx}	% für SI-Einheiten; siehe http://mirror.unicorncloud.org/CTAN/macros/latex/contrib/siunitx/siunitx.pdf
+\usepackage[version=3]{mhchem}	% chemische Symbole mit \ce{}
+\usepackage{listings} 	% für Einbinden von Quellcode
+\usepackage{minted}     % Johannes Lieblingspackage für Quellcode
+\usepackage{color}	% für das Einfärben von eingebundenem Quellcode
+\usepackage{longtable}	% für das Erstellen mehrseitiger Tabellen
+\usepackage[german]{isodate} % Datumformatierung für \today
+\usepackage{marvosym}
+\usepackage{ulem}	% 
+
+% declaring custom units
+\DeclareSIUnit \mag {mag}
+\DeclareSIUnit \parsec {pc}
+\DeclareSIUnit \AU {AU}
+\DeclareSIUnit \pixel {pixel}
+
+% format angle display
+\sisetup{add-arc-degree-zero}
+\sisetup{add-arc-minute-zero}
+\sisetup{add-arc-second-zero}
+\sisetup{arc-separator = \,}
+
+
+%Befehl, um Quellcode einzufügen: 
+%\lstinputlisting[caption = {``title``}, captionpos = b, language=C++]{data.cpp}
+
+%Befehl, um Graphik einzufügen:   
+%\begin{figure}
+%  \centering
+%  \includegraphics[width=0.7\textwidth, angle=-90]{center_diff.eps}
+%  \caption{centered differencing at t = 4}
+%\end{figure}
+
+% Befehl für kein ``\noindent mehr''
+\setlength\parindent{0pt}
+
+%\lstset{numbers=left}
+
+\newcommand{\op}[1]{\operatorname{#1}}
+
+% Konsistente Variablennamen:
+\newcommand{\zen}{\ensuremath{\nu} }    % zenith angle
+\newcommand{\hei}{\ensuremath{h} }      % height angle
+\newcommand{\HA}{\ensuremath{\Gamma} }  % hour angle \HA
+\newcommand{\DEC}{\ensuremath{\delta} } % declination \DE
+\newcommand{\LAT}{\ensuremath{\Phi} }   % latitude \LAT
+\newcommand{\electron}{\ce{e^-}}
+\newcommand{\SNR}{\ensuremath{\frac{S}{N}} }
+
+\newcommand{\MgFe}{\ensuremath{[\text{MgFe}]^\prime} }
+\newcommand{\ZH}{\ensuremath{[\text{Z}/\text{H}]} }
+\newcommand{\Hbo}{\ensuremath{[\text{H}\beta_0]} }
+
+\lstset{
+   basicstyle=\scriptsize\ttfamily,			% grundlege des Design
+   keywordstyle=\ttfamily,				% Design von Schlüsselwörtern (Codebefehle wie Variablentypen, Schleifenbefehle u.Ä.)
+   stringstyle=\ttfamily,				% Design von Variablen
+   commentstyle=\ttfamily\color{blue},			% Design von Kommentaren
+   showstringspaces=false,				% Leerzeichen in Strings darstellen?
+   flexiblecolumns=false,				% dynamische Spaltenbreite?
+   tabsize=2,						% Länge des Tabulators
+   % Einstellung der Zeilennummerierung:
+   numbers=left,					% Position der Nummern
+   numberstyle=\tiny,					% Größe der Nummern
+   numberblanklines=true,				% Leerzeilen durchnummerieren?
+   numbersep=20pt,					% Platz zwischen Nummern und Code
+   xleftmargin=30pt					% Platz zum linken Seitenrand
+ }
+
+% Minted stuff
+\definecolor{bg}{rgb}{0.95,0.95,0.95}  % Hintergrundfarbe für den code
+\setminted{
+    linenos=true,   % turn on line numbers
+    bgcolor=bg,     % turn on background color
+    frame=lines,    % top and bottom line to seperate code from text
+    mathescape=true % used to allow labelling of singel lines
+}
+ 
+%opening
+\title{\LARGE \underline {Sheet 6}}
+\author{Johannes Haux \\ Florian Trost \\ Elsa Wilken}
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{center}
+  Astronomical Techniques (MKEP5) \\
+  \baselineskip35pt
+  by Prof. Dr. Stefan Wagner and Priv.-Doz. Dr. Thorsten Lisker \\
+  \baselineskip60pt
+  Ruprecht Karl University of Heidelberg
+\vskip 40pt
+\includegraphics[width=5cm]{UniHD.png}
+
+\end{center}
+
+\newpage
+\setcounter{page}{1}		% set page count to start with 1 here
+
+\section*{Exercise A.}
+For a given observatory's site, suppose that the typical Fried parameter $r_0$
+is \SI{20}{\centi\meter} at $\lambda = \SI{0.5}{\micro\meter}$ and at zenith.  
+
+\paragraph{1.} What is the FWHM of the seeing in the U (central wavelength =
+\SI{3650}{\angstrom}) and in the K (central wavelength =
+\SI{2.2}{\micro\meter}) bands, when you observe a star at the zenith? (4
+points) \\
+
+The FWHM can be calculated using the following expression:
+\begin{align}
+\mathrm{FWHM} &= \frac{\lambda}{\op{min}\left(D, r_0 \right)}, \\ \label{eq:S0}
+\text{with} \quad r_0 &\propto \lambda^{\frac{6}{5}}.
+\end{align}
+
+Knowing $r_0$ at $\lambda = \SI{0.5}{\micro\meter}$ then gives us a linear 
+approximation of the Fried parameter for the other wavelengths:
+\begin{align}
+r_0(\lambda) &= \frac{\SI{20}{\centi\meter}}
+                     {\left(\SI{0.5}{\micro\meter}\right)^{\frac{6}{5}}}
+                \lambda^{\frac{6}{5}}. \\ \label{eq:r0}
+r_0(U) &= \SI{13.7}{\centi\meter}   \\
+r_0(K) &= \SI{118}{\centi\meter}
+\end{align}
+
+In this case we assume that $D \gg r_0$, thus we find for the different bands:
+\begin{align}
+    \mathrm{FWHM}_U &= \SI{2.664e-6}{\arcsecond}   \\
+    \mathrm{FWHM}_K &= \SI{1.86e-6}{\arcsecond}
+\end{align}
+
+\paragraph{2.} Suppose you observe this star at zenith with a \SI{0.8}{\meter}
+diameter telescope. At what wavelength is the image of the star not affected by
+turbulence? (3 points) 
+
+(Hint: to answer this question you can express the diffraction limit as
+$\Theta\;[\si{\arcsecond}] = 0.2\frac{\lambda}{D} \;
+\left[\si[per-mode=fraction]{\micro\meter\per\meter}\right]$) \\
+
+The image is not affected by turbulence when the seeing is good, which means,
+that we want $\Theta \leq \SI{1}{\arcsecond}$. Given the diameter $D$ of the 
+telescope we thus need to look at wavelengths of
+\begin{align}
+\lambda &\geq \frac{\Theta D}{0.2} = 5\Theta D\\
+        &= 5\cdot 1 \cdot 0.8 \\
+        &= \SI{4}{\micro\meter}
+\end{align}
+
+\paragraph{3.} Suppose, again, that you observed the same star two times, once
+at airmass 1.1 and once at airmass 1.5. You used a filter whose central
+wavelength is \SI{0.6}{\micro\meter}.  Which image has the worse seeing and
+what is the value of the best seeing?  (3 points) \\
+
+We know that the seeing depends on the airmass and the wavelength in the follwing
+manner:
+\begin{align}
+S &= S_0 \cdot X^{0.6},  \\
+S &= S_0 \cdot \lambda^{-0.2},
+\end{align}
+with $S_0$ being the Seeing at zenith. We can calculate it using equation
+\ref{eq:S0} and \ref{eq:r0} with the given wavelength of \SI{0.6}{\micro\meter}.
+
+\begin{align}
+S_0 &= \SI{2.4e-6}{\arcsecond} \\
+\Rightarrow\quad S(X=1.1) &= \SI{2.55e-6}{\arcsecond} \\
+S(X=1.5) &= \SI{3.07e-6}{\arcsecond}
+\end{align}
+
+Thus we see that the image with less atmosphere in the way has the better
+seeing with $S = \SI{2.55e-6}{\arcsecond}$. 
+
+
+\section*{Exercise B.}
+Assume that the Fried parameter can be described by:
+$r(\lambda) = k \cdot \lambda^{1.2}$ with $k = \num{2.3e5}$ and $r$ and
+$\lambda$ both in \si{\micro\meter}.
+
+\paragraph{1.} If you are imaging the sky at $\lambda = \SI{1}{\micro\meter}$
+with a $D = \SI{3.5}{\meter}$ telescope and one pixel subtends
+$pix = \SI{0.25}{\arcsecond}$ on the detector, what would be the full width at
+half-maximum (FWHM) that you would measure in pixels from the image of a star?
+(3 points)\\
+
+To calculate the pixel size of the FWHM, we first compare $r_0(\lambda)$ to D,
+then calculate the FWHM in arcseconds and in the end see, how many pixels it
+will cover:
+
+\begin{align}
+r_0(\lambda)    &= \SI{2.3e5}{\per\micro\meter\tothe{0.2}}\lambda^{1.2}  \\
+                &= \SI{230000}{\micro\meter} = \SI{2.3}{\meter}         \\
+                &< D                                                    \\
+\Rightarrow 
+\mathrm{FWHM}   &= \frac{\lambda}{r_0(\lambda)}                         \\
+                &= \SI{0.016}{\arcsecond}                               \\
+\Rightarrow
+\frac{\mathrm{FWHM}}{pix} &= 0.0062
+\end{align}
+
+Thus the resolution is not limited by the turbulence in the atmosphere, but
+by the sensor, as the blurred out disk of a point source still is smaller than
+the area of the sky one pixel covers.
+
+
+\paragraph{2.} How does a worse seeing affect the calculation of the \SNR of a
+star? (only a qualitative reply. Assume that the aperture radius, within which
+you integrate the stellar flux, scales linearly with the FWHM of the star
+image.) (2 points) \\
+
+If one assumes, that the flux scales linearly with the seeing, the \SNR will
+be affected in a sqarerooted fashion. The argument goes as follows:
+as the \SNR depends on the number of gathered photons $n$ in the following way:
+$\SNR = \sqrt{n\Delta t}$, and $n$ in turn depends on the incoming flux $F$ in 
+a linear fashion, the \SNR depends on the squareroot of the flux,  and thus
+also the squareroot of the seeing.
+
+\begin{align}
+F       &\propto \mathrm{FWHM}    \\
+\SNR    &\propto \sqrt{n}      \\
+n       &\propto F              \\
+\Rightarrow 
+\SNR    &\propto \sqrt{\mathrm{FWHM}}
+\end{align}
+
+\paragraph{3.} And how does a worse seeing affect the calculation of the \SNR
+of a galaxy, if the galaxy is spatially well resolved but not resolved into
+stars? (only a qualitative reply) (1 point) \\
+
+As the galaxy is spatially well resolved, thus its extend is larger than a
+point source, the seeing only blurrs out the edges of the galaxy. Thus the
+\SNR will be better than that of a single star, as inside the body of the galaxy
+the incoming photons might be shifted, yet, the total flux inside the galaxy is
+constant. Only at the edges of the galaxy the signal gets smeered out, which
+makes the \SNR in that region worse.
+
+
+\section*{Exercise C.}
+According to the Nyquist theorem, the Point Spread Function (PSF) of a
+telescope is well sampled (i.e. the spatial resolution in the images is
+preserved) when its $\mathrm{FWHM} \geq 2$ pixels. Let us now consider a
+telescope \SI{5}{\meter} in diameter, that has a focal length of
+\SI{12}{\meter} and uses a CCD detector with a pixel size of
+\SI{15}{\micro\meter}. Can we fully sample the telescope PSF in the K band
+($\lambda_c = \SI{2.2}{\micro\meter}$):
+
+\paragraph{1.} if this telescope is operated in space? (3 points)
+
+\paragraph{2.} If this telescope is operated on the ground and the seeing is
+\SI{0.6}{\arcsecond}? (2 points)
+
+\paragraph{3.} If this telescope is operated on the ground with adaptive optics
+achieving an effective seeing of \SI{0.1}{\arcsecond} as in Figure 1 on the
+sheet? (2 points)
+
+
+\section*{Exercise D.}
+The Sun has an absolute magnitude $\mathrm{MV} = \SI{4.83}{\mag}$. Use the
+table of parallax error $[\sigma(\pi)]$ versus apparent magnitude $V$ given
+below to estimate the percent error versus distance that Gaia will produce for
+solar-type stars. The percent error is defined as:
+$\frac{\sigma(\pi)}{\pi} = \sigma(\pi) \cdot d$, where $\pi$ = parallax and $d$
+= distance in \si{\parsec}.  If the space density of G main-sequence stars is
+~\SI{0.004}{\parsec\tothe{-3}}, how many solar-type stars can Gaia measure to a
+percent error $\lesssim \SI{4}{\percent}$? (4 points)
+
+
+
+\end{document}
