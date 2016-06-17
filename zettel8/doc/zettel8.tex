@@ -120,7 +120,7 @@ points) \\
 
 The FWHM can be calculated using the following expression:
 \begin{align}
-\mathrm{FWHM} &= \frac{\lambda}{\op{min}\left(D, r_0 \right)}, \\ \label{eq:S0}
+\mathrm{FWHM} \;[\si{\radian}] &= \frac{\lambda}{\op{min}\left(D, r_0 \right)}, \\ \label{eq:S0}
 \text{with} \quad r_0 &\propto \lambda^{\frac{6}{5}}.
 \end{align}
 
@@ -136,8 +136,8 @@ r_0(K) &= \SI{118}{\centi\meter}
 
 In this case we assume that $D \gg r_0$, thus we find for the different bands:
 \begin{align}
-    \mathrm{FWHM}_U &= \SI{2.664e-6}{\arcsecond}   \\
-    \mathrm{FWHM}_K &= \SI{1.86e-6}{\arcsecond}
+    \mathrm{FWHM}_U &= \SI{0.549}{\arcsecond}   \\
+    \mathrm{FWHM}_K &= \SI{0.383}{\arcsecond}
 \end{align}
 
 \paragraph{2.} Suppose you observe this star at zenith with a \SI{0.8}{\meter}
@@ -157,28 +157,29 @@ telescope we thus need to look at wavelengths of
         &= \SI{4}{\micro\meter}
 \end{align}
 
+The worse the seeing, the longer the wavelengths at which still good
+observations can be made.
+
 \paragraph{3.} Suppose, again, that you observed the same star two times, once
 at airmass 1.1 and once at airmass 1.5. You used a filter whose central
 wavelength is \SI{0.6}{\micro\meter}.  Which image has the worse seeing and
 what is the value of the best seeing?  (3 points) \\
 
-We know that the seeing depends on the airmass and the wavelength in the follwing
-manner:
+We know that the seeing depends on the airmass in the follwing manner:
 \begin{align}
 S &= S_0 \cdot X^{0.6},  \\
-S &= S_0 \cdot \lambda^{-0.2},
 \end{align}
 with $S_0$ being the Seeing at zenith. We can calculate it using equation
 \ref{eq:S0} and \ref{eq:r0} with the given wavelength of \SI{0.6}{\micro\meter}.
 
 \begin{align}
-S_0 &= \SI{2.4e-6}{\arcsecond} \\
-\Rightarrow\quad S(X=1.1) &= \SI{2.55e-6}{\arcsecond} \\
-S(X=1.5) &= \SI{3.07e-6}{\arcsecond}
+S_0 &= \SI{0.497}{\arcsecond} \\
+\Rightarrow\quad S(X=1.1) &= \SI{0.526}{\arcsecond} \\
+S(X=1.5) &= \SI{0.634}{\arcsecond}
 \end{align}
 
 Thus we see that the image with less atmosphere in the way has the better
-seeing with $S = \SI{2.55e-6}{\arcsecond}$. 
+seeing with $S = \SI{0.526}{\arcsecond}$. 
 
 
 \section*{Exercise B.}
@@ -249,18 +250,48 @@ According to the Nyquist theorem, the Point Spread Function (PSF) of a
 telescope is well sampled (i.e. the spatial resolution in the images is
 preserved) when its $\mathrm{FWHM} \geq 2$ pixels. Let us now consider a
 telescope \SI{5}{\meter} in diameter, that has a focal length of
-\SI{12}{\meter} and uses a CCD detector with a pixel size of
-\SI{15}{\micro\meter}. Can we fully sample the telescope PSF in the K band
+\SI{12}{\meter} and uses a CCD detector with a pixel size of $\Delta x =
+\SI{15}{\micro\meter}$. Can we fully sample the telescope PSF in the K band
 ($\lambda_c = \SI{2.2}{\micro\meter}$):
 
-\paragraph{1.} if this telescope is operated in space? (3 points)
+\paragraph{1.} if this telescope is operated in space? (3 points) \\
+
+Given the parameters of the telescope, we can calculate the pixelscale $\Delta
+\alpha$, as seen on sheet 2:
+\begin{align}
+\Delta \alpha   &= \frac{\Delta x}{f}, \\
+                &= \SI{0.258}{\arcsecond}.
+\end{align}
+
+As we are in space, only the diameter $D$ of the telescope determines the 
+FWHM:
+\begin{align}
+\mathrm{FWHM}   &= \frac{\lambda}{D},    \\
+                &= \SI{0.091}{\arcsecond}.
+\end{align}
+
+Thus being in space, we will not be abled to resolve the pointspred function,
+as
+\begin{align}
+\frac{FWHM}{\Delta \alpha} &= 0.352 < 2.
+\end{align}
 
 \paragraph{2.} If this telescope is operated on the ground and the seeing is
-\SI{0.6}{\arcsecond}? (2 points)
+\SI{0.6}{\arcsecond}? (2 points) \\
+
+Yes, as now we can see, that the ration between seeing and pixelscale is
+\begin{align}
+\frac{\mathrm{FWHM}}{\Delta\alpha} &= 2.3 > 2.
+\end{align}
 
 \paragraph{3.} If this telescope is operated on the ground with adaptive optics
 achieving an effective seeing of \SI{0.1}{\arcsecond} as in Figure 1 on the
-sheet? (2 points)
+sheet? (2 points) \\
+
+No, as now the ratio is smaller than 2:
+\begin{align}
+\frac{\mathrm{FWHM}}{\Delta\alpha} &= 0.38 < 2.
+\end{align}
 
 
 \section*{Exercise D.}
@@ -271,7 +302,7 @@ solar-type stars. The percent error is defined as:
 $\frac{\sigma(\pi)}{\pi} = \sigma(\pi) \cdot d$, where $\pi$ = parallax and $d$
 = distance in \si{\parsec}.  If the space density of G main-sequence stars is
 ~\SI{0.004}{\parsec\tothe{-3}}, how many solar-type stars can Gaia measure to a
-percent error $\lesssim \SI{4}{\percent}$? (4 points)
+percent error $\lesssim \SI{4}{\percent}$? (4 points) \\
 
 
 
