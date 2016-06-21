@@ -27,3 +27,10 @@ zettel5/Homework5/**
 # Minted stuff
 **_minted**
 **.pygstyle
+
+# IRAF
+login.cl
+uparm*
+
+# Homework Directories
+**HW**
