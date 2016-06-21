@@ -9,7 +9,7 @@
 \usepackage{siunitx}	% für SI-Einheiten; siehe http://mirror.unicorncloud.org/CTAN/macros/latex/contrib/siunitx/siunitx.pdf
 \usepackage[version=3]{mhchem}	% chemische Symbole mit \ce{}
 \usepackage{listings} 	% für Einbinden von Quellcode
-\usepackage{minted}     % Johannes Lieblingspackage für Quellcode
+%\usepackage{minted}     % Johannes Lieblingspackage für Quellcode
 \usepackage{color}	% für das Einfärben von eingebundenem Quellcode
 \usepackage{longtable}	% für das Erstellen mehrseitiger Tabellen
 \usepackage[german]{isodate} % Datumformatierung für \today
@@ -77,15 +77,15 @@
 
 % Minted stuff
 \definecolor{bg}{rgb}{0.95,0.95,0.95}  % Hintergrundfarbe für den code
-\setminted{
-    linenos=true,   % turn on line numbers
-    bgcolor=bg,     % turn on background color
-    frame=lines,    % top and bottom line to seperate code from text
-    mathescape=true % used to allow labelling of singel lines
-}
+%\setminted{
+%    linenos=true,   % turn on line numbers
+%    bgcolor=bg,     % turn on background color
+%    frame=lines,    % top and bottom line to seperate code from text
+%    mathescape=true % used to allow labelling of singel lines
+%}
  
 %opening
-\title{\LARGE \underline {Sheet 6}}
+\title{\LARGE \underline {Sheet 8}}
 \author{Johannes Haux \\ Florian Trost \\ Elsa Wilken}
 \date{\today}
 
@@ -100,7 +100,7 @@
   \baselineskip35pt
   by Prof. Dr. Stefan Wagner and Priv.-Doz. Dr. Thorsten Lisker \\
   \baselineskip60pt
-  Ruprecht Karls University of Heidelberg
+  Ruprecht Karl University of Heidelberg
 \vskip 40pt
 %\includegraphics[width=5cm]{UniHD.png}
 
@@ -120,7 +120,7 @@ points) \\
 
 The FWHM can be calculated using the following expression:
 \begin{align}
-\mathrm{FWHM} \;[\si{\radian}] &= \frac{\lambda}{\op{min}\left(D, r_0 \right)}, \\ \label{eq:S0}
+\mathrm{FWHM} \;[\si{\radian}] &= \frac{\lambda}{\op{min}\left(D, r_0 \right)}, \label{eq:S0} \\
 \text{with} \quad r_0 &\propto \lambda^{\frac{6}{5}}.
 \end{align}
 
@@ -129,7 +129,7 @@ approximation of the Fried parameter for the other wavelengths:
 \begin{align}
 r_0(\lambda) &= \frac{\SI{20}{\centi\meter}}
                      {\left(\SI{0.5}{\micro\meter}\right)^{\frac{6}{5}}}
-                \lambda^{\frac{6}{5}}. \\ \label{eq:r0}
+                \lambda^{\frac{6}{5}}. \label{eq:r0} \\ 
 r_0(U) &= \SI{13.7}{\centi\meter}   \\
 r_0(K) &= \SI{118}{\centi\meter}
 \end{align}
@@ -158,18 +158,19 @@ telescope we thus need to look at wavelengths of
 \end{align}
 
 The worse the seeing, the longer the wavelengths at which still good
-observations can be made.
+observations can be made. \\
+
 
 \paragraph{3.} Suppose, again, that you observed the same star two times, once
-at airmass 1.1 and once at airmass 1.5. You used a filter whose central
+at airmass 1.1 and once at airmass \num{1.5}. You used a filter whose central
 wavelength is \SI{0.6}{\micro\meter}.  Which image has the worse seeing and
 what is the value of the best seeing?  (3 points) \\
 
-We know that the seeing depends on the airmass in the follwing manner:
+We know that the seeing depends on the airmass $X$ in the follwing manner:
 \begin{align}
-S &= S_0 \cdot X^{0.6},  \\
+S &= S_0 \cdot X^{0.6},
 \end{align}
-with $S_0$ being the Seeing at zenith. We can calculate it using equation
+with $S_0$ being the seeing at zenith. We can calculate it using Equations
 \ref{eq:S0} and \ref{eq:r0} with the given wavelength of \SI{0.6}{\micro\meter}.
 
 \begin{align}
@@ -179,7 +180,7 @@ S(X=1.5) &= \SI{0.634}{\arcsecond}
 \end{align}
 
 Thus we see that the image with less atmosphere in the way has the better
-seeing with $S = \SI{0.526}{\arcsecond}$. 
+seeing with $S = \SI{0.526}{\arcsecond}$. \\
 
 
 \section*{Exercise B.}
@@ -189,28 +190,28 @@ $\lambda$ both in \si{\micro\meter}.
 
 \paragraph{1.} If you are imaging the sky at $\lambda = \SI{1}{\micro\meter}$
 with a $D = \SI{3.5}{\meter}$ telescope and one pixel subtends
-$pix = \SI{0.25}{\arcsecond}$ on the detector, what would be the full width at
+$\text{pix} = \SI{0.25}{\arcsecond}$ on the detector, what would be the full width at
 half-maximum (FWHM) that you would measure in pixels from the image of a star?
 (3 points)\\
 
 To calculate the pixel size of the FWHM, we first compare $r_0(\lambda)$ to D,
-then calculate the FWHM in arcseconds and in the end see, how many pixels it
+then calculate the FWHM in arcseconds and in the end see how many pixels it
 will cover:
 
 \begin{align}
 r_0(\lambda)    &= \SI{2.3e5}{\per\micro\meter\tothe{0.2}}\lambda^{1.2}  \\
-                &= \SI{230000}{\micro\meter} = \SI{2.3}{\meter}         \\
+                &= \SI{230000}{\micro\meter} = \SI{0.23}{\meter}         \\
                 &< D                                                    \\
 \Rightarrow 
 \mathrm{FWHM}   &= \frac{\lambda}{r_0(\lambda)}                         \\
-                &= \SI{0.016}{\arcsecond}                               \\
+                &= \SI{0.897}{\arcsecond}                               \\
 \Rightarrow
-\frac{\mathrm{FWHM}}{pix} &= 0.0062
+\frac{\mathrm{FWHM}}{\text{pix}} &= \frac{\SI{0.897}{\arcsecond}}{\SI{0.25}{\arcsecond}} = \num{3.59}
 \end{align}
 
 Thus the resolution is not limited by the turbulence in the atmosphere, but
 by the sensor, as the blurred out disk of a point source still is smaller than
-the area of the sky one pixel covers.
+the area of the sky one pixel covers. \\
 
 
 \paragraph{2.} How does a worse seeing affect the calculation of the \SNR of a
@@ -218,8 +219,8 @@ star? (only a qualitative reply. Assume that the aperture radius, within which
 you integrate the stellar flux, scales linearly with the FWHM of the star
 image.) (2 points) \\
 
-If one assumes, that the flux scales linearly with the seeing, the \SNR will
-be affected in a sqarerooted fashion. The argument goes as follows:
+If one assumes that the flux scales linearly with the seeing, the \SNR will
+be affected in a squarerooted fashion. The argument goes as follows:
 as the \SNR depends on the number of gathered photons $n$ in the following way:
 $\SNR = \sqrt{n\Delta t}$, and $n$ in turn depends on the incoming flux $F$ in 
 a linear fashion, the \SNR depends on the squareroot of the flux,  and thus
@@ -240,9 +241,9 @@ stars? (only a qualitative reply) (1 point) \\
 As the galaxy is spatially well resolved, thus its extend is larger than a
 point source, the seeing only blurrs out the edges of the galaxy. Thus the
 \SNR will be better than that of a single star, as inside the body of the galaxy
-the incoming photons might be shifted, yet, the total flux inside the galaxy is
+the incoming photons might be shifted, yet the total flux inside the galaxy is
 constant. Only at the edges of the galaxy the signal gets smeered out, which
-makes the \SNR in that region worse.
+makes the \SNR in that region worse. \\
 
 
 \section*{Exercise C.}
@@ -259,7 +260,7 @@ telescope \SI{5}{\meter} in diameter, that has a focal length of
 Given the parameters of the telescope, we can calculate the pixelscale $\Delta
 \alpha$, as seen on sheet 2:
 \begin{align}
-\Delta \alpha   &= \frac{\Delta x}{f}, \\
+\Delta \alpha   &= \frac{\Delta x}{f} \\
                 &= \SI{0.258}{\arcsecond}.
 \end{align}
 
@@ -270,10 +271,10 @@ FWHM:
                 &= \SI{0.091}{\arcsecond}.
 \end{align}
 
-Thus being in space, we will not be abled to resolve the pointspred function,
+Thus being in space, we will not be able to resolve the point spread function,
 as
 \begin{align}
-\frac{FWHM}{\Delta \alpha} &= 0.352 < 2.
+\frac{FWHM}{\Delta \alpha} &= 0.353 < 2.
 \end{align}
 
 \paragraph{2.} If this telescope is operated on the ground and the seeing is
@@ -291,40 +292,42 @@ sheet? (2 points) \\
 No, as now the ratio is smaller than 2:
 \begin{align}
 \frac{\mathrm{FWHM}}{\Delta\alpha} &= 0.38 < 2.
-\end{align}
+\end{align} \\
 
 
 \section*{Exercise D.}
-The Sun has an absolute magnitude $\mathrm{MV} = \SI{4.83}{\mag}$. Use the
+The Sun has an absolute magnitude $\mathrm{M_V} = \SI{4.83}{\mag}$. Use the
 table of parallax error $[\sigma(\pi)]$ versus apparent magnitude $V$ given
 below to estimate the percent error versus distance that Gaia will produce for
 solar-type stars. The percent error is defined as:
 $\frac{\sigma(\pi)}{\pi} = \sigma(\pi) \cdot d$, where $\pi$ = parallax and $d$
 = distance in \si{\parsec}.  If the space density of G main-sequence stars is
-~\SI{0.004}{\parsec\tothe{-3}}, how many solar-type stars can Gaia measure to a
+$\sim \SI{0.004}{\parsec\tothe{-3}}$, how many solar-type stars can Gaia measure to a
 percent error $\lesssim \SI{4}{\percent}$? (4 points) \\
-\textbf{Answer}\\
-We have:
-\begin{align*}
-m&=V-5\left( log_{10}\left( d\right)-5\right) \\
-\rightarrow d&=10^{\frac{m-V+5}{5}}
-\end{align*}
-Where V is the apparent magnitude and m is the absolute magnitude. Since we have solar-type stars $m=\mathrm{MV} = \SI{4.83}{\mag}$
-With the distants we are able to calculate the percent error!
+
+We have
+
+\begin{align}
+m& = V - 5 \log_{10} \left( d\right) \\
+\Rightarrow d&=10^{\frac{V-m}{5}}
+\end{align}
+
+where $V$ is the apparent magnitude and $m$ is the absolute magnitude. Since we have solar-type stars they have the absolute magnitude of the Sun: $m=\mathrm{M_V} = \SI{4.83}{\mag}$. 
+With the distants we are able to calculate the percent error:
 \begin{table}[h!]
 	\begin{tiny}
 		\begin{tabular}{|c|cccccccccccc|}
 			\toprule
-			V&	10.00&	11.00&	12.00&	13.00&	14.00&	15.00&	16.00&	17.00&	18.00&	19.00&	20.00&	21.00\\
+			V&	10&	11&	12&	13&	14&	15&	16&	17&	18&	19&	20&	21\\
 			\midrule
-			$\sigma$&	4.00&	4.00&	4.20&	6.00&	9.10&	14.30&	23.10&	38.80&	69.70&	138.00&	312.00&	1786.00\\
+			$\sigma$&	4.0&	4.0&	4.2&	6.0&	9.1&	14.3&	23.1&	38.8&	69.7&	138&	312&	1786\\
 			\midrule
 			d [pc]&	108.14&	171.40&	271.64&	430.53&	682.34&	1081.43&	1713.96&	2716.44&	4305.27&	6823.39&	10814.34&	17139.57\\
 			\midrule
 			Error [\%]&	0.04&	0.07&	0.11&	0.26&	0.62&	1.55&	3.96&	10.54&	30.01&	94.16&	337.41&	3061.13\\	
 			\bottomrule
 		\end{tabular}
-		\caption{ The error $\sigma(\pi)$ on Gaia parallaxes as a function of apparent V magnitude. And the calculated  The percent error. }
+		\caption{The error $\sigma(\pi)$ on Gaia parallaxes as a function of apparent $V$ magnitude as well as the calculated percent error.}
 	\end{tiny}
 \end{table}
 
