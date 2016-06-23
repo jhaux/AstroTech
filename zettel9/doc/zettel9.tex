@@ -60,6 +60,8 @@
 \newcommand{\ZH}{\ensuremath{[\text{Z}/\text{H}]} }
 \newcommand{\Hbo}{\ensuremath{[\text{H}\beta_0]} }
 
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
 \lstset{
    basicstyle=\scriptsize\ttfamily,			% grundlege des Design
    keywordstyle=\ttfamily,				% Design von Schlüsselwörtern (Codebefehle wie Variablentypen, Schleifenbefehle u.Ä.)
@@ -103,12 +105,24 @@
   \baselineskip60pt
   Ruprecht Karl University of Heidelberg
 \vskip 40pt
-%\includegraphics[width=5cm]{UniHD.png}
+\includegraphics[width=5cm]{UniHD.png}
 
 \end{center}
 
 \newpage
 \setcounter{page}{1}		% set page count to start with 1 here
+
+\section*{Exercise D.}
+
+We acquire images of a stellar field in the standard filters in the same night, while the ambient temperature is \SI{12}{\celsius}. At which wavelength is the thermal emission of the telescope strongest, if the sky conditions do not change across the night and it's new moon, and how does it affect your images? (3 points) \\
+
+Given the ambiant temperature and no disturbing effects like light sources (e.g. the moon), the telescope will be at a temperature equal to the ambiant temperature. Using Wien's displacement law it is possible to calculate the wavelength of maximum emission. For $T = \SI{12}{\celsius} = \SI{285.15}{\kelvin}$ this yields
+
+\begin{equation}
+ \lambda_{\text{max}} = \SI{2.898e6}{\nano\metre\kelvin} \cdot \frac{1}{T} = \SI{10.16}{\micro\metre}
+\end{equation}
+
+If ``standard filters'' refers to the usual colour filters for astronomical observations, it is very likely that the setup is meant to observe objects in the visible range. Therefore, even a rather strong infrared dark current from the telescope will not significantly lower the image quality. \textbf{\red{Is this really true?}} \\
 
 \section*{Exercise F.} 
 
