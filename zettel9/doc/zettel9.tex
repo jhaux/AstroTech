@@ -1,0 +1,134 @@
+\documentclass[11pt,a4paper,twoside]{article}
+\usepackage{a4wide}	% für gut definierte Seitenränder und Platzausnutzung
+\usepackage[utf8]{inputenc}	% für Umlaute
+\usepackage{amssymb,amsmath}
+\usepackage{booktabs}   % schöne Tabellen
+\usepackage[pdftex]{graphicx}
+\graphicspath{{./pic/}}
+\usepackage{epstopdf}
+\usepackage{siunitx}	% für SI-Einheiten; siehe http://mirror.unicorncloud.org/CTAN/macros/latex/contrib/siunitx/siunitx.pdf
+\usepackage[version=3]{mhchem}	% chemische Symbole mit \ce{}
+\usepackage{listings} 	% für Einbinden von Quellcode
+%\usepackage{minted}     % Johannes Lieblingspackage für Quellcode
+\usepackage{color}	% für das Einfärben von eingebundenem Quellcode
+\usepackage{longtable}	% für das Erstellen mehrseitiger Tabellen
+\usepackage[german]{isodate} % Datumformatierung für \today
+\usepackage{marvosym}
+\usepackage{ulem}	% 
+
+% declaring custom units
+\DeclareSIUnit \mag {mag}
+\DeclareSIUnit \parsec {pc}
+\DeclareSIUnit \AU {AU}
+\DeclareSIUnit \pixel {pixel}
+\DeclareSIUnit \jansky {Jy}
+
+% format angle display
+\sisetup{add-arc-degree-zero}
+\sisetup{add-arc-minute-zero}
+\sisetup{add-arc-second-zero}
+\sisetup{arc-separator = \,}
+
+
+%Befehl, um Quellcode einzufügen: 
+%\lstinputlisting[caption = {``title``}, captionpos = b, language=C++]{data.cpp}
+
+%Befehl, um Graphik einzufügen:   
+%\begin{figure}
+%  \centering
+%  \includegraphics[width=0.7\textwidth, angle=-90]{center_diff.eps}
+%  \caption{centered differencing at t = 4}
+%\end{figure}
+
+% Befehl für kein ``\noindent mehr''
+\setlength\parindent{0pt}
+
+%\lstset{numbers=left}
+
+\newcommand{\op}[1]{\operatorname{#1}}
+
+% Konsistente Variablennamen:
+\newcommand{\zen}{\ensuremath{\nu} }    % zenith angle
+\newcommand{\hei}{\ensuremath{h} }      % height angle
+\newcommand{\HA}{\ensuremath{\Gamma} }  % hour angle \HA
+\newcommand{\DEC}{\ensuremath{\delta} } % declination \DE
+\newcommand{\LAT}{\ensuremath{\Phi} }   % latitude \LAT
+\newcommand{\electron}{\ce{e^-}}
+\newcommand{\SNR}{\ensuremath{\frac{S}{N}} }
+
+\newcommand{\MgFe}{\ensuremath{[\text{MgFe}]^\prime} }
+\newcommand{\ZH}{\ensuremath{[\text{Z}/\text{H}]} }
+\newcommand{\Hbo}{\ensuremath{[\text{H}\beta_0]} }
+
+\lstset{
+   basicstyle=\scriptsize\ttfamily,			% grundlege des Design
+   keywordstyle=\ttfamily,				% Design von Schlüsselwörtern (Codebefehle wie Variablentypen, Schleifenbefehle u.Ä.)
+   stringstyle=\ttfamily,				% Design von Variablen
+   commentstyle=\ttfamily\color{blue},			% Design von Kommentaren
+   showstringspaces=false,				% Leerzeichen in Strings darstellen?
+   flexiblecolumns=false,				% dynamische Spaltenbreite?
+   tabsize=2,						% Länge des Tabulators
+   % Einstellung der Zeilennummerierung:
+   numbers=left,					% Position der Nummern
+   numberstyle=\tiny,					% Größe der Nummern
+   numberblanklines=true,				% Leerzeilen durchnummerieren?
+   numbersep=20pt,					% Platz zwischen Nummern und Code
+   xleftmargin=30pt					% Platz zum linken Seitenrand
+ }
+
+% Minted stuff
+\definecolor{bg}{rgb}{0.95,0.95,0.95}  % Hintergrundfarbe für den code
+%\setminted{
+%    linenos=true,   % turn on line numbers
+%    bgcolor=bg,     % turn on background color
+%    frame=lines,    % top and bottom line to seperate code from text
+%    mathescape=true % used to allow labelling of singel lines
+%}
+ 
+%opening
+\title{\LARGE \underline {Sheet 9}}
+\author{Johannes Haux \\ Florian Trost \\ Elsa Wilken}
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{center}
+  Astronomical Techniques (MKEP5) \\
+  \baselineskip35pt
+  by Prof. Dr. Stefan Wagner and Priv.-Doz. Dr. Thorsten Lisker \\
+  \baselineskip60pt
+  Ruprecht Karl University of Heidelberg
+\vskip 40pt
+%\includegraphics[width=5cm]{UniHD.png}
+
+\end{center}
+
+\newpage
+\setcounter{page}{1}		% set page count to start with 1 here
+
+\section*{Exercise F.} 
+
+Imagine you use the \SI{100}{\metre} telescope at Effelsberg, and observe a source of \SI{5}{\jansky}. The receiver has a bandwidth of \SIrange{4.6}{5.1}{\GHz}. Assume an efficiency of \num{0.55}. What is the total radiative energy collected by the receiver in \SI{10}{\second}? (3 points) \\
+
+
+One Jansky is equivalent to \SI{e-26}{\watt\per\metre\squared\per\hertz}. Therefore, the total radiative energy collected in $t = \SI{10}{\second}$ can be computed as
+
+\begin{equation}
+ E_{\text{rad}} = \SI{5}{\jansky} \cdot t \cdot A \cdot \Delta f
+\end{equation}
+
+where $A = \pi \left( \SI{50}{\metre} \right)^2 = \SI{7854}{\metre\squared}$ is the total collection area of the telescope and $\Delta f = \SI{5.1}{\GHz} - \SI{4.6}{\GHz} = \SI{0.5}{\GHz} = \SI{500}{\MHz}$ is the bandwidth of the receiver. \\
+
+Calculating the total radiative energy under the named conditions yields 
+
+\begin{eqnarray}
+ E_{\text{rad}} &=& \SI{e-26}{\watt\per\metre\squared\per\hertz} \cdot \SI{10}{\second} \cdot \SI{7854}{\metre\squared} \cdot \SI{500e6}{\Hz} \\
+ &=& \SI{3.927e-13}{\joule}
+\end{eqnarray}
+
+
+\end{document}
