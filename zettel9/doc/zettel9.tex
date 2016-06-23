@@ -1,0 +1,325 @@
+\documentclass[11pt,a4paper,twoside]{article}
+\usepackage{a4wide}	% für gut definierte Seitenränder und Platzausnutzung
+\usepackage[utf8]{inputenc}	% für Umlaute
+\usepackage{amssymb,amsmath}
+\usepackage{booktabs}   % schöne Tabellen
+\usepackage[pdftex]{graphicx}
+\graphicspath{{./pic/}}
+\usepackage{epstopdf}
+\usepackage{siunitx}	% für SI-Einheiten; siehe http://mirror.unicorncloud.org/CTAN/macros/latex/contrib/siunitx/siunitx.pdf
+\usepackage[version=3]{mhchem}	% chemische Symbole mit \ce{}
+\usepackage{listings} 	% für Einbinden von Quellcode
+%\usepackage{minted}     % Johannes Lieblingspackage für Quellcode
+\usepackage{color}	% für das Einfärben von eingebundenem Quellcode
+\usepackage{longtable}	% für das Erstellen mehrseitiger Tabellen
+\usepackage[german]{isodate} % Datumformatierung für \today
+\usepackage{marvosym}
+\usepackage{ulem}	% 
+
+% declaring custom units
+\DeclareSIUnit \mag {mag}
+\DeclareSIUnit \parsec {pc}
+\DeclareSIUnit \AU {AU}
+\DeclareSIUnit \pixel {pixel}
+\DeclareSIUnit \jy {Jy}
+
+% format angle display
+\sisetup{add-arc-degree-zero}
+\sisetup{add-arc-minute-zero}
+\sisetup{add-arc-second-zero}
+\sisetup{arc-separator = \,}
+
+
+%Befehl, um Quellcode einzufügen: 
+%\lstinputlisting[caption = {``title``}, captionpos = b, language=C++]{data.cpp}
+
+%Befehl, um Graphik einzufügen:   
+%\begin{figure}
+%  \centering
+%  \includegraphics[width=0.7\textwidth, angle=-90]{center_diff.eps}
+%  \caption{centered differencing at t = 4}
+%\end{figure}
+
+% Befehl für kein ``\noindent mehr''
+\setlength\parindent{0pt}
+
+%\lstset{numbers=left}
+
+\newcommand{\op}[1]{\operatorname{#1}}
+
+% Konsistente Variablennamen:
+\newcommand{\zen}{\ensuremath{\nu} }    % zenith angle
+\newcommand{\hei}{\ensuremath{h} }      % height angle
+\newcommand{\HA}{\ensuremath{\Gamma} }  % hour angle \HA
+\newcommand{\DEC}{\ensuremath{\delta} } % declination \DE
+\newcommand{\LAT}{\ensuremath{\Phi} }   % latitude \LAT
+\newcommand{\electron}{\ce{e^-}}
+\newcommand{\SNR}{\ensuremath{\frac{S}{N}} }
+
+\newcommand{\MgFe}{\ensuremath{[\text{MgFe}]^\prime} }
+\newcommand{\ZH}{\ensuremath{[\text{Z}/\text{H}]} }
+\newcommand{\Hbo}{\ensuremath{[\text{H}\beta_0]} }
+
+\lstset{
+   basicstyle=\scriptsize\ttfamily,			% grundlege des Design
+   keywordstyle=\ttfamily,				% Design von Schlüsselwörtern (Codebefehle wie Variablentypen, Schleifenbefehle u.Ä.)
+   stringstyle=\ttfamily,				% Design von Variablen
+   commentstyle=\ttfamily\color{blue},			% Design von Kommentaren
+   showstringspaces=false,				% Leerzeichen in Strings darstellen?
+   flexiblecolumns=false,				% dynamische Spaltenbreite?
+   tabsize=2,						% Länge des Tabulators
+   % Einstellung der Zeilennummerierung:
+   numbers=left,					% Position der Nummern
+   numberstyle=\tiny,					% Größe der Nummern
+   numberblanklines=true,				% Leerzeilen durchnummerieren?
+   numbersep=20pt,					% Platz zwischen Nummern und Code
+   xleftmargin=30pt					% Platz zum linken Seitenrand
+ }
+
+% Minted stuff
+\definecolor{bg}{rgb}{0.95,0.95,0.95}  % Hintergrundfarbe für den code
+%\setminted{
+%    linenos=true,   % turn on line numbers
+%    bgcolor=bg,     % turn on background color
+%    frame=lines,    % top and bottom line to seperate code from text
+%    mathescape=true % used to allow labelling of singel lines
+%}
+ 
+%opening
+\title{\LARGE \underline {Sheet 9}}
+\author{Johannes Haux \\ Florian Trost \\ Elsa Wilken}
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{center}
+  Astronomical Techniques (MKEP5) \\
+  \baselineskip35pt
+  by Prof. Dr. Stefan Wagner and Priv.-Doz. Dr. Thorsten Lisker \\
+  \baselineskip60pt
+  Ruprecht Karl University of Heidelberg
+\vskip 40pt
+\includegraphics[width=5cm]{UniHD.png}
+
+\end{center}
+
+\newpage
+\setcounter{page}{1}		% set page count to start with 1 here
+
+\section*{Exercise A.}
+
+The near-infrared spectrum of a typical massive elliptical galaxy is
+characterized by the stellar absorption of NaI at \SI{1.14}{\micro\meter} (at
+rest frame). This feature is astrophysically rather important as it is used
+together with other spectral indices to estimate the Na abundance and the IMF
+slope in ellipticals.  As you can see in Fig. \ref{fig:z}, the atmosphere is
+rather opaque at the wavelength of this feature. At which redshift should this
+galaxy be if we want to observe this stellar feature with an atmospheric
+transmission > 0.9? (3 points)\\
+
+From figure \ref{fig:z} we read off the values of wavelength $\lambda$, where
+the Transmission is $\geq 0.9$. The values are listed in table \ref{tab:l} and
+marked as blue lines in figure \ref{fig:z}. The areas of interest are
+overplotted with a pale blue. To calculate the redishift $z$ to move the
+NaI-line from $\lambda_0=\SI{1.14}{\micro\meter}$ to the values $\lambda_{obs}$
+we extracted, we use the relation
+\begin{align*}
+    z   &= \frac{\Delta \lambda}{\lambda_0}\;, \\
+        &= \frac{\lambda_{obs}}{\lambda_0} -1\;.
+\end{align*}
+The calculated values of $z$ can also be found in table \ref{tab:l} and in 
+figure \ref{fig:z}.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\linewidth]{./pic/spec_z}
+\caption{Atmosphere Transmission as function of Wavelength together with the
+         areas interest, overplotted in pale blue, where the Transmission is
+         $\geq 0$, between the wavelengths $\lambda_{obs}$ marked as blue
+         vertical lines.}
+\label{fig:z}
+\end{figure}
+
+\begin{table}[h!]
+\begin{tabular}{ccccccccccc} \toprule
+$\lambda_{obs}$ $[\si{\micro\meter}]$ & 1.0 & 1.1 & 1.2 & 1.32 & 1.5 & 1.76 & 1.98 & 1.99 & 2.1 & 2.2  \\
+$z$ & -0.123 & -0.035 & 0.053 & 0.158 & 0.316 & 0.544 & 0.737 & 0.746 & 0.842 & 0.93  \\
+\bottomrule
+\end{tabular}
+\caption{Extracted Wavelength values $\lambda_{obs}$ and their corresponding
+         redshift $z$, to move $\lambda_0 = \SI{1.14}{\micro\meter}$ there.}
+\label{tab:l}
+\end{table}
+
+
+\section*{Exercise B.}
+
+The Initial Mass Function (IMF) is an empirical function describing the
+distribution of initial masses for a population of stars (i.e. the number of
+stars with masses in the range $m$ to $m + \mathrm{d}m$). In 1955 Salpeter
+derived an IMF of the form: $\mathrm{d}N(m) = C \cdot m-2.35\mathrm{d}m$, where
+$C$ is a constant. According to this IMF, we expect the stellar population of a
+galaxy to be dominated (in number) by stars less massive than $0.3$ solar
+masses, which have an effective temperature lower than \SI{3000}{\kelvin}. At
+which wavelengths should we observe this galaxy in order to reliably estimate
+its total mass (in stars)? (2 points). \\
+
+Wien's law gives us the maxiumum of the spectrum of a black body:
+\begin{align}
+\lambda_{max}(T) &= \frac{\SI{2897.8}{\micro\meter\kelvin}}{T} \;.
+\label{eq:w}
+\end{align}
+
+Thus for $T=\SI{3000}{\kelvin}$ we get $\lambda_{max} =
+\SI{0.966}{\micro\meter}$, which would be the wavelength at which we would want
+to observe the galxay, assuming, that it is mainly populated by small stars.
+
+
+\section*{Exercise C.}
+
+Figures 2 and 3 on the sheet show the Horsehead Nebula in Orion imaged at
+optical and near-infrared wavelengths, respectively. Notice that the images
+have a different spatial scale.  Compare the two images and briefly and
+qualitatively explain: \\
+
+\paragraph{1.} Why is the Horsehead feature much darker in the optical than in
+the near-infrared? (2 points)  \\
+
+The nebula consists of dust, which absorbs optical wavelengths. This is why it
+apears to be dark in this range.
+In the infrared, on the other hand, we can see the dust emit its heat, which is
+why it appears brighter. 
+
+\paragraph{2.} Why can we see more stars through the Horsehead Nebula when this
+is imaged at near-infrared wavelengths? (2 points) \\
+
+As the dust in the nebula does not absorb NIR wavelengths we can see the NIR 
+light emitted by the stars inside and behind it.
+
+
+
+
+\section*{Exercise D.}
+
+We acquire images of a stellar field in the standard filters in the same night,
+while the ambient temperature is \SI{12}{\celsius}. At which wavelength
+is the thermal emission of the telescope strongest, if the sky conditions do
+not change across the night and it's new moon, and how does it affect your
+images? (3 points) \\
+
+Again we use Wien's law (eq. \ref{eq:w}) to calculate the peak of the
+radiation of the telescope:
+\begin{align}
+\lambda_{max} = \SI{10.16}{\micro\meter}.
+\end{align}
+
+This means, that if we wanted to observe in the mid infrared range of the
+spectrum the emissions of the telescope would ruin our data.
+
+
+\section*{Exercise E.}
+
+Figure 4 on the sheet shows the Large Magellanic Cloud galaxy in mid-infrared
+light as seen by the Herschel Space Observatory (ESA+NASA) and the Spitzer
+Space Telescope (NASA). The image is a false-colour composite of 5 images
+acquired at 5 different wavelengths, as explained in the table \ref{tab:col}.
+
+
+The colours listed above indicate temperatures in the dust that permeates the
+galaxy.  Colder dust, in red, is placed in correspondance with regions where
+star formation is at its earliest stages, while the hotter dust, in blue,
+indicates where fully-formed, main sequence and/or post-main sequence stars are
+located.  What is the temperature range of the dust in Figure 4? (3 points) \\
+
+The temperature range can be found by again using Wien's law, by rearranging
+equation \ref{eq:w} to give us the temperature in dependence of $\lambda_{max}$.
+The results are given in table \ref{tab:col}. Thus we find a temperature range
+of  \SIrange{11.6}{120.7}{\kelvin}.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{ccc}\toprule
+Colour  & Wavelength $[\si{micro\meter}]$  & Temperature $[K]$  \\ \midrule
+Blue    & 24.0  & 120.7                \\
+Cyan    & 70.0  & 41.3                \\
+Green   & 100.0 & 29.0                \\
+Green   & 160.0 & 18.1                \\
+Red     & 250.0 & 11.6               \\
+\bottomrule
+\end{tabular}
+\caption{Color - wavelength legend and corresponding black body temperature for
+         exercise E.}
+\label{tab:col}
+\end{table}
+
+
+\section*{Exercise F.}
+
+Imagine you use the \SI{100}{\meter} telescope at Effelsberg, and observe a
+source of $f = \SI{5}{\jy}$. The receiver has a bandwidth of
+\SIrange{4.6}{5.1}{\giga\hertz}. Assume an efficiency of $e=0.55$.  What is the
+total radiative energy $E_{rad}$ collected by the receiver in \SI{10}{\second}? (3
+points) \\
+
+By looking at the units of the flux density $f$ we can directly see, how to 
+calculate the total radiative energy $E_{rad}$:
+\begin{align}
+\SI{1}{\jy} &= \SI[per-mode=fraction]{1e-26}{\joule\per\second\per\meter\squared\per\hertz}\;. \\
+\Rightarrow
+R_{rad} &= e \cdot f \cdot A \cdot \Delta \cdot \nu t \\
+&= 0.55 \cdot \SI{5}{\jy} \cdot \pi(\SI{100}{\meter})^2 \cdot (5.1-4.6)\si{\giga\hertz} \cdot \SI{10}{\second} \\
+&= \SI{4.32e-21}{\joule}
+\end{align}
+
+\section*{Exercise G.}
+
+Cassiopeia A in Fig. 5 on the sheet is a supernova remnant in the Milky Way.
+Its apparent magnitude is $V = \SI{6}{\mag}$, while its absolute
+magnitude is $MV = \SI{-6.66}{\mag}$. This nebula has a diameter of
+\SI{3}{\parsec}. \\
+
+\paragraph{1.} Which baseline should a radio array cover in order to resolve
+substructures in the Cassiopeia nebula as small as $\frac{1}{10}$ of the nebula
+diameter at \SI{1.4}{\giga\hertz}? (4 points)
+
+To calculate the distance of the nebula we use the relation
+\begin{align}
+MV &= V-5\log(d)+5 \\
+\Leftrightarrow
+d &= e^{-\frac{MV - V - 5}{5}} \\
+  &= \SI{34.19}{\parsec}
+\end{align}
+
+Thus the extend of the object on the sky in radian is
+\begin{align}
+\delta  &= 2\op{arctan}\left( \frac{d}{2D}\right), \\
+        &= \SI{0.08}{\radian}
+\end{align}
+with $d$ being the diameter of the object and $D$ its distance.
+
+We know that the resolution of the array is given in radians as
+\begin{align}
+q_{rad} &= 1.02\frac{\lambda}{B},
+\end{align}
+where $B$ is in this case the baseline of the array.
+
+Thus we now can calculate $B$:
+\begin{align}
+B  &= 1.02 \frac{\lambda}{q_{rad} = \frac{\delta}{10}}, \\
+    &= \SI{24.92}{\meter}.
+\end{align}
+
+
+\paragraph{2.} What would be the likely cause of radio emission in such a
+supernova remnant? (3 points)
+
+In the inside of the remnant is a white dwarf, which still eminates radiation,
+which then in turn exites the dust particels in the nebula. They the radiate
+in the radio band.
+
+
+\end{document}
