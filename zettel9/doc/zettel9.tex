@@ -22,6 +22,7 @@
 \DeclareSIUnit \AU {AU}
 \DeclareSIUnit \pixel {pixel}
 \DeclareSIUnit \jy {Jy}
+\DeclareSIUnit \jansky {Jy}
 
 % format angle display
 \sisetup{add-arc-degree-zero}
@@ -59,6 +60,8 @@
 \newcommand{\MgFe}{\ensuremath{[\text{MgFe}]^\prime} }
 \newcommand{\ZH}{\ensuremath{[\text{Z}/\text{H}]} }
 \newcommand{\Hbo}{\ensuremath{[\text{H}\beta_0]} }
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
 
 \lstset{
    basicstyle=\scriptsize\ttfamily,			% grundlege des Design
@@ -110,6 +113,7 @@
 \newpage
 \setcounter{page}{1}		% set page count to start with 1 here
 
+<<<<<<< HEAD
 \section*{Exercise A.}
 
 The near-infrared spectrum of a typical massive elliptical galaxy is
@@ -203,22 +207,50 @@ light emitted by the stars inside and behind it.
 
 
 
+%\section*{Exercise D.}
+%
+%We acquire images of a stellar field in the standard filters in the same night,
+%while the ambient temperature is \SI{12}{\celsius}. At which wavelength
+%is the thermal emission of the telescope strongest, if the sky conditions do
+%not change across the night and it's new moon, and how does it affect your
+%images? (3 points) \\
+%
+%Again we use Wien's law (eq. \ref{eq:w}) to calculate the peak of the
+%radiation of the telescope:
+%\begin{align}
+%\lambda_{max} = \SI{10.16}{\micro\meter}.
+%\end{align}
+%
+%This means, that if we wanted to observe in the mid infrared range of the
+%spectrum the emissions of the telescope would ruin our data.
+
+
 \section*{Exercise D.}
 
 We acquire images of a stellar field in the standard filters in the same night,
-while the ambient temperature is \SI{12}{\celsius}. At which wavelength
-is the thermal emission of the telescope strongest, if the sky conditions do
-not change across the night and it's new moon, and how does it affect your
-images? (3 points) \\
+while the ambient temperature is \SI{12}{\celsius}. At which wavelength is the
+thermal emission of the telescope strongest, if the sky conditions do not
+change across the night and it's new moon, and how does it affect your images?
+(3 points) \\
 
-Again we use Wien's law (eq. \ref{eq:w}) to calculate the peak of the
-radiation of the telescope:
-\begin{align}
-\lambda_{max} = \SI{10.16}{\micro\meter}.
-\end{align}
+Given the ambiant temperature and no disturbing effects like light sources
+(e.g. the moon), the telescope will be at a temperature equal to the ambiant
+temperature. Using Wien's displacement law it is possible to calculate the
+wavelength of maximum emission. For $T = \SI{12}{\celsius} =
+\SI{285.15}{\kelvin}$ this yields
 
-This means, that if we wanted to observe in the mid infrared range of the
-spectrum the emissions of the telescope would ruin our data.
+\begin{equation}
+ \lambda_{\text{max}} = \SI{2.898e6}{\nano\metre\kelvin} \cdot \frac{1}{T} = \SI{10.16}{\micro\metre}
+\end{equation}
+
+If ``standard filters'' refers to the usual colour filters for astronomical
+observations, it is very likely that the setup is meant to observe objects in
+the visible range. Therefore, even a rather strong infrared dark current from
+the telescope will not significantly lower the image quality. 
+
+Making observations in the mid infrared on the other hand would be impossible,
+as the teleskope would ruin our data, by shining very brightly itself.
+%\textbf{\red{Isthis really true?}} \\
 
 
 \section*{Exercise E.}
@@ -257,7 +289,7 @@ Red     & 250.0 & 11.6               \\
 \end{table}
 
 
-\section*{Exercise F.}
+\section*{Exercise F. - JO}
 
 Imagine you use the \SI{100}{\meter} telescope at Effelsberg, and observe a
 source of $f = \SI{5}{\jy}$. The receiver has a bandwidth of
@@ -270,10 +302,39 @@ calculate the total radiative energy $E_{rad}$:
 \begin{align}
 \SI{1}{\jy} &= \SI[per-mode=fraction]{1e-26}{\joule\per\second\per\meter\squared\per\hertz}\;. \\
 \Rightarrow
-R_{rad} &= e \cdot f \cdot A \cdot \Delta \cdot \nu t \\
-&= 0.55 \cdot \SI{5}{\jy} \cdot \pi(\SI{100}{\meter})^2 \cdot (5.1-4.6)\si{\giga\hertz} \cdot \SI{10}{\second} \\
-&= \SI{4.32e-21}{\joule}
+R_{rad} &= e \cdot \SI{5}{\jy} \cdot t \cdot A \cdot \Delta f \\
+&= 0.55 \cdot \SI{5}{\jy} \cdot \SI{10}{\second} \cdot \pi(\SI{50}{\meter})^2 \cdot (5.1-4.6)\si{\giga\hertz} \\
+&= \SI{1.08e-12}{\joule}
 \end{align}
+
+
+\section*{Exercise F. - FLO} 
+
+Imagine you use the \SI{100}{\metre} telescope at Effelsberg, and observe a
+source of \SI{5}{\jansky}. The receiver has a bandwidth of
+\SIrange{4.6}{5.1}{\GHz}. Assume an efficiency of \num{0.55}. What is the total
+radiative energy collected by the receiver in \SI{10}{\second}? (3 points) \\
+
+
+One Jansky is equivalent to \SI{e-26}{\watt\per\metre\squared\per\hertz}.
+Therefore, the total radiative energy collected in $t = \SI{10}{\second}$ can
+be computed as
+
+\begin{equation}
+ E_{\text{rad}} = \SI{5}{\jansky} \cdot t \cdot A \cdot \Delta f
+\end{equation}
+
+where $A = \pi \left( \SI{50}{\metre} \right)^2 = \SI{7854}{\metre\squared}$ is
+the total collection area of the telescope and $\Delta f = \SI{5.1}{\GHz} -
+\SI{4.6}{\GHz} = \SI{0.5}{\GHz} = \SI{500}{\MHz}$ is the bandwidth of the
+receiver. \\
+
+Calculating the total radiative energy under the named conditions yields 
+
+\begin{eqnarray}
+ E_{\text{rad}} &=& \SI{e-26}{\watt\per\metre\squared\per\hertz} \cdot \SI{10}{\second} \cdot \SI{7854}{\metre\squared} \cdot \SI{500e6}{\Hz} \\
+ &=& \SI{3.927e-13}{\joule}
+\end{eqnarray}
 
 \section*{Exercise G.}
 
