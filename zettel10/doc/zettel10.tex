@@ -15,6 +15,7 @@
 \usepackage[german]{isodate} % Datumformatierung für \today
 \usepackage{marvosym}
 \usepackage{ulem}	% 
+\usepackage{hyperref}
 
 % declaring custom units
 \DeclareSIUnit \mag {mag}
@@ -89,7 +90,7 @@
 %}
  
 %opening
-\title{\LARGE \underline {Sheet 9}}
+\title{\LARGE \underline {Sheet 10}}
 \author{Johannes Haux \\ Florian Trost \\ Elsa Wilken}
 \date{\today}
 
@@ -114,8 +115,21 @@
 \setcounter{page}{1}		% set page count to start with 1 here
 
 \section*{Exercise A.}
-\section*{Exercise B.}
-\section*{Exercise C.}
+
+Use the SIMBAD database (\url{http://simbad.u-strasbg.fr/simbad/sim-fid}) to retrieve the parallax of alpha Canis Majoris. What is its distance? What would its parallax be if the measurements were made from Venus? You can assume for Venus an average orbital radius of \SI{0.72}{\AU}. (3 points) \\
+
+Listed in the SIMBAD database there are \num{11} measurements of the parallax of alpha Canis Majoris. Their mean value is $p = \SI{0.370}{\arcsecond} = \SI{1.79e-6}{\radian}$. The distance $d$ from Earth to alpha Canis Majoris is therefore
+
+\begin{equation}
+ d = \frac{\SI{1}{\AU}}{\tan \left( p \right) } = \SI{2.70}{\parsec}.
+\end{equation}
+
+If the measurement of the parallax was taken from Venus, the value for the Venusian parallax would be 
+
+\begin{equation}
+ p_V = \arctan \left( \frac{\SI{0.72}{\AU}}{d} \right) = \SI{1.29}{\radian} = \SI{0.266}{\arcsecond}
+\end{equation}
+
 
 
 \end{document}
