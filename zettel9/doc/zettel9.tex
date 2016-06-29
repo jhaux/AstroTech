@@ -120,33 +120,33 @@ The near-infrared spectrum of a typical massive elliptical galaxy is
 characterized by the stellar absorption of NaI at \SI{1.14}{\micro\meter} (at
 rest frame). This feature is astrophysically rather important as it is used
 together with other spectral indices to estimate the Na abundance and the IMF
-slope in ellipticals.  As you can see in Fig. \ref{fig:z}, the atmosphere is
+slope in ellipticals.  As you can see in Figure \ref{fig:z}, the atmosphere is
 rather opaque at the wavelength of this feature. At which redshift should this
 galaxy be if we want to observe this stellar feature with an atmospheric
-transmission > 0.9? (3 points)\\
+transmission \textgreater \ 0.9? (3 points)\\
 
-From figure \ref{fig:z} we read off the values of wavelength $\lambda$, where
-the Transmission is $\geq 0.9$. The values are listed in table \ref{tab:l} and
-marked as blue lines in figure \ref{fig:z}. The areas of interest are
+From Figure \ref{fig:z} we read off the values of wavelength $\lambda$, where
+the transmission is $> 0.9$. The values are listed in Table \ref{tab:l} and
+marked as blue lines in Figure \ref{fig:z}. The areas of interest are
 overplotted with a pale blue. To calculate the redishift $z$ to move the
 NaI-line from $\lambda_0=\SI{1.14}{\micro\meter}$ to the values $\lambda_{obs}$
 we extracted, we use the relation
-\begin{align*}
-    z   &= \frac{\Delta \lambda}{\lambda_0}\;, \\
-        &= \frac{\lambda_{obs}}{\lambda_0} -1\;.
-\end{align*}
-The calculated values of $z$ can also be found in table \ref{tab:l} and in 
-figure \ref{fig:z}.
+\begin{eqnarray}
+    z   &=& \frac{\Delta \lambda}{\lambda_0}\;, \\
+        &=& \frac{\lambda_{obs}}{\lambda_0} -1\;.
+\end{eqnarray}
+The calculated values of $z$ can also be found in Table \ref{tab:l} and in 
+Figure \ref{fig:z}.
 
-\begin{figure}[h!]
-\centering
-\includegraphics[width=\linewidth]{./pic/spec_z}
-\caption{Atmosphere Transmission as function of Wavelength together with the
-         areas interest, overplotted in pale blue, where the Transmission is
-         $\geq 0$, between the wavelengths $\lambda_{obs}$ marked as blue
-         vertical lines.}
-\label{fig:z}
-\end{figure}
+% \begin{figure}[h!]
+% \centering
+% \includegraphics[width=\linewidth]{./pic/spec_z}
+% \caption{Atmosphere transmission as function of wavelength together with the
+%          areas of interest, overplotted in pale blue, where the transmission is
+%          $\geq 0$, between the wavelengths $\lambda_{obs}$ marked as blue
+%          vertical lines.}
+% \label{fig:z}
+% \end{figure}
 
 \begin{table}[h!]
 \begin{tabular}{ccccccccccc} \toprule
@@ -154,7 +154,7 @@ $\lambda_{obs}$ $[\si{\micro\meter}]$ & 1.0 & 1.1 & 1.2 & 1.32 & 1.5 & 1.76 & 1.
 $z$ & -0.123 & -0.035 & 0.053 & 0.158 & 0.316 & 0.544 & 0.737 & 0.746 & 0.842 & 0.93  \\
 \bottomrule
 \end{tabular}
-\caption{Extracted Wavelength values $\lambda_{obs}$ and their corresponding
+\caption{Extracted wavelength values $\lambda_{obs}$ and their corresponding
          redshift $z$, to move $\lambda_0 = \SI{1.14}{\micro\meter}$ there.}
 \label{tab:l}
 \end{table}
@@ -165,9 +165,9 @@ $z$ & -0.123 & -0.035 & 0.053 & 0.158 & 0.316 & 0.544 & 0.737 & 0.746 & 0.842 & 
 The Initial Mass Function (IMF) is an empirical function describing the
 distribution of initial masses for a population of stars (i.e. the number of
 stars with masses in the range $m$ to $m + \mathrm{d}m$). In 1955 Salpeter
-derived an IMF of the form: $\mathrm{d}N(m) = C \cdot m-2.35\mathrm{d}m$, where
+derived an IMF of the form: $\mathrm{d}N(m) = C \cdot m^{-2.35}\mathrm{d}m$, where
 $C$ is a constant. According to this IMF, we expect the stellar population of a
-galaxy to be dominated (in number) by stars less massive than $0.3$ solar
+galaxy to be dominated (in number) by stars less massive than \num{0.3} solar
 masses, which have an effective temperature lower than \SI{3000}{\kelvin}. At
 which wavelengths should we observe this galaxy in order to reliably estimate
 its total mass (in stars)? (2 points). \\
@@ -194,9 +194,8 @@ qualitatively explain: \\
 the near-infrared? (2 points)  \\
 
 The nebula consists of dust, which absorbs optical wavelengths. This is why it
-apears to be dark in this range.
-In the infrared, on the other hand, we can see the dust emit its heat, which is
-why it appears brighter. 
+apears to be dark in this range. In the infrared, on the other hand, we can see the dust emit blackbody radiation because of its temperature, which is
+why it appears brighter in that wavelength region. 
 
 \paragraph{2.} Why can we see more stars through the Horsehead Nebula when this
 is imaged at near-infrared wavelengths? (2 points) \\
@@ -245,40 +244,40 @@ wavelength of maximum emission. For $T = \SI{12}{\celsius} =
 
 If ``standard filters'' refers to the usual colour filters for astronomical
 observations, it is very likely that the setup is meant to observe objects in
-the visible range. Therefore, even a rather strong infrared dark current from
-the telescope will not significantly lower the image quality. 
+the visible range. Therefore, even a rather strong infrared background radiation from
+the telescope will not significantly lower the image quality. \\
 
-Making observations in the mid infrared on the other hand would be impossible,
+Making observations in the mid-infrared on the other hand would be impossible,
 as the teleskope would ruin our data, by shining very brightly itself.
-%\textbf{\red{Isthis really true?}} \\
 
 
 \section*{Exercise E.}
 
 Figure 4 on the sheet shows the Large Magellanic Cloud galaxy in mid-infrared
 light as seen by the Herschel Space Observatory (ESA+NASA) and the Spitzer
-Space Telescope (NASA). The image is a false-colour composite of 5 images
-acquired at 5 different wavelengths, as explained in the table \ref{tab:col}.
-
+Space Telescope (NASA). The image is a false-colour composite of \num{5} images
+acquired at \num{5} different wavelengths, as explained in Table \ref{tab:col}. \\
 
 The colours listed above indicate temperatures in the dust that permeates the
 galaxy.  Colder dust, in red, is placed in correspondance with regions where
 star formation is at its earliest stages, while the hotter dust, in blue,
 indicates where fully-formed, main sequence and/or post-main sequence stars are
-located.  What is the temperature range of the dust in Figure 4? (3 points) \\
+located.  \\
+What is the temperature range of the dust in Figure 4? (3 points) \\
 
 The temperature range can be found by again using Wien's law, by rearranging
 equation \ref{eq:w} to give us the temperature in dependence of $\lambda_{max}$.
-The results are given in table \ref{tab:col}. 
+The results are given in Table \ref{tab:col}. 
 Nevertheless it is hard to define a temperature range for the dust, as we only
 measured at a specific set of wavelengths. It might be, that there are hotter
-regions in the nebula, we did not take a look at.
-The temperature range encoded in colors \SIrange{11.6}{120.7}{\kelvin}.
+regions in the nebula, we did not take a look at. We have no guarantee that the wavelength at which we observed are actually the maximum emission wavelength of the blackbody radiation profile of the different dust regions. \\
+
+The temperature range encoded in colours is \SIrange{11.6}{120.7}{\kelvin}.
 Looking at the picture we see that a vast majority of the dust is relatively 
-cool at \SI{11.6}{\celsius}, covering the outer regions. Inside, in smaller
-regions, closer to stars it gets warmer, up to \SI{29}{\celsius} and very close
+cool at \SI{11.6}{\kelvin}, covering the outer regions. Inside, in smaller
+regions closer to stars, it gets warmer, up to \SI{29}{\kelvin} and very close
 to stars at very small regions in the image it is hot with about
-\SI{120}{\celsius}.
+\SI{120}{\kelvin}.
 
 \begin{table}[h!]
 \centering
@@ -297,39 +296,20 @@ Red     & 250.0 & 11.6               \\
 \end{table}
 
 
-\section*{Exercise F. - JO}
-
-Imagine you use the \SI{100}{\meter} telescope at Effelsberg, and observe a
-source of $f = \SI{5}{\jy}$. The receiver has a bandwidth of
-\SIrange{4.6}{5.1}{\giga\hertz}. Assume an efficiency of $e=0.55$.  What is the
-total radiative energy $E_{rad}$ collected by the receiver in \SI{10}{\second}? (3
-points) \\
-
-By looking at the units of the flux density $f$ we can directly see, how to 
-calculate the total radiative energy $E_{rad}$:
-\begin{align}
-\SI{1}{\jy} &= \SI[per-mode=fraction]{1e-26}{\joule\per\second\per\meter\squared\per\hertz}\;. \\
-\Rightarrow
-R_{rad} &= e \cdot \SI{5}{\jy} \cdot t \cdot A \cdot \Delta f \\
-&= 0.55 \cdot \SI{5}{\jy} \cdot \SI{10}{\second} \cdot \pi(\SI{50}{\meter})^2 \cdot (5.1-4.6)\si{\giga\hertz} \\
-&= \SI{1.08e-12}{\joule}
-\end{align}
-
-
 \section*{Exercise F. - FLO} 
 
 Imagine you use the \SI{100}{\metre} telescope at Effelsberg, and observe a
 source of \SI{5}{\jansky}. The receiver has a bandwidth of
-\SIrange{4.6}{5.1}{\GHz}. Assume an efficiency of \num{0.55}. What is the total
+\SIrange{4.6}{5.1}{\GHz}. Assume an efficiency of $e=\num{0.55}$. What is the total
 radiative energy collected by the receiver in \SI{10}{\second}? (3 points) \\
 
 
-One Jansky is equivalent to \SI{e-26}{\watt\per\metre\squared\per\hertz}.
+One Jansky is equivalent to \SI{1e-26}{\joule\per\second\per\meter\squared\per\hertz}.
 Therefore, the total radiative energy collected in $t = \SI{10}{\second}$ can
 be computed as
 
 \begin{equation}
- E_{\text{rad}} = \SI{5}{\jansky} \cdot t \cdot A \cdot \Delta f
+ E_{\text{rad}} = \SI{5}{\jansky} \cdot t \cdot A \cdot \Delta f \cdot e
 \end{equation}
 
 where $A = \pi \left( \SI{50}{\metre} \right)^2 = \SI{7854}{\metre\squared}$ is
@@ -340,55 +320,52 @@ receiver. \\
 Calculating the total radiative energy under the named conditions yields 
 
 \begin{eqnarray}
- E_{\text{rad}} &=& \SI{e-26}{\watt\per\metre\squared\per\hertz} \cdot \SI{10}{\second} \cdot \SI{7854}{\metre\squared} \cdot \SI{500e6}{\Hz} \\
- &=& \SI{3.927e-13}{\joule}
+ E_{\text{rad}} &=& \SI{5e-26}{\joule\per\second\per\metre\squared\per\hertz} \cdot \SI{10}{\second} \cdot \SI{7854}{\metre\squared} \cdot \SI{500e6}{\Hz} \cdot 0.55 \\
+ &=& \SI{1.08e-12}{\joule}
 \end{eqnarray}
 
 \section*{Exercise G.}
 
 Cassiopeia A in Fig. 5 on the sheet is a supernova remnant in the Milky Way.
 Its apparent magnitude is $V = \SI{6}{\mag}$, while its absolute
-magnitude is $MV = \SI{-6.66}{\mag}$. This nebula has a diameter of
-\SI{3}{\parsec}. \\
+magnitude is $M_V = \SI{-6.66}{\mag}$. This nebula has a diameter of $D=\SI{3}{\parsec}$.
 
 \paragraph{1.} Which baseline should a radio array cover in order to resolve
 substructures in the Cassiopeia nebula as small as $\frac{1}{10}$ of the nebula
-diameter at \SI{1.4}{\giga\hertz}? (4 points)
+diameter at \SI{1.4}{\giga\hertz}? (4 points) \\
 
 To calculate the distance of the nebula we use the relation
 \begin{align}
-MV &= V-5\log(d)+5 \\
+M_V &= V-5\log(d)+5 \\
 \Leftrightarrow
-d &= e^{-\frac{MV - V - 5}{5}} \\
-  &= \SI{34.19}{\parsec}
+d &= 10^{\frac{V - M_V + 5}{5}} \\
+  &= \SI{3.404}{\kilo\parsec}
 \end{align}
 
-Thus the extend of the object on the sky in radian is
+Thus the extend of the object on the sky is
 \begin{align}
-\delta  &= 2\op{arctan}\left( \frac{d}{2D}\right), \\
-        &= \SI{0.08}{\radian}
+\delta  &= 2\op{arctan}\left( \frac{D}{2d}\right), \\
+        &= \SI{8.81e-4}{\radian} = \SI{3.03}{\arcmin}
 \end{align}
-with $d$ being the diameter of the object and $D$ its distance.
-
-We know that the resolution of the array is given in radians as
+with $D$ being the diameter of the object and $d$ its distance. We know that the resolution of the array is given in radians as
 \begin{align}
 q_{rad} &= 1.02\frac{\lambda}{B},
 \end{align}
-where $B$ is in this case the baseline of the array.
-
-Thus we now can calculate $B$:
+where $B$ is in this case the baseline of the array. Thus we now can calculate $B$:
 \begin{align}
-B  &= 1.02 \frac{\lambda}{q_{rad} = \frac{\delta}{10}}, \\
-    &= \SI{24.92}{\meter}.
+B  &= 1.02 \frac{\lambda}{q_{rad}}.
 \end{align}
+
+With $ q_{rad} = \frac{\delta}{10} = \SI{8.81e-5}{\radian}$ the baseline should be
+
+\begin{equation}
+ B = 1.02 \cdot \frac{\SI{21.4}{\cm}}{\SI{8.81e-5}{\radian}} = \SI{2.48}{\kilo\metre}
+\end{equation}
 
 
 \paragraph{2.} What would be the likely cause of radio emission in such a
-supernova remnant? (3 points)
+supernova remnant? (3 points) \\
 
-In the inside of the remnant is a white dwarf, which still eminates radiation,
-which then in turn exites the dust particels in the nebula. They the radiate
-in the radio band.
-
+Since the wavelength of the emission is \SI{21}{\cm}, it is the HI-line of atomic hydrogen. When a spin flip of the electron in atomic hydrogen occurs, a photon with that wavelength is emitted. This is called hyperfine structure transition. The cause of the radio emission is therefore large amounts of atomic hydrogen in the supernova remnant. 
 
 \end{document}
