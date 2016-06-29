@@ -1,0 +1,134 @@
+\documentclass[11pt,a4paper,twoside]{article}
+\usepackage{a4wide}	% für gut definierte Seitenränder und Platzausnutzung
+\usepackage[utf8]{inputenc}	% für Umlaute
+\usepackage{amssymb,amsmath}
+\usepackage{booktabs}   % schöne Tabellen
+\usepackage[pdftex]{graphicx}
+\graphicspath{{./pic/}}
+\usepackage{epstopdf}
+\usepackage{siunitx}	% für SI-Einheiten; siehe http://mirror.unicorncloud.org/CTAN/macros/latex/contrib/siunitx/siunitx.pdf
+\usepackage[version=3]{mhchem}	% chemische Symbole mit \ce{}
+\usepackage{listings} 	% für Einbinden von Quellcode
+%\usepackage{minted}     % Johannes Lieblingspackage für Quellcode
+\usepackage{color}	% für das Einfärben von eingebundenem Quellcode
+\usepackage{longtable}	% für das Erstellen mehrseitiger Tabellen
+\usepackage[german]{isodate} % Datumformatierung für \today
+\usepackage{marvosym}
+\usepackage{ulem}
+\usepackage{hyperref}
+
+% declaring custom units
+\DeclareSIUnit \mag {mag}
+\DeclareSIUnit \parsec {pc}
+\DeclareSIUnit \AU {AU}
+\DeclareSIUnit \pixel {pixel}
+\DeclareSIUnit \jansky {Jy}
+
+% format angle display
+\sisetup{add-arc-degree-zero}
+\sisetup{add-arc-minute-zero}
+\sisetup{add-arc-second-zero}
+\sisetup{arc-separator = \,}
+
+
+%Befehl, um Quellcode einzufügen: 
+%\lstinputlisting[caption = {``title``}, captionpos = b, language=C++]{data.cpp}
+
+%Befehl, um Graphik einzufügen:   
+%\begin{figure}
+%  \centering
+%  \includegraphics[width=0.7\textwidth, angle=-90]{center_diff.eps}
+%  \caption{centered differencing at t = 4}
+%\end{figure}
+
+% Befehl für kein ``\noindent mehr''
+\setlength\parindent{0pt}
+
+%\lstset{numbers=left}
+
+\newcommand{\op}[1]{\operatorname{#1}}
+
+% Konsistente Variablennamen:
+\newcommand{\zen}{\ensuremath{\nu} }    % zenith angle
+\newcommand{\hei}{\ensuremath{h} }      % height angle
+\newcommand{\HA}{\ensuremath{\Gamma} }  % hour angle \HA
+\newcommand{\DEC}{\ensuremath{\delta} } % declination \DE
+\newcommand{\LAT}{\ensuremath{\Phi} }   % latitude \LAT
+\newcommand{\electron}{\ce{e^-}}
+\newcommand{\SNR}{\ensuremath{\frac{S}{N}} }
+
+\newcommand{\MgFe}{\ensuremath{[\text{MgFe}]^\prime} }
+\newcommand{\ZH}{\ensuremath{[\text{Z}/\text{H}]} }
+\newcommand{\Hbo}{\ensuremath{[\text{H}\beta_0]} }
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+\lstset{
+   basicstyle=\scriptsize\ttfamily,			% grundlege des Design
+   keywordstyle=\ttfamily,				% Design von Schlüsselwörtern (Codebefehle wie Variablentypen, Schleifenbefehle u.Ä.)
+   stringstyle=\ttfamily,				% Design von Variablen
+   commentstyle=\ttfamily\color{blue},			% Design von Kommentaren
+   showstringspaces=false,				% Leerzeichen in Strings darstellen?
+   flexiblecolumns=false,				% dynamische Spaltenbreite?
+   tabsize=2,						% Länge des Tabulators
+   % Einstellung der Zeilennummerierung:
+   numbers=left,					% Position der Nummern
+   numberstyle=\tiny,					% Größe der Nummern
+   numberblanklines=true,				% Leerzeilen durchnummerieren?
+   numbersep=20pt,					% Platz zwischen Nummern und Code
+   xleftmargin=30pt					% Platz zum linken Seitenrand
+ }
+
+% Minted stuff
+\definecolor{bg}{rgb}{0.95,0.95,0.95}  % Hintergrundfarbe für den code
+%\setminted{
+%    linenos=true,   % turn on line numbers
+%    bgcolor=bg,     % turn on background color
+%    frame=lines,    % top and bottom line to seperate code from text
+%    mathescape=true % used to allow labelling of singel lines
+%}
+ 
+%opening
+\title{\LARGE \underline {Sheet 10}}
+\author{Johannes Haux \\ Florian Trost \\ Elsa Wilken}
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{center}
+  Astronomical Techniques (MKEP5) \\
+  \baselineskip35pt
+  by Prof. Dr. Stefan Wagner and Priv.-Doz. Dr. Thorsten Lisker \\
+  \baselineskip60pt
+  Ruprecht Karl University of Heidelberg
+\vskip 40pt
+\includegraphics[width=5cm]{UniHD.png}
+
+\end{center}
+
+\newpage
+\setcounter{page}{1}		% set page count to start with 1 here
+
+\section*{Exercise A.}
+
+Use the SIMBAD database (\url{http://simbad.u-strasbg.fr/simbad/sim-fid}) to retrieve the parallax of alpha Canis Majoris. What is its distance? What would its parallax be if the measurements were made from Venus? You can assume for Venus an average orbital radius of \SI{0.72}{\AU}. (3 points) \\
+
+Listed in the SIMBAD database there are \num{11} measurements of the parallax of alpha Canis Majoris. Their mean value is $p = \SI{0.370}{\arcsecond} = \SI{1.79e-6}{\radian}$. The distance $d$ from Earth to alpha Canis Majoris is therefore
+
+\begin{equation}
+ d = \frac{\SI{1}{\AU}}{\tan \left( p \right) } = \SI{2.70}{\parsec}.
+\end{equation}
+
+If the measurement of the parallax was taken from Venus, the value for the Venusian parallax would be 
+
+\begin{equation}
+ p_V = \arctan \left( \frac{\SI{0.72}{\AU}}{d} \right) = \SI{1.29}{\radian} = \SI{0.266}{\arcsecond}
+\end{equation}
+
+
+
+\end{document}
