@@ -20,6 +20,7 @@
 % declaring custom units
 \DeclareSIUnit \mag {mag}
 \DeclareSIUnit \parsec {pc}
+\DeclareSIUnit\lightyear{ly}
 \DeclareSIUnit \AU {AU}
 \DeclareSIUnit \pixel {pixel}
 \DeclareSIUnit \jy {Jy}
@@ -90,7 +91,7 @@
 %}
  
 %opening
-\title{\LARGE \underline {Sheet 10}}
+\title{\LARGE \underline {Sheet 11}}
 \author{Johannes Haux \\ Florian Trost \\ Elsa Wilken}
 \date{\today}
 
@@ -116,7 +117,92 @@
 
 \section*{Exercise A.}
 
+A radio interferometer is equipped with two receivers 1000 km apart. \\
 
+\paragraph{1.} What is its resolution at $\nu = \SI{1}{\giga\hertz}$? (2
+points) \\
+
+From the exercises we know that the resolution is given as
+\begin{align}
+    q_{rad} &= \frac{\lambda}{B},
+\end{align}
+with B being the baseline and $\lambda$ the observed wavelength. This yields
+\begin{align}
+    q_{rad} &= \frac{c}{\nu B} \\
+            &= \SI{0.0000003}{\radian} \\
+            &= \SI{0.3}{\micro\radian}
+\end{align}
+
+\paragraph{2.} Can this interferometer resolve the distance travelled in one
+year by material in the radio jet in the active galaxy 3C 273 (see Fig. 1 on
+sheet)? Assume that the jet material propagates at nearly the speed of light
+and perpendicularly to the line of sight. The distance of 3C 273 is
+$D = \SI{750}{\mega\parsec}$. (2 points) \\
+
+The distance travelled by the jet material is 
+\begin{align}
+    d   &= \SI{1}{\lightyear} \\
+        &= \SI{0.3}{\parsec}\;.
+\end{align}
+As the distance to the galaxy is very far, we can use the small angle
+approximation that gives an angle of 
+\begin{align}
+    \delta  &= \frac{d}{D} \\
+            &= \frac{0.3}{\num{750e6}}\si{\radian} \\
+            &= \SI{0.004e-6}{\radian} \\
+            &= \SI{0.004}{\micro\radian} < q_{rad} \;.
+\end{align}
+Thus it will not be possible to resolve the jet using this interferometer.
+
+\paragraph{3.} Which baseline should an interferometer have in order to resolve
+the distance travelled by this same jet in one month? Briefly comment your
+result. (3 points) \\
+
+The angle, the jet moves on the sky, now is only $\frac{1}{12}\delta$. This
+leads to a resolution of 
+\begin{align}
+    q_{rad}     &= \SI{0.0003}{\micro\radian}\;.
+\end{align}
+It could be acomplished by an interferometer with a baseline of
+\begin{align}
+    B   &= \frac{\lambda}{q_{rad}} \\
+        &= \frac{c}{\nu q_{rad}} \\
+        &= \frac{\SI{3e8}{\meter\per\second}}{\SI{1e9}{\per\second} \SI{0.3e-9}{\radian}} \\
+        &= \frac{\SI{3e8}{\meter}}{\num{3e-1}} \\
+        &= \SI{e7}{\meter} = \SI{e4}{\kilo\meter} \;,
+\end{align}
+which is slightly less than the diameter of the earth, with about
+\SI{1.2e4}{\kilo\meter}.  Thus it is not really possible to achieve that kind
+of a baseline on earth, but space telescopes could easily have distances like
+this or even greater.
+
+\section*{Exercise B.} 
+The HESS telescope in Namibia (see Fig. 2 on the sheet) measures the
+interaction of high-energy $\gamma$ particles with the atmosphere. Such
+interaction produces a shower of electrons at a typical height $h =
+\SI{5}{\kilo\meter}$, which emits $\num{5e6}$ photons via the Cherenkov
+effect. These photons are emitted in a cone whose aperture is $\alpha =
+\SI{1.5}{\degree}$, and collected by the HESS telescope that has a diameter $D
+= \SI{12}{\meter}$. The light is focussed on a photomultiplier with a quantum
+efficiency $\epsilon = 0.25$ and a gain factor $G = 104$.  How many electrons
+are produced in the photomultiplier by the Cherenkov effect? (5 points) \\
+
+
+
+\section*{Exercise C.} 
+The observed energy spectrum of cosmic rays follows a power law of the kind
+$\Delta N/\Delta E \propto E^{-3}$ (cf. Fig. 1 from Nagano \& Watson 2000, and
+Fig. 3 below on the sheet), where $N$ is the number of cosmic rays of specific
+energy $E$ (\si{\electronvolt}) in units of
+$\si{\per\meter\squared\per\second\per\steradian\per\electronvolt}$.
+Compute the total energy received on Earth, in \SI{100}{\second}, in the form
+of cosmic rays whose energy is in the range \SIrange{e14}{e18}{\electronvolt},
+and compare it with the photon radiation from the Sun, solar constant $E_0 =
+\SI{1367}{\kilo\watt\per\meter\squared}$. (4 points)
+
+To calculate the total energy the earth receives by cosmic rays, we need to
+consider the surface area of the earth ($A_e = 4\pi r_e^2 \approx
+\SI{80000}{\kilo\meter\squared}$) and the 
 
 
 \end{document}
