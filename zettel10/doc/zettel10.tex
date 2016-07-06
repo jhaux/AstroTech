@@ -129,6 +129,106 @@ If the measurement of the parallax was taken from Venus, the value for the Venus
  p_V = \arctan \left( \frac{\SI{0.72}{\AU}}{d} \right) = \SI{1.29}{\radian} = \SI{0.266}{\arcsecond}
 \end{equation}
 
+	\section*{Exercise B.}
+We want to estimate the value of the Hubble constant $H_0$($km s^{-1}Mpc^{-1}$) using the
+redshift and apparent radius measured for the galaxies listed below. These galaxies are the
+central galaxies of galaxy clusters, and as such they do not exhibit peculiar motions. In
+conclusion, they can be used to probe the Hubble flow.\\
+\\1. You can connect to the SDSS Skyserver, at the web address:\\
+\textcolor{blue}{http://skyserver.sdss.org/dr12/en/tools/chart/listinfo.aspx}\\
+and write down the above coordinates in the top left box of the Skyserver page, omitting the
+table header.\\
+Once you click on “Get Image”, the stamp images of all galaxies will show up. By clicking on
+each stamp image, you will access a second webpage where you will select “explore” on the
+right hand side. This will allow you to retrieve, for each galaxy, the Petrosian radius
+"$PetroRad_r$" (in arcsecs) measured in the r band, and the redshift derived from the galaxy
+spectrum. (4 points)\\
+\\
+We get the Petrosian radius and the redshift by selecting "explore". See table \ref{tab1}
+\begin{table}
+	\centering
+	\begin{tabular}{ccc}
+		Name& $PetroRad\_r$[arcsec]& Redshift\\
+		\toprule
+		1&60.01 $\pm$ 6.197& 0.091$\pm$ 0.00003\\
+		2&15.39 $\pm$ 1.470& 0.129$\pm$0.00002\\
+		3&16.27 $\pm$ 1.237& 0.139$\pm$ 0.00003\\
+		4&16.12 $\pm$ 0.937&0.170$\pm$ 0.00004\\
+		5&9.07 $\pm$ 0.577& 0.287$\pm$ 0.00006\\
+		6&10.31 $\pm$ 0.480&0.225$\pm$ 0.00004\\
+		7&20.61 $\pm$ 0.603&0.164$\pm$ 0.00003\\
+		8&8.85 $\pm$ 0.240&0.270$\pm$ 0.00005\\
+		9&12.58 $\pm$ 0.586&0.231$\pm$0.00005\\
+		10&7.99 $\pm$ 0.293&0.305$\pm$0.00008\\
+		11&9.31 $\pm$ 0.254&0.155$\pm$0.00003\\
+		12&9.26 $\pm$ 0.244&0.193$\pm$ 0.00004\\
+		13&9.91 $\pm$ 0.317&0.291$\pm$ 0.00007\\
+		\label{tab1}
+	\end{tabular}
+	
+	\caption{}
+	
+\end{table}
+2. In order to estimate the galaxies distances from their radii, you can use the following
+calibration galaxy: NGC 4874, which is in the Coma cluster at a distance of 107 Mpc . You
+can adopt for it an angular radius of 1.6 arcmin.\\
+\\
+This calibration galaxy will allow you to establish a normalization for the relation between
+distance and apparent radius.
+The equation describing the relation itself needs to be provided
+by you. For simplicity, neglect the
+expansion of the Universe during the time that the light
+traveled to us, and possible relativistic effects. As first order approximation, assume that the
+sample galaxies have the same physical size. (3 points)\\
+\\
+3. Submit a table with the radial velocities and estimated distances for the 13 sample
+galaxies, together with the Hubble diagram (velocity as a function of distance) that you obtain
+from the above measurements.
+Compute the average value of $H_0$ as derived from the sample galaxies. (5 points)\\
+\\
+To calculate the distances $d_i$ as a function of the radii, we use the calibration galaxy and since we can assume that the physical sizes are the same for the different galaxies we get:
+\begin{equation}
+d_i=1.6*60*107/r_i
+\end{equation}
+We get the radial velocity by the redshift:
+\begin{equation}
+V_{rad}=z\cdot c
+\end{equation}
+In Table \ref{tab} the distances and the corresponding radial velocities are shown.
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{cc}
+		
+		distance[Mpc]& radial vel.[km/s]\\
+		\toprule
+		171.1 &27300\\
+		667.4&38700\\
+		631.3&41700\\
+		637.2&51000\\
+		1132.5&86100\\
+		996.3&67500\\
+		498.4&49200\\
+		1160.7&81000\\
+		816.5&69300\\
+		1285.6&91500\\
+		1103.3&46500\\
+		1109.3&57900\\
+		1036.5&87300\\
+		
+		
+	\end{tabular}
+	\label{tab}
+\end{table}
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{../pic/HubbleDiagram}
+\caption{Hubble diagram: velocity as a function of distance}
+\label{fig:HubbleDiagram}
+\end{figure}
+From figure \ref{fig:bild} we get the Hubble-Constant as:
+\begin{equation*}
+H_0=\left( 68.8\pm 4.2 \right) kms^{-1}Mpc^{-1}
+\end{equation*}
 \section*{Exercise C.}
 
 We want to place the galaxies listed below on the colour-magnitude diagram defined by the absolute magnitude $M_u$ in SDSS-$u$ band and the SDSS-($u-r$) colour. These galaxies belong to the Virgo cluster and can be placed to the common distance as defined by $m-M = \SI{31.09}{\mag}$. In order to plot these galaxies, though, we need to correct their photometry for the foreground extinction applied by the dust in the Milky Way along their line of sight. \\
