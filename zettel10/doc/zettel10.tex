@@ -129,6 +129,120 @@ If the measurement of the parallax was taken from Venus, the value for the Venus
  p_V = \arctan \left( \frac{\SI{0.72}{\AU}}{d} \right) = \SI{1.29}{\radian} = \SI{0.266}{\arcsecond}
 \end{equation}
 
+\section*{Exercise C.}
 
+We want to place the galaxies listed below on the colour-magnitude diagram defined by the absolute magnitude $M_u$ in SDSS-$u$ band and the SDSS-($u-r$) colour. These galaxies belong to the Virgo cluster and can be placed to the common distance as defined by $m-M = \SI{31.09}{\mag}$. In order to plot these galaxies, though, we need to correct their photometry for the foreground extinction applied by the dust in the Milky Way along their line of sight. \\
+
+1. Use NED (\url{https://ned.ipac.caltech.edu/forms/byname.html}) to retrieve the galaxy morphology, and the foreground extinction $A_\lambda$ in the SDSS $u$ and $r$ filters as derived from the COBE/DIRBE dust emission maps. Correct the apparent $u$ and $r$ magnitudes for these extinction values. (8 points) \\
+
+The galaxy morphology as well as the foreground extinction corrections $A_\lambda$ have been extracted from NED and are displayed in Table \ref{tab:extinction} together with the given apparent magnitudes in the respective filters. \\
+
+In order to correct the apparent magnitudes in the $u$ and $r$ band with the foreground extinction corrections one does not need to correct the $g$ band values as shown in the following equations with the example values for VCC1226. 
+
+\begin{eqnarray}
+ %g &=& \SI{8.53}{\mag} \quad ; \quad A_\lambda \left( g \right) = \SI{0.074}{\mag} \\
+ %\Rightarrow g_\text{corr} &=& g - A_\lambda \left( g \right) = \SI{8.456}{\mag} \\
+ \left( u-g \right) &=& \SI{1.95}{\mag} \\ 
+ \Rightarrow u &=& \left( u-g \right) + g \\
+ \Rightarrow u_\text{corr} &=& u - A_\lambda \left( u \right) = \left( u-g \right) + g - A_\lambda \left( u \right) = \SI{10.386}{\mag} \\
+\end{eqnarray}
+
+\begin{eqnarray}
+ \left( g-r \right) &=& \SI{0.81}{\mag} \\
+ \Rightarrow r &=& g - \left( g-r \right) \\
+ \Rightarrow r_\text{corr} &=& r - A_\lambda \left( r \right) = g - \left( g-r \right) - A_\lambda \left( r \right) = \SI{7.669}{\mag}
+\end{eqnarray}
+
+Similarly, the corrected magnitudes in the $u$ and $r$ band have been computed for all galaxies. To obtain the absulute magnitude in these two bands the value of \SI{31.09}{\mag} is subtracted from the apparent magnitudes as was explained in the task. The corrected apparent and the computed absolute magnitudes as well as the difference between the absolute magnitudes in the $u$ and $r$ band are displayed in Table \ref{tab:magnitude}. \\
+
+
+% \begin{table}[h!]
+% \centering
+% \begin{tabular}{cc|ccc|ccc}\toprule
+% Galaxy  & morphology & $g$ & $u-g$ & $g-r$ & $A_\lambda \left( g \right)$ & $A_\lambda \left( u \right)$ & $A_\lambda \left( r \right)$ \\
+%  & & [\si{\mag}] & [\si{\mag}] & [\si{\mag}] & [\si{\mag}] & [\si{\mag}] & [\si{\mag}] \\ \midrule
+% VCC1226 & \verb E2 & 8.53 & 1.95 & 0.81 & 0.074 & 0.094 & 0.051 \\
+% VCC0763 & \verb E1 & 9.18 & 1.90 & 0.78 & 0.134 & 0.172 & 0.093 \\
+% VCC1231 & \verb E5 & 10.34 & 1.86 & 0.76 & 0.093 & 0.119 & 0.064 \\
+% VCC1154 & \verb SA0^+(r) & 10.69 & 1.82 & 0.7 & 0.149 & 0.191 & 0.103 \\
+% VCC2000 & \verb E? & 11.65 & 1.81 & 0.75 & 0.113 & 0.145 & 0.078 \\
+% VCC0944 & \verb SB0?_edge-on & 11.66 & 1.72 & 0.76 & 0.081 & 0.104 & 0.056 \\
+% VCC1619 & \verb SB0^0?_edge-on & 12.11 & 1.82 & 0.71 & 0.131 & 0.169 & 0.091 \\
+% VCC1537 & \verb S0^0? & 12.57 & 1.62 & 0.78 & 0.151 & 0.193 & 0.104 \\
+% VCC0828 & \verb E & 12.66 & 1.82 & 0.74 & 0.109 & 0.140 & 0.075 \\
+% VCC1178 & \verb S? & 13.03 & 1.71 & 0.74 & 0.072 & 0.092 & 0.050 \\
+% VCC1857 & \verb Im? & 14.82 & 1.30 & 0.53 & 0.083 & 0.107 & 0.057 \\
+% VCC1075 & \verb (no_entry) & 14.81 & 1.39 & 0.70 & 0.089 & 0.114 & 0.062 \\
+% VCC1948 & \verb (no_entry) & 15.38 & 1.34 & 0.58 & 0.083 & 0.106 & 0.057 \\
+% VCC0230 & \verb (no_entry) 15.50 & 1.44 & 0.64 & & 0.092 & 0.118 & 0.063 \\
+% VCC1828 & \verb Scd? & 14.91 & 1.35 & 0.68 & 0.122 & 0.157 & 0.084 \\
+% \bottomrule
+% \end{tabular}
+% \caption{}
+% \label{tab:extinction}
+% \end{table}
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{cc|ccc|cc}\toprule
+Galaxy  & morphology & $g$ & $u-g$ & $g-r$ & $A_\lambda \left( u \right)$ & $A_\lambda \left( r \right)$\\
+ & & [\si{\mag}] & [\si{\mag}] & [\si{\mag}] & [\si{\mag}] & [\si{\mag}] \\ \midrule
+VCC1226 & \verb E2 & 8.53 & 1.95 & 0.81 & 0.094 & 0.051 \\
+VCC0763 & \verb E1 & 9.18 & 1.90 & 0.78 & 0.172 & 0.093 \\
+VCC1231 & \verb E5 & 10.34 & 1.86 & 0.76 & 0.119 & 0.064 \\
+VCC1154 & \verb SA0^+(r) & 10.69 & 1.82 & 0.7 & 0.191 & 0.103 \\
+VCC2000 & \verb E? & 11.65 & 1.81 & 0.75 & 0.145 & 0.078 \\
+VCC0944 & \verb SB0?_edge-on & 11.66 & 1.72 & 0.76 & 0.104 & 0.056 \\
+VCC1619 & \verb SB0^0?_edge-on & 12.11 & 1.82 & 0.71 & 0.169 & 0.091 \\
+VCC1537 & \verb S0^0? & 12.57 & 1.62 & 0.78 & 0.193 & 0.104 \\
+VCC0828 & \verb E & 12.66 & 1.82 & 0.74 & 0.140 & 0.075 \\
+VCC1178 & \verb S? & 13.03 & 1.71 & 0.74 & 0.092 & 0.050 \\
+VCC1857 & \verb Im? & 14.82 & 1.30 & 0.53 & 0.107 & 0.057 \\
+VCC1075 & \verb (no_entry) & 14.81 & 1.39 & 0.70 & 0.114 & 0.062 \\
+VCC1948 & \verb (no_entry) & 15.38 & 1.34 & 0.58 & 0.106 & 0.057 \\
+VCC0230 & \verb (no_entry) & 15.50 & 1.44 & 0.64 & 0.118 & 0.063 \\
+VCC1828 & \verb Scd? & 14.91 & 1.35 & 0.68 & 0.157 & 0.084 \\
+\bottomrule
+\end{tabular}
+\caption{Uncorrected apparent magnitudes in different bands and foreground extinction coefficients.}
+\label{tab:extinction}
+\end{table}
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{c|cc|cc|c}\toprule
+Galaxy & $u_\text{corr}$ & $r_\text{corr}$ & $M_u$ & $M_r$ & $M_u - M_r$ \\
+ & [\si{\mag}] & [\si{\mag}] & [\si{\mag}] & [\si{\mag}] & [\si{\mag}] \\ \midrule
+VCC1226 & $10.386$ & $7.669$ & $-20.704$ & $-23.421$ & $2.717$ \\
+VCC0763 & $10.908$ & $8.307$ & $-20.182$ & $-22.783$ & $2.601$ \\
+VCC1231 & $12.081$ & $9.516$ & $-19.009$ & $-21.574$ & $2.565$ \\
+VCC1154 & $12.319$ & $9.837$ & $-18.771$ & $-21.253$ & $2.482$ \\
+VCC2000 & $13.315$ & $10.822$ & $-17.775$ & $-20.268$ & $2.493$ \\
+VCC0944 & $13.276$ & $10.844$ & $-17.814$ & $-20.246$ & $2.432$ \\
+VCC1619 & $13.761$ & $11.309$ & $-17.329$ & $-19.781$ & $2.452$ \\
+VCC1537 & $13.997$ & $11.686$ & $-17.093$ & $-19.404$ & $2.311$ \\
+VCC0828 & $14.340$ & $11.845$ & $-16.750$ & $-19.245$ & $2.495$ \\
+VCC1178 & $14.648$ & $12.240$ & $-16.442$ & $-18.850$ & $2.408$ \\
+VCC1857 & $16.013$ & $14.233$ & $-15.077$ & $-16.857$ & $1.780$ \\
+VCC1075 & $16.086$ & $14.048$ & $-15.004$ & $-17.042$ & $2.038$ \\
+VCC1948 & $16.614$ & $14.743$ & $-14.476$ & $-16.347$ & $1.871$ \\
+VCC0230 & $16.822$ & $14.797$ & $-14.268$ & $-16.293$ & $2.025$ \\
+VCC1828 & $16.103$ & $14.146$ & $-14.987$ & $-16.944$ & $1.957$ \\
+\bottomrule
+\end{tabular}
+\caption{Corrected apparent magnitude and calculated absolute magnitude for the galaxies of the Virgo cluster.}
+\label{tab:magnitude}
+\end{table}
+
+2. Plot $M_u$ along the x-axis and ($u-r$) along the y-axis, already corrected for foreground extinction, and briefly comment any possible trend visible on this colour-magnitude diagram as a function of galaxy morphology. (3 points) \\
+
+The plot with the computed absolute magnitude in the $u$ band on the x-axis and the difference of the absolute magitudes in the $u$ and $r$ bands on the y-axis can be seen in Figure \ref{fig:cmd_Virgo}. A general trend of brighter galaxies having a larger $(u-r)$ value can be observed. This means that brighter galaxies are correlated with bluer light which may come from larger stars having both increased brightness and an emission spectrum brighter in the blue wavelength region. \\
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=1\linewidth]{cmd_Virgo.pdf}
+\caption{Colour-magnitude diagram of galaxies in the Virgo cluster.}
+\label{fig:cmd_Virgo}
+\end{figure}
 
 \end{document}

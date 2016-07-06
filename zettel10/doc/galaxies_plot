@@ -1,0 +1,18 @@
+data=read.table("galaxies", header=TRUE)
+g=data[,2]
+umg=data[,3]
+gmr=data[,4]
+au=data[,7]
+ar=data[,8]
+
+u_c=umg+g-au
+r_c=g-gmr-ar
+
+#transform to absolute magnitude
+u_c_abs=u_c-31.09
+r_c_abs=r_c-31.09
+
+pdf("cmd_Virgo.pdf")
+plot(u_c_abs,u_c_abs-r_c_abs,main="Colour-magnitude diagram of galaxies in the Virgo cluster", xlab="absolute magnitude in SDSS-u band", ylab="difference in absolute magnitude in SDSS-u and -r bands (u-r)")
+grid()
+dev.off()
