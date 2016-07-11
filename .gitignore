@@ -13,11 +13,12 @@
 # ipython notebook checkpoints
 **.ipynb_checkpoints
 
-# lectures ordner von Johannes
+# lectures ordner von Johannes and stuff
 **/lectures/**
 **/pythontex test/**
 **.tar
 zettel5/Homework5/**
+**/corrected_sheets/**
 
 # Elsas latex editor
 **.synctex.gz
